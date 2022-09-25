@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/jober/static/css/main.fecb24d6.css",
-    "main.js": "/jober/static/js/main.500d59e4.js",
+    "main.css": "/jober/static/css/main.57aa7de9.css",
+    "main.js": "/jober/static/js/main.75138889.js",
     "static/js/787.f2ababfa.chunk.js": "/jober/static/js/787.f2ababfa.chunk.js",
     "index.html": "/jober/index.html",
-    "main.fecb24d6.css.map": "/jober/static/css/main.fecb24d6.css.map",
-    "main.500d59e4.js.map": "/jober/static/js/main.500d59e4.js.map",
+    "main.57aa7de9.css.map": "/jober/static/css/main.57aa7de9.css.map",
+    "main.75138889.js.map": "/jober/static/js/main.75138889.js.map",
     "787.f2ababfa.chunk.js.map": "/jober/static/js/787.f2ababfa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fecb24d6.css",
-    "static/js/main.500d59e4.js"
+    "static/css/main.57aa7de9.css",
+    "static/js/main.75138889.js"
   ]
 }
