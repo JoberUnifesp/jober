@@ -4,26 +4,16 @@ const path = require('path');
 const mysql = require('mysql');
 const cors = require('cors');
 
-// const dotenv = require('dotenv');
-// dotenv.config();
+const dotenv = require('dotenv');
+dotenv.config();
 
-
-// configuracao do banco ---------------------
-// const database = mysql.createPool({
-//     host: "localhost",
-//     user: process.env.USER,
-//     password: process.env.PASSWORD,
-//     database: process.env.DATABASE
-// });
-
-// -------------------------------------------
 
 //conexao temporaria com mysql:
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'globaluser',
-    password: 'BaS51283',
-    database: 'APP'
+    host: "localhost",
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+     database: process.env.DATABASE
 })
 
 connection.connect((err) => {

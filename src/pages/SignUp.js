@@ -11,7 +11,6 @@ function SignUp() {
     console.log('You clicked submit.');
 
 
-
     const newUser = {
       nome: e.target.nome.value,
       sobrenome: e.target.sobrenome.value,
