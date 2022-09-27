@@ -36,7 +36,7 @@
 
 .input-class {
   box-sizing:border-box;
-  width: 426px;
+  width: 405px;
   height: 62px;
   border-radius: 10px;
   border: 2px solid #D1D1D1;
@@ -68,6 +68,12 @@
   border: none;
 }
 
+.enter-button:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 .bar-element {
   width: 293px;
   height: 0px;
@@ -91,4 +97,8 @@
   border-radius: 10px;
   border: none;
   text-decoration: none;
+}
+.signup-link:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
 }
