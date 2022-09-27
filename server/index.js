@@ -10,10 +10,10 @@ dotenv.config();
 
 //conexao temporaria com mysql:
 const connection = mysql.createConnection({
-    host: "localhost",
+    host: process.env.HOST,
     user: process.env.USER,
     password: process.env.PASSWORD,
-     database: process.env.DATABASE
+    database: process.env.DATABASE
 })
 
 connection.connect((err) => {
@@ -22,7 +22,7 @@ connection.connect((err) => {
         return;
     }
 
-    console.log(`Conected sucessfully to APP`)
+    console.log(`Conected sucessfully to ${process.env.DATABASE}`)
 })
 
 //-------------------------
@@ -40,7 +40,9 @@ app.post('/jober/SignUp', (req, res) => {
         "Origin, X-Requested-With, Content-Type, Accept"
       );
 
-      
+    console.log(req.body);
+
+    
     const nome = req.body.nome;
     const sobrenome = req.body.sobrenome;
     const data_de_nascimento = req.body.data_de_nascimento;

@@ -10,7 +10,6 @@ function SignUp() {
     e.preventDefault();
     console.log('You clicked submit.');
 
-
     const newUser = {
       nome: e.target.nome.value,
       sobrenome: e.target.sobrenome.value,
@@ -21,14 +20,13 @@ function SignUp() {
     
     fetch('http://localhost:3001/jober/SignUp', {
       method: "POST",
-      mode: 'cors',
       headers: {
         'Content-type': 'application/json'
       },
       body: JSON.stringify(newUser)
     })
     .then((res) => {
-      console.log(res)
+      console.log('fetch succeeded')
     })
     .catch(err => {
       console.log(err)
