@@ -4,11 +4,13 @@ O servidor e o cliente estão rodando em portas distintas por enquanto, então �
 ## Run React App
 > 1. Abrir um novo terminal na pasta raiz
 > 2. Rodar o comando `yarn (ou npm) start`, para colocar a aplicação no ar
+> 3. A interface estará rodando em <http://localhost:3000/jober>
 
 ## Run Node Server
 > 1. Abrir um segundo terminal
 > 2. Rodar o comando `cd server`, para entrar no diretório dos scripts de servidor
 > 3. Rodar o comando `yarn (ou npm) start`, para colocar o servidor no ar
+> 4. O servidor estará rodando em <http://localhost:3001/joberSignUp>
 
 
 # Getting Started with Create React App
