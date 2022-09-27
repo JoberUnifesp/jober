@@ -10,7 +10,7 @@ O servidor e o cliente estão rodando em portas distintas por enquanto, então �
 > 1. Abrir um segundo terminal
 > 2. Rodar o comando `cd server`, para entrar no diretório dos scripts de servidor
 > 3. Rodar o comando `yarn (ou npm) start`, para colocar o servidor no ar
-> 4. O servidor estará rodando em <http://localhost:3001/joberSignUp>
+> 4. O servidor estará rodando em <http://localhost:3001/jober/SignUp>
 
 
 # Getting Started with Create React App
