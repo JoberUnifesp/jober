@@ -13,6 +13,20 @@ O servidor e o cliente estão rodando em portas distintas por enquanto, então �
 > 4. O servidor estará rodando em <http://localhost:3001/jober/SignUp>
 
 
+# How to Connect to the Database
+Por hora, foi criada uma instância do mysql no azure, para que seja possível acessar o banco de qualquer máquina. É preciso criar uma conexão local pra que as requisições funcionem corretamente:
+
+## Pre requisites
+- É preciso ter instalado o mySql workbench na máquina. Guia didático: <https://www.youtube.com/watch?v=KYaZVqHHXpM>
+
+## Create connection
+> 1. Vá até a página inicial do workbench <img width="51" alt="image" src="https://user-images.githubusercontent.com/72479557/192607475-9f753445-091e-4fc2-9851-dab21b7e3c98.png">
+> 2. Ao lado de 'MySQL Connections', clique no símbolo + <img width="201" alt="image" src="https://user-images.githubusercontent.com/72479557/192607718-9392cfb9-7ca0-490c-9a18-e2c70b731ae5.png">
+> 3. Insira as credenciais da conta azure na tela (contate o administrador pra saber mais) <img width="595" alt="image" src="https://user-images.githubusercontent.com/72479557/192607967-a63c0fea-7034-44be-8b8e-b14462817b54.png">. Altere o hostname, username e clique em 'Store in Vault' para inserir a senha.
+> 4. Clique em ok e em seguida clique em ok novamente.
+> 5. A conexão será gerada e então clique sobre ela para visualizar o conteúdo
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
