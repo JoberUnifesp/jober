@@ -1,3 +1,16 @@
+# How To Run
+O servidor e o cliente estão rodando em portas distintas por enquanto, então é preciso rodar os dois lados simultâneamente:
+
+## Run React App
+> 1. Abrir um novo terminal na pasta raiz
+> 2. Rodar o comando `yarn (ou npm) start`, para colocar a aplicação no ar
+
+## Run Node Server
+> 1. Abrir um segundo terminal
+> 2. Rodar o comando `cd server`, para entrar no diretório dos scripts de servidor
+> 3. Rodar o comando `yarn (ou npm) start`, para colocar o servidor no ar
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
