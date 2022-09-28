@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 
 function SignUp() {
   const navigate = useNavigate();
-
+  console.log(process.env.PORT)
   function handleSubmit(e) {
     e.preventDefault();
     console.log('You clicked submit.');
@@ -18,7 +18,7 @@ function SignUp() {
       senha: e.target.senha.value
     }
     
-    fetch('http://localhost:3001/jober/SignUp', {
+    fetch('https://engsoft-jober.azurewebsites.net/', {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
@@ -26,7 +26,7 @@ function SignUp() {
       body: JSON.stringify(newUser)
     })
     .then((res) => {
-      console.log('fetch succeeded')
+      console.log(res)
     })
     .catch(err => {
       console.log(err)
