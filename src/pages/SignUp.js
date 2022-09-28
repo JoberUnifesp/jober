@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 
 function SignUp() {
   const navigate = useNavigate();
-  console.log(process.env.PORT)
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log('You clicked submit.');
