@@ -18,22 +18,20 @@ function SignUp() {
       senha: e.target.senha.value
     }
     
-    fetch('https://engsoft-jober.azurewebsites.net/', {
+    fetch('https://engsoft-jober.azurewebsites.net/SignUp', {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
       },
       body: JSON.stringify(newUser)
     })
-    .then((res) => {
-      console.log(res)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-
-    
-    navigate('/jober');
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+      if(data.code === 200){ 
+        navigate('/jober'); 
+      }
+    });
   }
 
   return (
