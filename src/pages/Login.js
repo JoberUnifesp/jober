@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const navigate = useNavigate();
+  // gconst navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     console.log('You clicked submit.');
