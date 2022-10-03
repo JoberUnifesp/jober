@@ -35,7 +35,7 @@ function SignUp() {
   }
 
   return (
-    <div className="App">
+    <body className="App">
       <div className='wraper'>
         <Logo/>
         <form className='signup-box' onSubmit={handleSubmit}>
@@ -55,7 +55,7 @@ function SignUp() {
           <button className='signup-button' type='submit'>Cadastrar</button>
         </form>
       </div>
-    </div>
+    </body>
   );
 }
 

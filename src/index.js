@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Login from "./pages/Login";
 import SignUp from './pages/SignUp';
+import Enterprise from './pages/Enterprise';
 import ErrorPage from './pages/Error-page';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
 {
   path: "jober/SignUp",
   element: <SignUp />,
+},
+{
+  path: "jober/enterprise",
+  element: <Enterprise/>
 },
 {
   path: "jober/Erro",

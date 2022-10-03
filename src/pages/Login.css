@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   width: 510px;
-  height: 454px;
+  height: 517px;
 }
 
 .title {
@@ -35,13 +35,14 @@
 }
 
 .input-class {
-  box-sizing:border-box;
+  box-sizing: border-box;
   width: 405px;
   height: 62px;
   border-radius: 10px;
   border: 2px solid #D1D1D1;
   box-shadow: none;
-  margin-bottom: 15px;
+  margin-top: 7px;
+  margin-bottom: 8px;
   padding-left: 21px;
   font-size: 21.3235px;
 }
@@ -50,8 +51,15 @@
   border: 2px solid #1877F2;
 }
 
-.main-button:focus {
-  color: #e6f2ff;
+.error-text {
+  color: #DA5757;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 0px;
+}
+
+.error-text.-inv {
+  visibility: hidden;
 }
 
 .enter-button {
@@ -64,7 +72,6 @@
   height: 62px;
   background: #1877F2;
   border-radius: 10px;
-  margin-bottom: 15px;
   border: none;
 }
 
@@ -79,6 +86,7 @@
   height: 0px;
   border: 2px solid #D1D1D1;
   transform: rotate(-0.19deg);
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
@@ -98,7 +106,14 @@
   border: none;
   text-decoration: none;
 }
+
 .signup-link:hover {
   transform: scale(1.03);
   opacity: 0.9;
+}
+
+.enterprise-link {
+  color: #1877F2;
+  text-decoration: none;
+  margin-top: 10px;
 }

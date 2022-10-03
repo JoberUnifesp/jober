@@ -30,19 +30,21 @@ function Login() {
   }
 
   return (
-    <div className="App">
+    <body className="App">
       <div className='wraper'>
         <Logo/>
         <form className='login-box' onSubmit={handleSubmit}>
           <h1 className='title'>Login</h1>
           <input className='input-class' type='email' name='email' placeholder='Email'></input>
           <input className='input-class' type='password' name='senha' placeholder='Senha'></input>
+          <p className='error-text'>E-mail ou Senha incorretos. Tente novamente.</p>
           <button className='enter-button' type='submit'>Entrar</button>
           <span className='bar-element'></span>
           <Link to='SignUp' className='signup-link'>Criar nova conta</Link>
+          <Link to='enterprise' className='enterprise-link'>Quero recrutar!</Link>
         </form>
       </div>
-    </div>
+    </body>
   );
 }
 
