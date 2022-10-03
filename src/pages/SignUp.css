@@ -58,7 +58,7 @@
   width: 100%;
 }
 
-.input-class {
+.input-signup {
   box-sizing:border-box;
   width: 439px;
   height: 62px;
@@ -70,7 +70,7 @@
   font-size: 21.3235px;
 }
 
-.input-class.-data {
+.input-signup.-data {
   width: 189px;
   height: 62px;
   font-family: 'Open Sans';
@@ -80,11 +80,11 @@
   color: #636363;
 }
 
-.input-class.-email {
+.input-signup.-email {
   margin-top: 20px;
 }
 
-.input-class:hover {
+.input-signup:hover {
   border: 2px solid #1877F2;
 }
 

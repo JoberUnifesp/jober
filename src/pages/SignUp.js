@@ -40,17 +40,17 @@ function SignUp() {
         <Logo/>
         <form className='signup-box' onSubmit={handleSubmit}>
           <div className='div-name'>
-            <input className='input-class' type='name' name='nome' placeholder='Nome'></input>
-            <input className='input-class' type='name' name='sobrenome' placeholder='Sobrenome'></input>
+            <input className='input-signup' type='name' name='nome' placeholder='Nome'></input>
+            <input className='input-signup' type='name' name='sobrenome' placeholder='Sobrenome'></input>
           </div>
           <div className='div-data-email'>
             <p className='label-data'>Data de nascimento</p>
-            <input className='input-class -data' type='date' name='data_de_nascimento'></input>
-            <input className='input-class -email' type='email'  name='email' placeholder='Email'></input>
+            <input className='input-signup -data' type='date' name='data_de_nascimento'></input>
+            <input className='input-signup -email' type='email'  name='email' placeholder='Email'></input>
           </div>
           <div className='div-password'>
-            <input className='input-class' type='password' name='senha' placeholder='Senha'></input>
-            <input className='input-class' type='password' placeholder='Confirmar senha'></input>
+            <input className='input-signup' type='password' name='senha' placeholder='Senha'></input>
+            <input className='input-signup' type='password' placeholder='Confirmar senha'></input>
           </div>
           <button className='signup-button' type='submit'>Cadastrar</button>
         </form>

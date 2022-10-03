@@ -13,14 +13,15 @@ function Enterprise() {
         <form className='enterprise-box' onSubmit={handleSubmit}>
           <div className='column-wrapper'>
             <div className='columns'>
+              <input className='input-enterprise' type='name' name='enteprise name' placeholder='Nome da empresa'></input>
+
               <input className='input-enterprise' type='email' name='email' placeholder='Email'></input>
               <input className='input-enterprise' type='password' name='senha' placeholder='Senha'></input>
-              <input className='input-enterprise' type='email' name='email' placeholder='Email'></input>
             </div>
             <div className='columns'>
-              <input className='input-enterprise' type='password' name='senha' placeholder='Senha'></input>
-              <input className='input-enterprise' type='email' name='email' placeholder='Email'></input>
-              <input className='input-enterprise' type='password' name='senha' placeholder='Senha'></input>
+              <input className='input-enterprise' type='tel' name='cnpj' placeholder='CNPJ'></input>
+              <input className='input-enterprise' type='tel' name='celphone' placeholder='Telefone'></input>
+              <input className='input-enterprise' type='password' name='senha' placeholder='Confirmar senha'></input>
             </div>
           </div>
           <footer className='footer-term'>
