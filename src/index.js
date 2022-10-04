@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Login from "./pages/Login";
 import SignUp from './pages/SignUp';
 import Enterprise from './pages/Enterprise';
+import UserProfile from './pages/user-profile';
 import ErrorPage from './pages/Error-page';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -12,8 +13,12 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter([
+  {
+    path: "jober/",
+    element: <UserProfile/>
+  },
 {
-  path: "jober/",
+  path: "jober/profile",
   element: <Login />,
 },
 {
@@ -23,6 +28,10 @@ const router = createBrowserRouter([
 {
   path: "jober/enterprise",
   element: <Enterprise/>
+},
+{
+  path: "jober/profile",
+  element: <UserProfile/>
 },
 {
   path: "jober/Erro",
