@@ -22,7 +22,7 @@ function UserProfile() {
 
   function addSkill() {
     setSkills([...skills, newSkill])
-    setNewSkill({Lingua: "", Nivel: ""})
+    setNewSkill({Skill: "", Nivel: ""})
   }
 
   const [languages, setLanguages] = useState([])
@@ -91,39 +91,39 @@ function UserProfile() {
             <div> 
                 <h1>Hard Skills</h1> 
                 <button className='' onClick={() => {
-                    setNewLanguage({...newSkill, Nivel: document.getElementById('dataListHS').value});
                     var temp = [...skills];
                     temp.splice(temp.length-1, temp.length);
                     setSkills(temp);
                 }}>x</button>
                 <button className='' onClick={() => addSkill()}>+</button>
                 <input className='input-class' value={newSkill.Skill} placeholder='Skill' type='text' onChange={e => setNewSkill({...newSkill, Skill: e.target.value})}></input>
-                <datalist id="dataListHS">
-                  <option value="Basico"/>
-                  <option value="Intermediario"/>
-                  <option value="Avancado"/>
-                </datalist>
+                <select value={newSkill.Nivel} onChange={e => setNewSkill({...newSkill, Nivel: e.target.value})}>
+                  <option value=""></option>
+                  <option value="Basico">Básico</option>
+                  <option value="Intermediario">Intermediário</option>
+                  <option value="Avancado">avançado</option>
+                </select>
                 <ul>
-                    {graduations.map(item => <li><p>{item.Skill} {item.Nivel}</p></li>)}
+                    {skills.map(item => <li><p>{item.Skill} {item.Nivel}</p></li>)}
                 </ul>
             </div>
             <div>  
               <h1>Idiomas</h1> 
                 <button className='' onClick={() => {
-                    setNewLanguage({...newLanguage, Nivel: document.getElementById('dataListL').value});
                     var temp = [...languages];
                     temp.splice(temp.length-1, temp.length);
                     setLanguages(temp);
                 }}>x</button>
                 <button className='' onClick={() => addLanguage()}>+</button>
                 <input className='input-class' value={newLanguage.Lingua} placeholder='Ligua' type='text' onChange={e => setNewLanguage({...newLanguage, Lingua: e.target.value})}></input>
-                <datalist id="dataListL">
-                  <option value="Basico"/>
-                  <option value="Intermediario"/>
-                  <option value="Avancado"/>
-                </datalist>
+                <select value={newLanguage.Nivel} onChange={e => setNewLanguage({...newLanguage, Nivel: e.target.value})}>
+                  <option value=""></option>
+                  <option value="Basico">Básico</option>
+                  <option value="Intermediario">Intermediário</option>
+                  <option value="Avancado">avançado</option>
+                </select>
                 <ul>
-                    {graduations.map(item => <li><p>{item.Lingua} {item.Nivel}</p></li>)}
+                    {languages.map(item => <li><p>{item.Lingua} {item.Nivel}</p></li>)}
                 </ul>
             </div>
         </section>
