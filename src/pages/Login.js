@@ -29,7 +29,7 @@ function Login() {
     .then((res) => res.json())
     .then(data => { 
       console.log(data)
-      if (data.code === 401){
+      if (data.code === 401 || data.code === 404){
         setStatus(!status)
       }else if(data.code === 200){
         navigate('/Profile')
