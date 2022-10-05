@@ -131,13 +131,38 @@ function UserProfile() {
   function addGraduation() {
     setGraduations([...graduations, newGraduation])
     setNewGraduation({Curso: "", Instituicao: "", Inicio: "", Fim: ""})
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Graduation/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(newGraduation)
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    });
   }
+
   const [skills, setSkills] = useState([])
   const [newSkill, setNewSkill] = useState({Skill: "", Nivel: ""})
 
   function addSkill() {
     setSkills([...skills, newSkill])
     setNewSkill({Skill: "", Nivel: ""})
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/HardSkills/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(newSkill)
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    });
   }
 
   const [languages, setLanguages] = useState([])
@@ -146,6 +171,18 @@ function UserProfile() {
   function addLanguage() {
     setLanguages([...languages, newLanguage])
     setNewLanguage({Lingua: "", Nivel: ""})
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Languages/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(newLanguage)
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    });
   }
 
   return (
