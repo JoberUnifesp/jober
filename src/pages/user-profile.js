@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
 import './user-profile.css';
+import mais from '../assets/mais.png';
 
 const id = localStorage.getItem('id')
 
@@ -186,14 +187,22 @@ function UserProfile() {
   }
 
   return (
-    <body className="App">
-      <header>
-        <Logo/>
+    <div className="App">
+      <header className='header-uprofile'>
+          <div className='logo -uprofile'>
+            <h1 className='logo-text -uprofile'>J</h1>
+            <h1 className='logo-text -uprofile'>o</h1>
+            <h1 className='logo-text -uprofile'>b</h1>
+            <h1 className='logo-text -uprofile'>e</h1>
+            <h1 className='logo-text -uprofile'>r</h1>
+        </div>
       </header>
 
       <main className='positions'>
         <section className="secao-1">
-            <div className='circulo'>
+            <div className='img-user'>
+              <p className='img-text'>NS</p>
+            </div>
             <h2 className='subtitle'>Nome Sobrenome</h2>
             <p contenteditable="true" className='input-soft'>GitHub</p>
             <p contenteditable="true" className='input-soft'>Email</p>
@@ -201,8 +210,6 @@ function UserProfile() {
             <p contenteditable="true" className='input-soft'>Soft Skill 01</p>
             <p contenteditable="true" className='input-soft'>Soft Skill 02</p>
             <p contenteditable="true" className='input-soft'>Soft Skill 03</p>
-            <button className='save-button' >Salvar</button>
-            </div>
         </section>
 
         <section>
@@ -210,12 +217,12 @@ function UserProfile() {
                 <div className='div-title'>
                     <h1 className='subtitle'>Minhas Experiências</h1>
                     <div className='div-buttons'>
-                        <button className='add-button' onClick={() => addExperience()}>+</button>
+                        <button className='add-button' onClick={() => addExperience()}><img src={mais} alt="mais" className='image-mais'></img></button>
                         <button className='exclude-button' onClick={() => {
                             var temp = [...experiences]
                             temp.splice(temp.length-1, temp.length);
                             setExperiences(temp);
-                        }}>x</button>   
+                        }}><img src={mais} alt="menos" className='image-menos'></img></button>   
                     </div>   
                 </div>
                 <form className='profile-box'>
@@ -224,23 +231,31 @@ function UserProfile() {
                         <input className='input-box' value={newExperience.Empresa} placeholder='Empresa' type='text' onChange={e => setNewExperience({...newExperience, Empresa: e.target.value})}></input>
                     </div>
                     <div className='div-profile'>
-                    <input className='input-box' value={newExperience.Inicio} placeholder='Inicio' type='date' onChange={e => setNewExperience({...newExperience, Inicio: e.target.value})}></input>
-                    <input className='input-box' value={newExperience.Fim} placeholder='Fim' type='date' onChange={e => setNewExperience({...newExperience, Fim: e.target.value})}></input>
+                      <div className='column-profile'>
+                        <h3 className='data-text'>De:</h3>
+                        <input className='input-box -data' value={newExperience.Inicio} type='date' onChange={e => setNewExperience({...newExperience, Inicio: e.target.value})}></input>
+                      </div>
+                      <div className='column-profile'>
+                        <h3 className='data-text'>Até:</h3>
+                        <input className='input-box -data' value={newExperience.Fim} type='date' onChange={e => setNewExperience({...newExperience, Fim: e.target.value})}></input>
+                      </div>
                     </div>
                     <ul>
-                        {experiences.map(item => <li><p>{item.Cargo} {item.Empresa} {item.Inicio} {item.Fim}</p></li>)}
+                        {experiences.map(item => <li className='list'><p>{item.Cargo} {item.Empresa} {item.Inicio} {item.Fim}</p></li>)}
                     </ul>
                 </form>
             </div>
             <div>
                 <div className='div-title'>
-                    <h1 className='subtitle'>Minha Formação</h1> 
-                    <button className='add-button' onClick={() => addGraduation()}>+</button>
+                  <h1 className='subtitle'>Minha Formação</h1> 
+                  <div className='div-buttons'>
+                    <button className='add-button' onClick={() => addGraduation()}><img src={mais} alt="mais" className='image-mais'></img></button>
                     <button className='exclude-button' onClick={() => {
                         var temp = [...graduations]
                         temp.splice(temp.length-1, temp.length);
                         setGraduations(temp);
-                    }}>x</button>
+                    }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                    </div>
                 </div>
                 <form className='profile-box'>  
                     <div className='div-profile'>  
@@ -248,11 +263,17 @@ function UserProfile() {
                         <input className='input-box' value={newGraduation.Instituicao} placeholder='Instituição' type='text' onChange={e => setNewGraduation({...newGraduation, Instituicao: e.target.value})}></input>
                     </div>
                     <div className='div-profile'> 
-                        <input className='input-box' value={newGraduation.Inicio} placeholder='Inicio' type='date' onChange={e => setNewGraduation({...newGraduation, Inicio: e.target.value})}></input>
-                        <input className='input-box' value={newGraduation.Fim} placeholder='Fim' type='date' onChange={e => setNewGraduation({...newGraduation, Fim: e.target.value})}></input>
+                      <div className='column-profile'>
+                          <h3 className='data-text'>De:</h3>
+                          <input className='input-box -data' value={newGraduation.Inicio} placeholder='Inicio' type='date' onChange={e => setNewGraduation({...newGraduation, Inicio: e.target.value})}></input>
+                      </div>
+                      <div className='column-profile'>
+                          <h3 className='data-text'>Até:</h3>
+                          <input className='input-box -data' value={newGraduation.Fim} placeholder='Fim' type='date' onChange={e => setNewGraduation({...newGraduation, Fim: e.target.value})}></input>
+                      </div>
                     </div>
                     <ul>
-                        {graduations.map(item => <li><p>{item.Curso} {item.Instituicao} {item.Inicio} {item.Fim}</p></li>)}
+                        {graduations.map(item => <li className='list'><p>{item.Curso} {item.Instituicao} {item.Inicio} {item.Fim}</p></li>)}
                     </ul>
                 </form>
             </div>
@@ -262,52 +283,61 @@ function UserProfile() {
             <div> 
                 <div className='div-title'>
                     <h1 className='subtitle'>Hard Skills</h1> 
-                    <button className='add-button' onClick={() => addSkill()}>+</button>
-                    <button className='exclude-button' onClick={() => {
-                        var temp = [...skills];
-                        temp.splice(temp.length-1, temp.length);
-                        setSkills(temp);
-                    }}>x</button>
+                    <div className='div-buttons'>
+                      <button className='add-button' onClick={() => addSkill()}><img src={mais} alt="mais" className='image-mais'></img></button>
+                      <button className='exclude-button' onClick={() => {
+                          var temp = [...skills];
+                          temp.splice(temp.length-1, temp.length);
+                          setSkills(temp);
+                      }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                    </div>
                 </div>
                 <form className='skills-box'>
-                    <input className='input-box-hard' value={newSkill.Skill} placeholder='Skill' type='text' onChange={e => setNewSkill({...newSkill, Skill: e.target.value})}></input>
-                    <select value={newSkill.Nivel} onChange={e => setNewSkill({...newSkill, Nivel: e.target.value})}>
-                      <option value=""></option>
-                      <option value="Basico">Básico</option>
-                      <option value="Intermediario">Intermediário</option>
-                      <option value="Avancado">Avançado</option>
-                    </select>
+                    <div> 
+                      <input className='input-box -hards-idiomas' value={newSkill.Skill} placeholder='Skill' type='text' onChange={e => setNewSkill({...newSkill, Skill: e.target.value})}></input>
+                      <select className='select-list' value={newSkill.Nivel} onChange={e => setNewSkill({...newSkill, Nivel: e.target.value})}>
+                        <option value=""></option>
+                        <option value="Basico">Básico</option>
+                        <option value="Intermediario">Intermediário</option>
+                        <option value="Avancado">Avançado</option>
+                      </select>
+                    </div>
                     <ul>
-                        {skills.map(item => <li><p>{item.Skill} {item.Nivel}</p></li>)}
+                        {skills.map(item => <li className='list'><p>{item.Skill} {item.Nivel}</p></li>)}
                     </ul>
                 </form>
             </div>
             <div> 
                 <div className='div-title'> 
                     <h1 className='subtitle'>Idiomas</h1> 
-                    <button className='add-button' onClick={() => addLanguage()}>+</button>
-                    <button className='exclude-button' onClick={() => {
-                        var temp = [...languages];
-                        temp.splice(temp.length-1, temp.length);
-                        setLanguages(temp);
-                    }}>x</button>
+                    <div className='div-buttons'>
+                      <button className='add-button' onClick={() => addLanguage()}><img src={mais} alt="mais" className='image-mais'></img></button>
+                      <button className='exclude-button' onClick={() => {
+                          var temp = [...languages];
+                          temp.splice(temp.length-1, temp.length);
+                          setLanguages(temp);
+                      }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                    </div>
                 </div>
                 <form className='skills-box'>
-                    <input className='input-box-hard' value={newLanguage.Lingua} placeholder='Língua' type='text' onChange={e => setNewLanguage({...newLanguage, Lingua: e.target.value})}></input>
-                    <select value={newLanguage.Nivel} onChange={e => setNewLanguage({...newLanguage, Nivel: e.target.value})}>
+                  <div>
+                    <input className='input-box -hards-idiomas' value={newLanguage.Lingua} placeholder='Língua' type='text' onChange={e => setNewLanguage({...newLanguage, Lingua: e.target.value})}></input>
+                    <select className='select-list' value={newLanguage.Nivel} onChange={e => setNewLanguage({...newLanguage, Nivel: e.target.value})}>
                       <option value=""></option>
                       <option value="Basico">Básico</option>
                       <option value="Intermediario">Intermediário</option>
                       <option value="Avancado">avançado</option>
                     </select>
+                  </div>
                     <ul>
-                        {languages.map(item => <li><p>{item.Lingua} {item.Nivel}</p></li>)}
+                        {languages.map(item => <li className='list'><p>{item.Lingua} {item.Nivel}</p></li>)}
                     </ul>
                 </form>
+                <button className='save-button' >Salvar</button>
             </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 }
 
