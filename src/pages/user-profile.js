@@ -13,16 +13,6 @@ function UserProfile() {
     setExperiences([...experiences, newExperience])
     setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
 
-    const experience = [
-      {
-        Cargo: newExperience.Cargo, 
-        Empresa: newExperience.Empresa, 
-        Inicio: newExperience.Inicio, 
-        Fim: newExperience.Fim
-      }
-    ]
-
-    console.log(experience)
 
     fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Experience/${id}`, {
       method: "POST",
