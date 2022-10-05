@@ -13,12 +13,12 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter([
-  {
-    path: "jober/",
-    element: <UserProfile/>
-  },
+  // {
+  //   path: "jober/",
+  //   element: <UserProfile/>
+  // },
 {
-  path: "jober/profile",
+  path: "jober/",
   element: <Login />,
 },
 {

@@ -32,7 +32,8 @@ function Login() {
       if (data.code === 401 || data.code === 404){
         setStatus(!status)
       }else if(data.code === 200){
-        navigate('/Profile')
+        localStorage.setItem('id', data.id)
+        navigate('/jober/profile')
       }
     });
   }

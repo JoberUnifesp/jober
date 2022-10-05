@@ -1,14 +1,61 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
+
+const id = localStorage.getItem('id')
 
 function UserProfile() {
   const [experiences, setExperiences] = useState([])
   const [newExperience, setNewExperience] = useState({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
 
+
   function addExperience() {
     setExperiences([...experiences, newExperience])
     setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Experience/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({cargo: newExperience.Cargo, empresa: newExperience.Empresa, inicio: newExperience.Inicio, fim: newExperience.fim})
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    });
   }
+
+  useEffect(() => {
+
+    fetch(`https://engsoft-jober.azurewebsites.net/ViewExperiences/${id}`, {
+        method: "GET",
+        headers: {
+          'Content-type': 'application/json'
+        }
+    }).then(res => res.json())
+      .then((data)=> {
+        let i = 0
+        let exp = []
+        for(i=0; i<data.length; i++){
+          let ini_day = (new Date(data[i].INICIO)).getUTCDate()
+          let ini_month = (new Date(data[i].INICIO)).getUTCMonth() + 1
+          let ini_year = (new Date(data[i].INICIO)).getUTCFullYear()
+          let ini = `${ini_year}-${ini_month}-${ini_day}`
+
+          let fim_day = (new Date(data[i].FIM)).getUTCDate()
+          let fim_month = (new Date(data[i].FIM)).getUTCMonth() + 1
+          let fim_year = (new Date(data[i].FIM)).getUTCFullYear()
+          let fim = `${fim_year}-${fim_month}-${fim_day}`
+
+
+          exp.push({Cargo: data[i].CARGO, Empresa: data[i].EMPRESA, Inicio: ini, Fim:fim})
+        }
+        console.log(exp)
+        setExperiences(exp)
+    });
+
+  }, []);
+
+  
 
   const [graduations, setGraduations] = useState([])
   const [newGraduation, setNewGraduation] = useState({Curso: "", Instituicao: "", Inicio: "", Fim: ""})
@@ -66,7 +113,7 @@ function UserProfile() {
                 <input className='input-class' value={newExperience.Inicio} placeholder='Inicio' type='date' onChange={e => setNewExperience({...newExperience, Inicio: e.target.value})}></input>
                 <input className='input-class' value={newExperience.Fim} placeholder='Fim' type='date' onChange={e => setNewExperience({...newExperience, Fim: e.target.value})}></input>
                 <ul>
-                    {experiences.map(item => <li><p>{item.Cargo} {item.Empresa} {item.Inicio} {item.Fim}</p></li>)}
+                    {experiences.map((item, index) => <li key={index}><p>{item.Cargo} {item.Empresa} {item.Inicio} {item.Fim}</p></li>)}
                 </ul>
             </div>
             <div>

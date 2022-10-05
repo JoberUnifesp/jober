@@ -1,10 +1,11 @@
-import React from 'react';
 import './SignUp.css';
 import Logo from '../components/Logo';
 import {useNavigate} from 'react-router-dom';
-
+import {useState} from 'react'
 function SignUp() {
   const navigate = useNavigate();
+  const [status, setStatus] = useState(false);
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,6 +31,8 @@ function SignUp() {
       console.log(data)
       if(data.code === 200){ 
         navigate('/jober'); 
+      }else if(data.code === 409){
+        setStatus(!status)
       }
     });
   }
@@ -47,6 +50,7 @@ function SignUp() {
             <p className='label-data'>Data de nascimento</p>
             <input className='input-signup -data' type='date' name='data_de_nascimento'></input>
             <input className='input-signup -email' type='email'  name='email' placeholder='Email'></input>
+            <p className={status  ? 'error-text' : 'error-text -inv'}>E-mail já cadastrado</p>
           </div>
           <div className='div-password'>
             <input className='input-signup' type='password' name='senha' placeholder='Senha'></input>
