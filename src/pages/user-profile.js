@@ -5,27 +5,7 @@ import './user-profile.css';
 const id = localStorage.getItem('id')
 
 function UserProfile() {
-  const [experiences, setExperiences] = useState([])
-  const [newExperience, setNewExperience] = useState({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
 
-
-  function addExperience() {
-    setExperiences([...experiences, newExperience])
-    setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
-
-
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Experience/${id}`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify([newExperience])
-    })
-    .then((res) => res.json())
-    .then(data => { 
-      console.log(data)
-    });
-  }
 
   useEffect(() => {
 
@@ -57,6 +37,27 @@ function UserProfile() {
     });
 
   }, []);
+
+  
+  const [experiences, setExperiences] = useState([])
+  const [newExperience, setNewExperience] = useState({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
+
+  function addExperience() {
+    setExperiences([...experiences, newExperience])
+    setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Experience/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(newExperience)
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    });
+  }
 
   
 
