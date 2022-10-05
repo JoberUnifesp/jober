@@ -36,8 +36,72 @@ function UserProfile() {
         setExperiences(exp)
     });
 
+    fetch(`https://engsoft-jober.azurewebsites.net/ViewGraduations/${id}`, {
+        method: "GET",
+        headers: {
+          'Content-type': 'application/json'
+        }
+    }).then(res => res.json())
+      .then((data)=> {
+        let i = 0
+        let GRADUATIONS = []
+        for(i=0; i<data.length; i++){
+          let ini_day = (new Date(data[i].INICIO)).getUTCDate()
+          let ini_month = (new Date(data[i].INICIO)).getUTCMonth() + 1
+          let ini_year = (new Date(data[i].INICIO)).getUTCFullYear()
+          let ini = `${ini_year}-${ini_month}-${ini_day}`
+
+          let fim_day = (new Date(data[i].FIM)).getUTCDate()
+          let fim_month = (new Date(data[i].FIM)).getUTCMonth() + 1
+          let fim_year = (new Date(data[i].FIM)).getUTCFullYear()
+          let fim = `${fim_year}-${fim_month}-${fim_day}`
+
+
+          GRADUATIONS.push({Curso: data[i].CURSO, Instituicao: data[i].INSTITUICAO, Inicio: ini, Fim:fim})
+        }
+        console.log(GRADUATIONS)
+        setGraduations(GRADUATIONS)
+    });
+
+
+    fetch(`https://engsoft-jober.azurewebsites.net/ViewHardSkills/${id}`, {
+        method: "GET",
+        headers: {
+          'Content-type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      let i = 0
+      let HARDSKILLS = []
+      for(i=0; i<data.length; i++){
+        HARDSKILLS.push({Skill: data[i].NOME, Nivel:  data[i].NIVEL})
+      }
+      console.log(HARDSKILLS)
+      setSkills(HARDSKILLS)
+    });
+
+    fetch(`https://engsoft-jober.azurewebsites.net/ViewLanguages/${id}`, {
+        method: "GET",
+        headers: {
+          'Content-type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      let i = 0
+      let LANGUAGES = []
+      for(i=0; i<data.length; i++){
+        LANGUAGES.push({Lingua: data[i].NOME, Nivel:  data[i].NIVEL})
+      }
+      console.log(LANGUAGES)
+      setLanguages(LANGUAGES)
+    });
+
   }, []);
 
+
+  
   
   const [experiences, setExperiences] = useState([])
   const [newExperience, setNewExperience] = useState({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
