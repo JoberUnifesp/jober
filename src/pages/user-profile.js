@@ -11,12 +11,24 @@ function UserProfile() {
   function addExperience() {
     setExperiences([...experiences, newExperience])
     setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
+
+    const experience = [
+      {
+        Cargo: newExperience.Cargo, 
+        Empresa: newExperience.Empresa, 
+        Inicio: newExperience.Inicio, 
+        Fim: newExperience.Fim
+      }
+    ]
+
+    console.log(experience)
+
     fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Experience/${id}`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({cargo: newExperience.Cargo, empresa: newExperience.Empresa, inicio: newExperience.Inicio, fim: newExperience.fim})
+      body: JSON.stringify([newExperience])
     })
     .then((res) => res.json())
     .then(data => { 
