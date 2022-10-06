@@ -36,7 +36,7 @@ function UserProfile() {
 
           exp.push({Cargo: data[i].CARGO, Empresa: data[i].EMPRESA, Inicio: ini, Fim:fim})
         }
-        console.log(exp)
+
         setExperiences(exp)
     });
 
@@ -63,7 +63,7 @@ function UserProfile() {
 
           GRADUATIONS.push({Curso: data[i].CURSO, Instituicao: data[i].INSTITUICAO, Inicio: ini, Fim:fim})
         }
-        console.log(GRADUATIONS)
+
         setGraduations(GRADUATIONS)
     });
 
@@ -81,7 +81,7 @@ function UserProfile() {
       for(i=0; i<data.length; i++){
         HARDSKILLS.push({Skill: data[i].NOME, Nivel:  data[i].NIVEL})
       }
-      console.log(HARDSKILLS)
+
       setSkills(HARDSKILLS)
     });
 
@@ -98,7 +98,6 @@ function UserProfile() {
       for(i=0; i<data.length; i++){
         LANGUAGES.push({Lingua: data[i].NOME, Nivel:  data[i].NIVEL})
       }
-      console.log(LANGUAGES)
       setLanguages(LANGUAGES)
     });
 
@@ -256,6 +255,8 @@ function UserProfile() {
       console.log(data)
     });
 
+    setGithub(document.getElementById('github').innerText);
+    console.log(github)
 
     if(github !== 'GitHub'){
       fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Github/${id}`, {
@@ -263,7 +264,7 @@ function UserProfile() {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify(github)
+      body: JSON.stringify({github: github})
     })
       .then((res) => res.json())
       .then(data => { 
@@ -290,7 +291,7 @@ function UserProfile() {
               <p className='img-text'>NS</p>
             </div>
             <h2 className='subtitle'>{NomeSobrenome}</h2>
-            <p contenteditable="true" className='input-soft' onChange={e => setGithub(e.target.value)}>{github}</p>
+            <p contenteditable="true" id="github" className='input-soft'>{github}</p>
             <p contenteditable="true" className='input-soft'>{email}</p>
             <h2 className='subtitle'>Soft Skills</h2>
             <p contenteditable="true" id='soft1' className='input-soft'>Soft Skill 01</p>
