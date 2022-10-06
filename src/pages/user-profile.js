@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
+import mais from '../assets/mais.png'
 import './user-profile.css';
 
 const id = localStorage.getItem('id')
 
 function UserProfile() {
+  const [github, setGithub] = useState('GitHub')
+  const [NomeSobrenome, setNomeSobrenome] = useState('Nome Sobrenome')
+  const [email, setEmail] = useState('Email')
 
 
   useEffect(() => {
@@ -98,8 +102,46 @@ function UserProfile() {
       setLanguages(LANGUAGES)
     });
 
-  }, []);
+    fetch(`https://engsoft-jober.azurewebsites.net/github/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setGithub(data)
+      }
+    })
 
+    fetch(`https://engsoft-jober.azurewebsites.net/NomeSobrenome/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setNomeSobrenome(data)
+      }
+    })
+
+    fetch(`https://engsoft-jober.azurewebsites.net/email/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setEmail(data)
+      }
+    })
+
+  }, []);
 
   
   
@@ -184,6 +226,51 @@ function UserProfile() {
       console.log(data)
     });
   }
+  
+
+  function handleSave(){
+    let soft1 = document.getElementById('soft1').innerText;
+    let soft2 = document.getElementById('soft2').innerText;
+    let soft3 = document.getElementById('soft3').innerText;
+
+    let skills = []
+    if (soft1 !==  'Soft Skill 01'){
+      skills.push({skill: soft1})
+    }
+    if (soft2 !==  'Soft Skill 02'){
+      skills.push({skill: soft2})
+    }
+    if (soft3 !==  'Soft Skill 03'){
+      skills.push({skill: soft3})
+    }
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/SoftSkills/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(skills)
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    });
+
+
+    if(github !== 'GitHub'){
+      fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Github/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(github)
+    })
+      .then((res) => res.json())
+      .then(data => { 
+        console.log(data)
+      });
+    }
+  }
 
   return (
     <div className="App">
@@ -202,13 +289,13 @@ function UserProfile() {
             <div className='img-user'>
               <p className='img-text'>NS</p>
             </div>
-            <h2 className='subtitle'>Nome Sobrenome</h2>
-            <p contenteditable="true" className='input-soft'>GitHub</p>
-            <p contenteditable="true" className='input-soft'>Email</p>
+            <h2 className='subtitle'>{NomeSobrenome}</h2>
+            <p contenteditable="true" className='input-soft' onChange={e => setGithub(e.target.value)}>{github}</p>
+            <p contenteditable="true" className='input-soft'>{email}</p>
             <h2 className='subtitle'>Soft Skills</h2>
-            <p contenteditable="true" className='input-soft'>Soft Skill 01</p>
-            <p contenteditable="true" className='input-soft'>Soft Skill 02</p>
-            <p contenteditable="true" className='input-soft'>Soft Skill 03</p>
+            <p contenteditable="true" id='soft1' className='input-soft'>Soft Skill 01</p>
+            <p contenteditable="true" id='soft2' className='input-soft'>Soft Skill 02</p>
+            <p contenteditable="true" id='soft3' className='input-soft'>Soft Skill 03</p>
         </section>
 
         <section>
@@ -332,7 +419,7 @@ function UserProfile() {
                         {languages.map(item => <li className='list'><p>{item.Lingua} {item.Nivel}</p></li>)}
                     </ul>
                 </form>
-                <button className='save-button' >Salvar</button>
+                <button className='save-button' onClick={handleSave} >Salvar</button>
             </div>
         </section>
       </main>
