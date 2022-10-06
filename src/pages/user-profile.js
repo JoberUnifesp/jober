@@ -273,6 +273,24 @@ function UserProfile() {
     }
   }
 
+  function handleExperienceExclusion(){
+    var temp = [...experiences]
+    temp.splice(temp.length-1, temp.length);
+    setExperiences(temp);
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/Experience/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(data => console.log(data))
+
+  }
+
+
+  
+
   return (
     <div className="App">
       <header className='header-uprofile'>
@@ -305,11 +323,7 @@ function UserProfile() {
                     <h1 className='subtitle'>Minhas Experiências</h1>
                     <div className='div-buttons'>
                         <button className='add-button' onClick={() => addExperience()}><img src={mais} alt="mais" className='image-mais'></img></button>
-                        <button className='exclude-button' onClick={() => {
-                            var temp = [...experiences]
-                            temp.splice(temp.length-1, temp.length);
-                            setExperiences(temp);
-                        }}><img src={mais} alt="menos" className='image-menos'></img></button>   
+                        <button className='exclude-button' onClick={handleExperienceExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>   
                     </div>   
                 </div>
                 <form className='profile-box'>
