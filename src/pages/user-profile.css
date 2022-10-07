@@ -1,7 +1,6 @@
 .App {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     width: 100vw;
     background-color: #F5F5F5;
     overflow-x: hidden;
@@ -42,19 +41,6 @@
     margin-top: 10px;
 }
 
-.secao-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 240px;
-    height: 536px;
-    background: #FFFFFF;
-    box-shadow: 0px 2.68473px 2.68473px rgba(0, 0, 0, 0.25);
-    border-radius: 17.4507px;
-    margin-top: 10px;
-}
-
 .img-user {
     display: flex;
     align-items: center;
@@ -88,7 +74,24 @@
 
 .input-soft {
     box-sizing: border-box;
-    width: 80%;
+    width: 90%;
+    height: 50px;
+    border-radius: 6px;
+    border: 1.4px solid #D1D1D1;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 300px;
+    color: #4C3A48;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.input-soft.-editable {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: 90%;
     height: 50px;
     border-radius: 6px;
     border: 1.4px solid #D1D1D1;
@@ -203,6 +206,39 @@
     color: #4C3A48;
 }
 
+.input-box.-soft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    width: 80%;
+    height: 50px;
+    border-radius: 6px;
+    border: 1.4px solid #D1D1D1;
+    background-color: #FFFFFF;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-left: 21px;
+    color: #4C3A48;
+}
+
+.skills-box.-s1 {
+    background: #FFFFFF;                  
+    box-shadow: 0px 2.68473px 2.68473px rgba(0, 0, 0, 0.25);
+    border-radius: 17.4507px;
+    border-radius: 6px;                           
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    width: 240px;
+    height: fit-content;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
 .list {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -256,13 +292,17 @@
     border-radius: 17.4507px;
     border-radius: 6px;                           
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     display: flex;
     width: 300px;
     height: 100%;
     padding: 15px;
     margin-bottom: 20px;
     margin-top: 10px;
+}
+
+.skills-box.-soft {
+    height: fit-content;
 }
 
 .select-list {
