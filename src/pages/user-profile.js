@@ -279,10 +279,19 @@ function UserProfile() {
   const [softSkills, setSoftSkills] = useState([])
   const [newSoftSkill, setNewSoftSkill] = useState("")
 
-  function excludeSoftSkill(){
+  function handleSoftSkillExclusion(){
     var temp = [...softSkills]
     temp.splice(temp.length-1, temp.length);
     setSoftSkills(temp);
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/SoftSkill/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
   }
 
   function addSoftSkill() {
@@ -329,16 +338,12 @@ function UserProfile() {
               <h1 className='subtitle'>Soft Skills</h1> 
               <div className='div-buttons'>
                 <button className='add-button' onClick={() => addSoftSkill()}><img src={mais} alt="mais" className='image-mais'></img></button>
-                <button className='exclude-button' onClick={() => {
-                  var temp = [...softSkills]
-                  temp.splice(temp.length-1, temp.length);
-                  setSoftSkills(temp);
-                }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                <button className='exclude-button' onClick={handleSoftSkillExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
               </div>
           </div>
           <div className='skills-box -s1'>
               <select className='input-box -soft' value={newSoftSkill} onChange={e => setNewSoftSkill(e.target.value)}>
-                <option value=""></option>
+                <option value="" disabled selected>Skill</option>
                 <option value="Conversacao">Conversacao</option>
                 <option value="Ordanizacao">Organizacao</option>
                 <option value="Adaptabilidade">Adaptabilidade</option>
