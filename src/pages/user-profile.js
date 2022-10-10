@@ -323,8 +323,8 @@ function UserProfile() {
         </div>
       </header>
 
-      <main className='positions'>
-        <section>
+      <main className='sections'>
+        <section className='section-1'>
           <div className="skills-box -s1">
             <div className='img-user'>
               <p className='img-text'>NS</p>
@@ -357,7 +357,7 @@ function UserProfile() {
           </div>
         </section>
 
-        <section>
+        <section className='section-2'>
             <div>
                 <div className='div-title'>
                     <h1 className='subtitle'>Minhas Experiências</h1>
@@ -420,7 +420,7 @@ function UserProfile() {
             </div>
         </section>
 
-        <section>
+        <section className='section-3'>
             <div> 
                 <div className='div-title'>
                     <h1 className='subtitle'>Hard Skills</h1> 
