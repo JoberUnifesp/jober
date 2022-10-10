@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
+import mais from '../assets/mais.png'
 import './user-profile.css';
 
 const id = localStorage.getItem('id')
 
 function UserProfile() {
+  const [github, setGithub] = useState('GitHub')
+  const [NomeSobrenome, setNomeSobrenome] = useState('Nome Sobrenome')
+  const [email, setEmail] = useState('Email')
 
 
   useEffect(() => {
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewExperiences/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewExperiences/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -32,11 +36,11 @@ function UserProfile() {
 
           exp.push({Cargo: data[i].CARGO, Empresa: data[i].EMPRESA, Inicio: ini, Fim:fim})
         }
-        console.log(exp)
+
         setExperiences(exp)
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewGraduations/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewGraduations/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -59,12 +63,12 @@ function UserProfile() {
 
           GRADUATIONS.push({Curso: data[i].CURSO, Instituicao: data[i].INSTITUICAO, Inicio: ini, Fim:fim})
         }
-        console.log(GRADUATIONS)
+
         setGraduations(GRADUATIONS)
     });
 
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewHardSkills/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewHardSkills/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -77,11 +81,11 @@ function UserProfile() {
       for(i=0; i<data.length; i++){
         HARDSKILLS.push({Skill: data[i].NOME, Nivel:  data[i].NIVEL})
       }
-      console.log(HARDSKILLS)
+
       setSkills(HARDSKILLS)
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewLanguages/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewLanguages/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -94,12 +98,62 @@ function UserProfile() {
       for(i=0; i<data.length; i++){
         LANGUAGES.push({Lingua: data[i].NOME, Nivel:  data[i].NIVEL})
       }
-      console.log(LANGUAGES)
       setLanguages(LANGUAGES)
     });
 
-  }, []);
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/github/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setGithub(data)
+      }
+    })
 
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/NomeSobrenome/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setNomeSobrenome(data)
+      }
+    })
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/email/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setEmail(data)
+      }
+    })
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewSoftSkills/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setSoftSkills(data)
+      }
+    })
+
+  }, []);
 
   
   
@@ -184,6 +238,78 @@ function UserProfile() {
       console.log(data)
     });
   }
+  
+
+  function handleSave(){
+
+    setGithub(document.getElementById('github').innerText);
+    console.log(github)
+
+    if(github !== 'GitHub'){
+      fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Github/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({github: github})
+    })
+      .then((res) => res.json())
+      .then(data => { 
+        console.log(data)
+      });
+    }
+  }
+
+  function handleExperienceExclusion(){
+    var temp = [...experiences]
+    temp.splice(temp.length-1, temp.length);
+    setExperiences(temp);
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/Experience/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(data => console.log(data))
+
+  }
+
+
+  const [softSkills, setSoftSkills] = useState([])
+  const [newSoftSkill, setNewSoftSkill] = useState("")
+
+  function handleSoftSkillExclusion(){
+    var temp = [...softSkills]
+    temp.splice(temp.length-1, temp.length);
+    setSoftSkills(temp);
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/SoftSkill/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+
+  function addSoftSkill() {
+    setSoftSkills([...softSkills, newSoftSkill])
+    setNewSoftSkill("")
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/SoftSkills/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({skill: newSoftSkill})
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    });
+  }
 
   return (
     <div className="App">
@@ -198,17 +324,37 @@ function UserProfile() {
       </header>
 
       <main className='positions'>
-        <section className="secao-1">
+        <section>
+          <div className="skills-box -s1">
             <div className='img-user'>
               <p className='img-text'>NS</p>
             </div>
-            <h2 className='subtitle'>Nome Sobrenome</h2>
-            <p contenteditable="true" className='input-soft'>GitHub</p>
-            <p contenteditable="true" className='input-soft'>Email</p>
-            <h2 className='subtitle'>Soft Skills</h2>
-            <p contenteditable="true" className='input-soft'>Soft Skill 01</p>
-            <p contenteditable="true" className='input-soft'>Soft Skill 02</p>
-            <p contenteditable="true" className='input-soft'>Soft Skill 03</p>
+            <h2 className='subtitle'>{NomeSobrenome}</h2>
+            <p contentEditable="true" id="github" className='input-soft -editable'>{github}</p>
+            <p contentEditable="true" className='input-soft -editable'>{email}</p>
+          </div>  
+          
+          <div className='div-title'>
+              <h1 className='subtitle'>Soft Skills</h1> 
+              <div className='div-buttons'>
+                <button className='add-button' onClick={() => addSoftSkill()}><img src={mais} alt="mais" className='image-mais'></img></button>
+                <button className='exclude-button' onClick={handleSoftSkillExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
+              </div>
+          </div>
+          <div className='skills-box -s1'>
+              <select className='input-box -soft' value={newSoftSkill} onChange={e => setNewSoftSkill(e.target.value)}>
+                <option value="" disabled selected>Skill</option>
+                <option value="Conversacao">Conversacao</option>
+                <option value="Ordanizacao">Organizacao</option>
+                <option value="Adaptabilidade">Adaptabilidade</option>
+                <option value="Trabalho em equipe">Trabalho em equipe</option>
+                <option value="Criatividade">Criatividade</option>
+                <option value="Proatividade">Proatividade</option>
+              </select>
+              <ul>
+                  {softSkills.map(item => <li className='list'><p>{item}</p></li>)}
+              </ul>
+          </div>
         </section>
 
         <section>
@@ -217,14 +363,10 @@ function UserProfile() {
                     <h1 className='subtitle'>Minhas Experiências</h1>
                     <div className='div-buttons'>
                         <button className='add-button' onClick={() => addExperience()}><img src={mais} alt="mais" className='image-mais'></img></button>
-                        <button className='exclude-button' onClick={() => {
-                            var temp = [...experiences]
-                            temp.splice(temp.length-1, temp.length);
-                            setExperiences(temp);
-                        }}><img src={mais} alt="menos" className='image-menos'></img></button>   
+                        <button className='exclude-button' onClick={handleExperienceExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>   
                     </div>   
                 </div>
-                <form className='profile-box'>
+                <div className='profile-box'>
                     <div className='div-profile'>
                         <input className='input-box' value={newExperience.Cargo} placeholder='Cargo' type='text' onChange={e => setNewExperience({...newExperience, Cargo: e.target.value})}></input>
                         <input className='input-box' value={newExperience.Empresa} placeholder='Empresa' type='text' onChange={e => setNewExperience({...newExperience, Empresa: e.target.value})}></input>
@@ -242,11 +384,11 @@ function UserProfile() {
                     <ul>
                         {experiences.map(item => <li className='list'><p>{item.Cargo} {item.Empresa} {item.Inicio} {item.Fim}</p></li>)}
                     </ul>
-                </form>
+                </div>
             </div>
             <div>
                 <div className='div-title'>
-                  <h1 className='subtitle'>Minha Formação</h1> 
+                  <h1 className='subtitle'>Minha formação</h1> 
                   <div className='div-buttons'>
                     <button className='add-button' onClick={() => addGraduation()}><img src={mais} alt="mais" className='image-mais'></img></button>
                     <button className='exclude-button' onClick={() => {
@@ -256,7 +398,7 @@ function UserProfile() {
                     }}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
                 </div>
-                <form className='profile-box'>  
+                <div className='profile-box'>  
                     <div className='div-profile'>  
                         <input className='input-box' value={newGraduation.Curso} placeholder='Curso' type='text' onChange={e => setNewGraduation({...newGraduation, Curso: e.target.value})}></input>
                         <input className='input-box' value={newGraduation.Instituicao} placeholder='Instituição' type='text' onChange={e => setNewGraduation({...newGraduation, Instituicao: e.target.value})}></input>
@@ -274,7 +416,7 @@ function UserProfile() {
                     <ul>
                         {graduations.map(item => <li className='list'><p>{item.Curso} {item.Instituicao} {item.Inicio} {item.Fim}</p></li>)}
                     </ul>
-                </form>
+                </div>
             </div>
         </section>
 
@@ -291,7 +433,7 @@ function UserProfile() {
                       }}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
                 </div>
-                <form className='skills-box'>
+                <div className='skills-box'>
                     <div> 
                       <input className='input-box -hards-idiomas' value={newSkill.Skill} placeholder='Skill' type='text' onChange={e => setNewSkill({...newSkill, Skill: e.target.value})}></input>
                       <select className='select-list' value={newSkill.Nivel} onChange={e => setNewSkill({...newSkill, Nivel: e.target.value})}>
@@ -304,7 +446,7 @@ function UserProfile() {
                     <ul>
                         {skills.map(item => <li className='list'><p>{item.Skill} {item.Nivel}</p></li>)}
                     </ul>
-                </form>
+                </div>
             </div>
             <div> 
                 <div className='div-title'> 
@@ -318,7 +460,7 @@ function UserProfile() {
                       }}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
                 </div>
-                <form className='skills-box'>
+                <div className='skills-box'>
                   <div>
                     <input className='input-box -hards-idiomas' value={newLanguage.Lingua} placeholder='Língua' type='text' onChange={e => setNewLanguage({...newLanguage, Lingua: e.target.value})}></input>
                     <select className='select-list' value={newLanguage.Nivel} onChange={e => setNewLanguage({...newLanguage, Nivel: e.target.value})}>
@@ -331,8 +473,8 @@ function UserProfile() {
                     <ul>
                         {languages.map(item => <li className='list'><p>{item.Lingua} {item.Nivel}</p></li>)}
                     </ul>
-                </form>
-                <button className='save-button' >Salvar</button>
+                </div>
+                <button className='save-button' onClick={handleSave} >Salvar</button>
             </div>
         </section>
       </main>

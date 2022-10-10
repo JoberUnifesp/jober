@@ -165,12 +165,46 @@ function EnterpriseProfile() {
                   </div>
                 </div>
               </div>
+              <div>
+                  {jobs.map((item, index) =>
+                    <div className='eprofile-box -itens' key={index}>
+                      <div className='cargo-area'>
+                        <p className='input-eprofile' placeholder='Cargo' type='text'>{item.Cargo}</p>
+                        <p className='input-eprofile' placeholder='Área' type='text'>{item.Area} </p>
+                      </div>
+                      <div className='skills-area'>
+                        <p className='input-eprofile -skills' placeholder='Soft Skill 01' type='text' >{item.SoftSkill1}</p>
+                        <p className='input-eprofile -skills' placeholder='Soft Skill 02' type='text' >{item.SoftSkill2}</p>
+                        <p className='input-eprofile -skills' placeholder='Soft Skill 03' type='text' >{item.SoftSkill3}</p>
+                      </div>
+                      <div className='cidade-area'>
+                        <div className='div-temp'>
+                            <p className='input-eprofile -temp' placeholder='Tempo Experiência' type='text'></p>
+                            <p className='temp-text'>Meses</p>
+                        </div>
+                        <p className='input-eprofile -idioma' placeholder='Idioma' type='text'>{item.Idioma}</p>
+                        <p className='select-eprofile'>{item.NivelIdioma}</p>
+
+                        <p className='input-eprofile -idioma' placeholder='Cidade' type='text'>{item.Cidade}</p>
+                      </div>
+
+                      <div className='skills-row'> 
+                        <div className='div-skills'>
+                          <p className='input-eprofile -hardskills' placeholder='Hard Skill 01' type='text'>{item.HardSkill1}</p>
+                          <p className='select-eprofile -hardskills'>{item.NivelHS1}</p>
+                        </div>
+                        <div className='div-skills'>
+                          <p className='input-eprofile -hardskills' placeholder='Hard Skill 02' type='text'>{item.HardSkill2}</p>
+                          <p className='select-eprofile -hardskills'>{item.NivelHS2}</p>
+                        </div>
+                        <div className='div-skills'>
+                          <p className='input-eprofile -hardskills' placeholder='Hard Skill 03' type='text'>{item.HardSkill3}</p>
+                          <p className='select-eprofile -hardskills'>{item.NivelHS3}</p>
+                        </div>
+                      </div>
+                    </div>)}
+              </div>
             </div>
-            <ul>
-                {jobs.map((item, index) => <li className='eprofile-box' key={index}><p>{item.Cargo} {item.Area} {item.SoftSkill1} {item.Idioma}
-                                            {item.NivelIdioma} {item.Cidade} {item.HardSkill1} {item.NivelHS1} {item.HardSkill2}
-                                            {item.NivelHS2} {item.HardSkill3} {item.NivelHS3}</p></li>)}
-            </ul>
             <button className='enter-button' >Salvar</button>
           </section>
         </main>

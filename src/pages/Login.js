@@ -33,7 +33,11 @@ function Login() {
         setStatus(!status)
       }else if(data.code === 200){
         localStorage.setItem('id', data.id)
-        navigate('/jober/profile')
+        if(data.user){
+          navigate('/jober/profile')
+        }else{
+          navigate('/jober/enterprise-profile')
+        }
       }
     });
   }

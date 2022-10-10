@@ -119,6 +119,10 @@
     padding: 20px;       
 }
 
+.eprofile-box.-itens {
+    margin-top: 20px;  
+}
+
 .cargo-area {
     display: flex;
     justify-content: space-around;
@@ -201,4 +205,8 @@
     flex-direction: column;
     align-items: flex-end;
     width: 33%;
+}
+
+.itens-div {
+    margin-top: 20px;
 }
