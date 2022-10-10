@@ -351,10 +351,12 @@ function UserProfile() {
                 <option value="Criatividade">Criatividade</option>
                 <option value="Proatividade">Proatividade</option>
               </select>
-              <ul>
-                  {softSkills.map(item => <li className='list'><p>{item}</p></li>)}
-              </ul>
           </div>
+
+          {softSkills.map(item =>
+          <div className='skills-box -s1'>
+              <p className='input-box -soft -map'>{item}</p>
+          </div>)}
         </section>
 
         <section className='section-2'>
@@ -381,10 +383,24 @@ function UserProfile() {
                         <input className='input-box -data' value={newExperience.Fim} type='date' onChange={e => setNewExperience({...newExperience, Fim: e.target.value})}></input>
                       </div>
                     </div>
-                    <ul>
-                        {experiences.map(item => <li className='list'><p>{item.Cargo} {item.Empresa} {item.Inicio} {item.Fim}</p></li>)}
-                    </ul>
                 </div>
+                {experiences.map(item => 
+                <div className='profile-box'>
+                    <div className='div-profile'>
+                        <p className='input-box -map'>{item.Cargo}</p>
+                        <p className='input-box -map'>{item.Empresa}</p>
+                    </div>
+                    <div className='div-profile'>
+                      <div className='column-profile'>
+                        <h3 className='data-text'>De:</h3>
+                        <p className='input-box -data -map'>{item.Inicio}</p>
+                      </div>
+                      <div className='column-profile'>
+                        <h3 className='data-text'>Até:</h3>
+                        <p className='input-box -data -map'>{item.Fim}</p>
+                      </div>
+                    </div>
+                </div>)}
             </div>
             <div>
                 <div className='div-title'>
@@ -413,10 +429,24 @@ function UserProfile() {
                           <input className='input-box -data' value={newGraduation.Fim} placeholder='Fim' type='date' onChange={e => setNewGraduation({...newGraduation, Fim: e.target.value})}></input>
                       </div>
                     </div>
-                    <ul>
-                        {graduations.map(item => <li className='list'><p>{item.Curso} {item.Instituicao} {item.Inicio} {item.Fim}</p></li>)}
-                    </ul>
                 </div>
+                {graduations.map(item => 
+                <div className='profile-box'>  
+                    <div className='div-profile'>  
+                        <p className='input-box -map'>{item.Curso}</p>
+                        <p className='input-box -map'>{item.Instituicao}</p>
+                    </div>
+                    <div className='div-profile'> 
+                      <div className='column-profile'>
+                          <h3 className='data-text'>De:</h3>
+                          <p className='input-box -data -map'>{item.Inicio}</p>
+                      </div>
+                      <div className='column-profile'>
+                          <h3 className='data-text'>Até:</h3>
+                          <p className='input-box -data -map' type='date'>{item.Fim}</p>
+                      </div>
+                    </div>
+                </div>)}
             </div>
         </section>
 
@@ -434,7 +464,7 @@ function UserProfile() {
                     </div>
                 </div>
                 <div className='skills-box'>
-                    <div> 
+                    <div className='skills-map'> 
                       <input className='input-box -hards-idiomas' value={newSkill.Skill} placeholder='Skill' type='text' onChange={e => setNewSkill({...newSkill, Skill: e.target.value})}></input>
                       <select className='select-list' value={newSkill.Nivel} onChange={e => setNewSkill({...newSkill, Nivel: e.target.value})}>
                         <option value=""></option>
@@ -443,10 +473,14 @@ function UserProfile() {
                         <option value="Avancado">Avançado</option>
                       </select>
                     </div>
-                    <ul>
-                        {skills.map(item => <li className='list'><p>{item.Skill} {item.Nivel}</p></li>)}
-                    </ul>
                 </div>
+                {skills.map(item =>
+                <div className='skills-box'>
+                  <div className='skills-map'> 
+                    <p className='input-box -hards-idiomas'>{item.Skill}</p>
+                    <p className='select-list -map'>{item.Nivel}</p>
+                  </div>
+                </div>)}
             </div>
             <div> 
                 <div className='div-title'> 
@@ -461,7 +495,7 @@ function UserProfile() {
                     </div>
                 </div>
                 <div className='skills-box'>
-                  <div>
+                  <div className='skills-map'>
                     <input className='input-box -hards-idiomas' value={newLanguage.Lingua} placeholder='Língua' type='text' onChange={e => setNewLanguage({...newLanguage, Lingua: e.target.value})}></input>
                     <select className='select-list' value={newLanguage.Nivel} onChange={e => setNewLanguage({...newLanguage, Nivel: e.target.value})}>
                       <option value=""></option>
@@ -470,10 +504,15 @@ function UserProfile() {
                       <option value="Avancado">avançado</option>
                     </select>
                   </div>
-                    <ul>
-                        {languages.map(item => <li className='list'><p>{item.Lingua} {item.Nivel}</p></li>)}
-                    </ul>
                 </div>
+                {languages.map(item => 
+                <div className='skills-box'>
+                  <div className='skills-map'>
+                    <p className='input-box -hards-idiomas'>{item.Lingua}</p>
+                    <p className='select-list -map'>{item.Nivel}</p>
+                  </div>
+                </div>)}
+                
                 <button className='save-button' onClick={handleSave} >Salvar</button>
             </div>
         </section>
