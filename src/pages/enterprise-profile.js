@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
+import './enterprise-profile.css';
+import mais from '../assets/mais.png';
 
 const id = localStorage.getItem('id')
 
