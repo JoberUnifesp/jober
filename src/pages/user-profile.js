@@ -13,7 +13,7 @@ function UserProfile() {
 
   useEffect(() => {
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewExperiences/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewExperiences/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -40,7 +40,7 @@ function UserProfile() {
         setExperiences(exp)
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewGraduations/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewGraduations/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -68,7 +68,7 @@ function UserProfile() {
     });
 
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewHardSkills/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewHardSkills/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -85,7 +85,7 @@ function UserProfile() {
       setSkills(HARDSKILLS)
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewLanguages/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewLanguages/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -101,7 +101,7 @@ function UserProfile() {
       setLanguages(LANGUAGES)
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/github/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/github/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -114,7 +114,7 @@ function UserProfile() {
       }
     })
 
-    fetch(`https://engsoft-jober.azurewebsites.net/NomeSobrenome/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/NomeSobrenome/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -127,7 +127,7 @@ function UserProfile() {
       }
     })
 
-    fetch(`https://engsoft-jober.azurewebsites.net/email/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/email/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -140,7 +140,7 @@ function UserProfile() {
       }
     })
 
-    fetch(`https://engsoft-jober.azurewebsites.net/ViewSoftSkills/${id}`, {
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewSoftSkills/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
