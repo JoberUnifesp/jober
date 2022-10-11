@@ -416,8 +416,8 @@ function UserProfile() {
           <div className='skills-box -s1'>
               <select className='input-box -soft' value={newSoftSkill} onChange={e => setNewSoftSkill(e.target.value)}>
                 <option value="" disabled selected>Skill</option>
-                <option value="Conversacao">Conversacao</option>
-                <option value="Ordanizacao">Organizacao</option>
+                <option value="Conversação">Conversação"</option>
+                <option value="Organização">Organização</option>
                 <option value="Adaptabilidade">Adaptabilidade</option>
                 <option value="Trabalho em equipe">Trabalho em equipe</option>
                 <option value="Criatividade">Criatividade</option>
