@@ -3,9 +3,10 @@ import Logo from '../components/Logo';
 import mais from '../assets/mais.png'
 import './user-profile.css';
 
-const id = localStorage.getItem('id')
-
 function UserProfile() {
+  const id = sessionStorage.getItem('meuid')
+
+
   const [github, setGithub] = useState('GitHub')
   const [NomeSobrenome, setNomeSobrenome] = useState('Nome Sobrenome')
   const [email, setEmail] = useState('Email')
@@ -294,6 +295,53 @@ function UserProfile() {
     .then(data => console.log(data))
   }
 
+  function handleHardSkillExclusion(){
+    var temp = [...skills];
+    temp.splice(temp.length-1, temp.length);
+    setSkills(temp);
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/HardSkill/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+  }
+
+  function handleLanguageExclusion(){
+    var temp = [...languages];
+    temp.splice(temp.length-1, temp.length);
+    setLanguages(temp);
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/Language/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+
+  function handleGraduationExclusion(){
+    var temp = [...graduations]
+    temp.splice(temp.length-1, temp.length);
+    setGraduations(temp);
+
+    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/Graduation/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+  }
+
   function addSoftSkill() {
     setSoftSkills([...softSkills, newSoftSkill])
     setNewSoftSkill("")
@@ -407,11 +455,7 @@ function UserProfile() {
                   <h1 className='subtitle'>Minha formação</h1> 
                   <div className='div-buttons'>
                     <button className='add-button' onClick={() => addGraduation()}><img src={mais} alt="mais" className='image-mais'></img></button>
-                    <button className='exclude-button' onClick={() => {
-                        var temp = [...graduations]
-                        temp.splice(temp.length-1, temp.length);
-                        setGraduations(temp);
-                    }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                    <button className='exclude-button' onClick={handleGraduationExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
                 </div>
                 <div className='profile-box'>  
@@ -456,11 +500,7 @@ function UserProfile() {
                     <h1 className='subtitle'>Hard Skills</h1> 
                     <div className='div-buttons'>
                       <button className='add-button' onClick={() => addSkill()}><img src={mais} alt="mais" className='image-mais'></img></button>
-                      <button className='exclude-button' onClick={() => {
-                          var temp = [...skills];
-                          temp.splice(temp.length-1, temp.length);
-                          setSkills(temp);
-                      }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                      <button className='exclude-button' onClick={handleHardSkillExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
                 </div>
                 <div className='skills-box'>
@@ -487,11 +527,7 @@ function UserProfile() {
                     <h1 className='subtitle'>Idiomas</h1> 
                     <div className='div-buttons'>
                       <button className='add-button' onClick={() => addLanguage()}><img src={mais} alt="mais" className='image-mais'></img></button>
-                      <button className='exclude-button' onClick={() => {
-                          var temp = [...languages];
-                          temp.splice(temp.length-1, temp.length);
-                          setLanguages(temp);
-                      }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                      <button className='exclude-button' onClick={handleLanguageExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
                 </div>
                 <div className='skills-box'>

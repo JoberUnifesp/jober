@@ -32,7 +32,8 @@ function Login() {
       if (data.code === 401 || data.code === 404){
         setStatus(!status)
       }else if(data.code === 200){
-        localStorage.setItem('id', data.id)
+        sessionStorage.setItem('meuid', data.id)
+        console.log(sessionStorage.getItem('meuid'))
         if(data.user){
           navigate('/jober/profile')
         }else{
