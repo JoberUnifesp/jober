@@ -21,24 +21,28 @@ function UserProfile() {
         }
     }).then(res => res.json())
       .then((data)=> {
-        let i = 0
-        let exp = []
-        for(i=0; i<data.length; i++){
-          let ini_day = (new Date(data[i].INICIO)).getUTCDate()
-          let ini_month = (new Date(data[i].INICIO)).getUTCMonth() + 1
-          let ini_year = (new Date(data[i].INICIO)).getUTCFullYear()
-          let ini = `${ini_year}-${ini_month}-${ini_day}`
+        if(data !== null){
+          let i = 0
+          let exp = []
+          for(i=0; i<data.length; i++){
+            let ini_day = (new Date(data[i].INICIO)).getUTCDate()
+            let ini_month = (new Date(data[i].INICIO)).getUTCMonth() + 1
+            let ini_year = (new Date(data[i].INICIO)).getUTCFullYear()
+            let ini = `${ini_year}-${ini_month}-${ini_day}`
 
-          let fim_day = (new Date(data[i].FIM)).getUTCDate()
-          let fim_month = (new Date(data[i].FIM)).getUTCMonth() + 1
-          let fim_year = (new Date(data[i].FIM)).getUTCFullYear()
-          let fim = `${fim_year}-${fim_month}-${fim_day}`
+            let fim_day = (new Date(data[i].FIM)).getUTCDate()
+            let fim_month = (new Date(data[i].FIM)).getUTCMonth() + 1
+            let fim_year = (new Date(data[i].FIM)).getUTCFullYear()
+            let fim = `${fim_year}-${fim_month}-${fim_day}`
 
 
-          exp.push({Cargo: data[i].CARGO, Empresa: data[i].EMPRESA, Inicio: ini, Fim:fim})
+            exp.push({Cargo: data[i].CARGO, Empresa: data[i].EMPRESA, Inicio: ini, Fim:fim})
+          }
+
+          setExperiences(exp)
+
         }
-
-        setExperiences(exp)
+  
     });
 
     fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewGraduations/${id}`, {
@@ -48,24 +52,26 @@ function UserProfile() {
         }
     }).then(res => res.json())
       .then((data)=> {
-        let i = 0
-        let GRADUATIONS = []
-        for(i=0; i<data.length; i++){
-          let ini_day = (new Date(data[i].INICIO)).getUTCDate()
-          let ini_month = (new Date(data[i].INICIO)).getUTCMonth() + 1
-          let ini_year = (new Date(data[i].INICIO)).getUTCFullYear()
-          let ini = `${ini_year}-${ini_month}-${ini_day}`
-
-          let fim_day = (new Date(data[i].FIM)).getUTCDate()
-          let fim_month = (new Date(data[i].FIM)).getUTCMonth() + 1
-          let fim_year = (new Date(data[i].FIM)).getUTCFullYear()
-          let fim = `${fim_year}-${fim_month}-${fim_day}`
-
-
-          GRADUATIONS.push({Curso: data[i].CURSO, Instituicao: data[i].INSTITUICAO, Inicio: ini, Fim:fim})
+        if (data !== null){
+          let i = 0
+          let GRADUATIONS = []
+          for(i=0; i<data.length; i++){
+            let ini_day = (new Date(data[i].INICIO)).getUTCDate()
+            let ini_month = (new Date(data[i].INICIO)).getUTCMonth() + 1
+            let ini_year = (new Date(data[i].INICIO)).getUTCFullYear()
+            let ini = `${ini_year}-${ini_month}-${ini_day}`
+  
+            let fim_day = (new Date(data[i].FIM)).getUTCDate()
+            let fim_month = (new Date(data[i].FIM)).getUTCMonth() + 1
+            let fim_year = (new Date(data[i].FIM)).getUTCFullYear()
+            let fim = `${fim_year}-${fim_month}-${fim_day}`
+  
+  
+            GRADUATIONS.push({Curso: data[i].CURSO, Instituicao: data[i].INSTITUICAO, Inicio: ini, Fim:fim})
+          }
+  
+          setGraduations(GRADUATIONS)
         }
-
-        setGraduations(GRADUATIONS)
     });
 
 
@@ -77,13 +83,15 @@ function UserProfile() {
     })
     .then(res => res.json())
     .then((data)=> {
-      let i = 0
-      let HARDSKILLS = []
-      for(i=0; i<data.length; i++){
-        HARDSKILLS.push({Skill: data[i].NOME, Nivel:  data[i].NIVEL})
+      if (data !== null){
+        let i = 0
+        let HARDSKILLS = []
+        for(i=0; i<data.length; i++){
+          HARDSKILLS.push({Skill: data[i].NOME, Nivel:  data[i].NIVEL})
+        }
+  
+        setSkills(HARDSKILLS)
       }
-
-      setSkills(HARDSKILLS)
     });
 
     fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewLanguages/${id}`, {
@@ -94,12 +102,14 @@ function UserProfile() {
     })
     .then(res => res.json())
     .then((data)=> {
-      let i = 0
-      let LANGUAGES = []
-      for(i=0; i<data.length; i++){
-        LANGUAGES.push({Lingua: data[i].NOME, Nivel:  data[i].NIVEL})
+      if(data !== null){
+        let i = 0
+        let LANGUAGES = []
+        for(i=0; i<data.length; i++){
+          LANGUAGES.push({Lingua: data[i].NOME, Nivel:  data[i].NIVEL})
+        }
+        setLanguages(LANGUAGES)
       }
-      setLanguages(LANGUAGES)
     });
 
     fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/github/${id}`, {
@@ -259,6 +269,20 @@ function UserProfile() {
         console.log(data)
       });
     }
+
+    setEmail(document.getElementById('email').innerText);
+    console.log(email)
+      fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Email/${id}`, {
+        method: "PUT",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({email: email})
+      })
+        .then((res) => res.json())
+        .then(data => { 
+          console.log(data)
+        });
   }
 
   function handleExperienceExclusion(){
@@ -379,7 +403,7 @@ function UserProfile() {
             </div>
             <h2 className='subtitle'>{NomeSobrenome}</h2>
             <p contentEditable="true" id="github" className='input-soft -editable'>{github}</p>
-            <p contentEditable="true" className='input-soft -editable'>{email}</p>
+            <p contentEditable="true" id="email" className='input-soft -editable'>{email}</p>
           </div>  
           
           <div className='div-title'>
