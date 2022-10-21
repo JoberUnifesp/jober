@@ -2,6 +2,8 @@ import './SignUp.css';
 import Logo from '../components/Logo';
 import {useNavigate} from 'react-router-dom';
 import {useState} from 'react'
+
+
 function SignUp() {
   const navigate = useNavigate();
   const [status, setStatus] = useState(false);
@@ -38,8 +40,8 @@ function SignUp() {
   }
 
   return (
-    <body className="App">
-      <div className='wraper'>
+    <body className="signup-screen">
+      <div className='wraper-signup'>
         <Logo/>
         <form className='signup-box' onSubmit={handleSubmit}>
           <div className='div-name'>

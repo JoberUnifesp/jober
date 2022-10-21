@@ -39,8 +39,8 @@ function Enterprise() {
   }
 
   return (
-    <div className="App">
-      <div className='wraper'>
+    <div className="eProfile-screen">
+      <div className='wraper-eProfile'>
         <Logo/>
         <form className='enterprise-box' onSubmit={handleSubmit}>
           <div className='column-wrapper'>

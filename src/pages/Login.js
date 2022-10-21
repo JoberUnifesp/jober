@@ -43,8 +43,8 @@ function Login() {
   }
 
   return (
-    <body className="App">
-      <div className='wraper'>
+    <body className="login-screen">
+      <div className='wraper-login'>
         <Logo/>
         <form className='login-box' onSubmit={handleSubmit}>
           <h1 className='title'>Login</h1>

@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import SignUp from './pages/SignUp';
 import Enterprise from './pages/Enterprise';
 import UserProfile from './pages/user-profile';
+import EnterpriseProfile from './pages/enterprise-profile'
 import ErrorPage from './pages/Error-page';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -13,13 +14,9 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter([
-  // {
-  //   path: "jober/",
-  //   element: <UserProfile/>
-  // },
 {
   path: "jober/",
-  element: <Login />,
+  element: <Login/>
 },
 {
   path: "jober/SignUp",
@@ -33,6 +30,10 @@ const router = createBrowserRouter([
   path: "jober/profile",
   element: <UserProfile/>
 },
+// {
+//   path: "jober/",
+//   element: <EnterpriseProfile />,
+// },
 {
   path: "jober/Erro",
   element: <ErrorPage/>

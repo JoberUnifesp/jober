@@ -312,7 +312,7 @@ function UserProfile() {
   }
 
   return (
-    <div className="App">
+    <div className="uProfile-screen">
       <header className='header-uprofile'>
           <div className='logo -uprofile'>
             <h1 className='logo-text -uprofile'>J</h1>

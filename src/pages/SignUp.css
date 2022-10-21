@@ -1,4 +1,4 @@
-.App {
+.signup-screen {
   height: 100vh;
   width: 100vw;
   background-color: #F5F5F5;
@@ -7,7 +7,7 @@
   justify-content: center;
 }
   
-.wraper{
+.wraper-signup {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,7 +61,7 @@
 .input-signup {
   box-sizing:border-box;
   width: 439px;
-  height: 62px;
+  height: 55px;
   border-radius: 10px;
   border: 2px solid #D1D1D1;
   box-shadow: none;
@@ -72,7 +72,7 @@
 
 .input-signup.-data {
   width: 189px;
-  height: 62px;
+  height: 55px;
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
@@ -107,7 +107,7 @@
   line-height: 29px;
   color: #FFFFFF;
   width: 185px;
-  height: 62px;
+  height: 55px;
   background: #1877F2;
   border-radius: 10px;
   border: none;

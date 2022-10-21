@@ -1,7 +1,9 @@
-.App {
+.uProfile-screen {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
     background-color: #F5F5F5;
 }
 

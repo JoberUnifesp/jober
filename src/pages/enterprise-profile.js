@@ -72,7 +72,7 @@ function EnterpriseProfile() {
 
   return (
     <>
-      <div className="eprofile">
+      <div className="eprofile-screen">
         <header className='header-eprofile'>
             <div className='logo -eprofile'>
               <h1 className='logo-text -eprofile'>J</h1>
