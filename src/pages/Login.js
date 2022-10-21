@@ -54,8 +54,9 @@ function Login() {
           <p className={status  ? 'error-text' : 'error-text -inv'}>E-mail ou Senha incorretos. Tente novamente.</p>
           <button className='enter-button' type='submit'>Entrar</button>
           <span className='bar-element'></span>
-          <Link to='SignUp' className='signup-link'>Criar nova conta</Link>
-          <Link to='enterprise' className='enterprise-link'>Quero recrutar!</Link>
+          <h3 className='text'>Ainda não tem uma conta Jober?</h3>
+          <Link to='SignUp' className='signup-link'>Crie uma agora mesmo :)</Link>
+          <Link to='enterprise' className='enterprise-link'>Quero cadastrar minha empresa!</Link>
         </form>
       </div>
     </body>
