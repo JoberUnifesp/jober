@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp';
 import Enterprise from './pages/Enterprise';
 import EnterpriseProfile from './pages/enterprise-profile';
 import UserProfile from './pages/user-profile';
+import JobVacancies from './pages/job-vacancies';
 import ErrorPage from './pages/Error-page';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -30,13 +31,13 @@ const router = createBrowserRouter([
   path: "jober/profile",
   element: <UserProfile/>
 },
-// {
-//   path: "jober/",
-//   element: <EnterpriseProfile />,
-// },
 {
   path: "jober/enterprise-profile",
   element: <EnterpriseProfile/>
+},
+{
+  path: "jober/",
+  element: <JobVacancies />,
 },
 {
   path: "jober/Erro",

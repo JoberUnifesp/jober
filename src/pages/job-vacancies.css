@@ -1,0 +1,129 @@
+.vacancies-screen {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    background-color: #F5F5F5;
+}
+
+.header-vacancies {
+    display: inline-block;
+    width: 100%;
+    background-color: #1877F2;
+}
+
+.logo.-vacancies {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 5px;
+}
+
+.logo-text.-vacancies {
+    display: block;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    font-size: 45.1612px;
+    line-height: 50px;
+    color: #FFFFFF;
+    width: 21px;
+    height: 50px;
+}
+
+.logo-text.-vacancies:nth-child(2n)  {
+    margin-top: 12px;
+}
+
+.main-vacancies {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-vacancies {
+    width: 541px;
+    height: fit-content;
+    left: 405px;
+    top: 128px;
+    background: #FFFFFF;
+    border: 1px solid #C7C7C7;
+    border-radius: 10px;
+}
+
+.name-vacancies {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 41px;
+    color: #272727;
+    margin-left: 40px;
+}
+
+.enterprise-vacancies {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #4E4E4E;
+    margin-left: 40px;
+}
+
+.title-req-vacancies {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;    
+    color: #272727;
+    margin-left: 40px;
+}
+
+.list-req-vacancies {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #4E4E4E;
+    margin-left: 40px;
+}
+
+.div-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.next-button-vacancies {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+    border: 1.4px solid #D1D1D1;
+}
+
+.save-button-vacancies {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+    border: 1.4px solid #D1D1D1;
+}
+
+.like-button-vacancies {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+    border: 1.4px solid #D1D1D1;
+}
