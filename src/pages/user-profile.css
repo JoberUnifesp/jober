@@ -5,13 +5,13 @@
     height: fit-content;
     min-height: 100vh;
     background-color: #F5F5F5;
+    overflow-x: hidden;
+    height: fit-content;
 }
 
 .header-uprofile {
     display: inline-block;
     background-color: #F5F5F5;
-    top: 0;
-    left: 0;
 }
 
 .logo.-uprofile {
@@ -177,6 +177,7 @@
 }
 
 .input-box {
+    overflow-x: hidden;
     box-sizing: border-box;
     width: 50%;
     height: 50px;
@@ -187,6 +188,10 @@
     margin-bottom: 15px;
     padding-left: 21px;
     color: #636363;
+}
+
+.input-box.-map {
+    padding-top: 10px;
 }
 
 .input-box.-data {
@@ -200,6 +205,10 @@
     margin-bottom: 15px;
     padding-left: 21px;
     color: #636363;
+}
+
+.input-box.-data.-map {
+    padding-top: 10px;
 }
 
 .input-box:hover {
@@ -220,11 +229,8 @@
 }
 
 .input-box.-soft {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     box-sizing: border-box;
-    width: 80%;
+    width: 75%;
     height: 50px;
     border-radius: 6px;
     border: 1.4px solid #D1D1D1;
@@ -233,6 +239,10 @@
     margin-bottom: 15px;
     padding-left: 21px;
     color: #4C3A48;
+}
+
+.input-box.-soft.-map {
+    padding-top: 10px;
 }
 
 .skills-box.-s1 {
@@ -270,7 +280,7 @@
 }
 
 .column-profile {
-    width: 100%;
+    width: 50%;
 }
 
 .data-text {
@@ -320,6 +330,12 @@
     height: fit-content;
 }
 
+.skills-map {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 .select-list {
     width: 20%;
     height: 32.41px;
@@ -327,6 +343,10 @@
     border: 1.07363px solid #D1D1D1;
     border-radius: 5.22743px;
     margin-left: 15px;
+}
+
+.select-list.-map {
+    overflow-x: hidden;
 }
 
 .save-button{
