@@ -36,8 +36,8 @@ const router = createBrowserRouter([
   element: <EnterpriseProfile/>
 },
 {
-  path: "jober/",
-  element: <JobVacancies />,
+  path: "jober/job-vacancies",
+  element: <JobVacancies/>,
 },
 {
   path: "jober/Erro",

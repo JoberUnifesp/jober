@@ -45,12 +45,16 @@
 
 .content-vacancies {
     width: 541px;
-    height: fit-content;
+    height: 350px;
     left: 405px;
     top: 128px;
     background: #FFFFFF;
     border: 1px solid #C7C7C7;
     border-radius: 10px;
+    padding: 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .name-vacancies {
@@ -58,9 +62,9 @@
     font-style: normal;
     font-weight: 600;
     font-size: 30px;
-    line-height: 41px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     color: #272727;
-    margin-left: 40px;
 }
 
 .enterprise-vacancies {
@@ -68,19 +72,17 @@
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 27px;
+    line-height: 20px;
     color: #4E4E4E;
-    margin-left: 40px;
 }
 
 .title-req-vacancies {
     font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 22px;
     line-height: 30px;    
     color: #272727;
-    margin-left: 40px;
 }
 
 .list-req-vacancies {
@@ -90,7 +92,6 @@
     font-size: 20px;
     line-height: 27px;
     color: #4E4E4E;
-    margin-left: 40px;
 }
 
 .div-buttons {
@@ -101,13 +102,24 @@
     margin-top: 20px;
 }
 
-.next-button-vacancies {
+.pass-button-vacancies {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background: #FFFFFF;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
-    border: 1.4px solid #D1D1D1;
+    border: none;
+    background-image: url('../assets/pass.svg');
+    background-position: center;
+}
+
+.pass-button-vacancies:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+    cursor: pointer;
+    background: #F33339;
+    background-image: url('../assets/passwhite.svg');
+    background-position: center;
 }
 
 .save-button-vacancies {
@@ -116,7 +128,21 @@
     border-radius: 50%;
     background: #FFFFFF;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
-    border: 1.4px solid #D1D1D1;
+    border: none;
+    background-image: url('../assets/save.svg');
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
+.save-button-vacancies:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background: #F33339;
+    background-image: url('../assets/savewhite.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 31px;
 }
 
 .like-button-vacancies {
@@ -125,5 +151,27 @@
     border-radius: 50%;
     background: #FFFFFF;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
-    border: 1.4px solid #D1D1D1;
+    border: none;
+    background-image: url('../assets/like.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
+
+.like-button-vacancies:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background: #F33339;
+    background-image: url('../assets/likewhite.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
+
+
+.hr1{
+    border: 1px solid #1877F2;
+    width: 100%;
+    position: left;
+    margin-left: 0px;
 }

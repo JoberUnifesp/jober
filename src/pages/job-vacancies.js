@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
 import './job-vacancies.css';
+import pass from '../assets/pass.svg'
+import passwhite from '../assets/passwhite.svg'
+import save from '../assets/save.svg'
+import savewhite from '../assets/savewhite.svg'
+import like from '../assets/pass.svg'
+import likewhite from '../assets/likewhite.svg'
 
 function JobVacancies() {
   const [vacancies, setVacancies] = useState([])
@@ -46,7 +52,7 @@ function JobVacancies() {
     console.log(actualVacancie)
     }
 
-  function nextFunc() {
+  function passFunc() {
     var temp = [...vacancies]
     temp.splice(temp.length-1, temp.length);
     setVacancies(temp)
@@ -88,7 +94,8 @@ function JobVacancies() {
       </header>
       <main className='main-vacancies'>
           <div className='content-vacancies'>
-            <p className='name-vacancies'>{actualVacancie.Nome}</p>
+            <p className='name-vacancies'>EXEMPLO{actualVacancie.Nome}</p>
+            <hr className="hr1"></hr>
             <p className='enterprise-vacancies'>Empresa: {actualVacancie.Empresa}</p>
             <p className='title-req-vacancies'>Requisitos</p>
             <ul>
@@ -97,10 +104,9 @@ function JobVacancies() {
             </ul>
           </div>
           <div className='div-buttons'>
-            <button className='next-button-vacancies' onClick={() => nextFunc()}>next</button>
-            <button className='save-button-vacancies' onClick={() => saveFunc()}>save</button>
-            <button className='like-button-vacancies' onClick={() => likeFunc()}>like</button>
-            <button className='like-button-vacancies' onClick={() => updateFunc()}>update</button>
+            <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
+            <button className='save-button-vacancies' onClick={() => saveFunc()}></button>
+            <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
           </div>
       </main>
     </div>
