@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jober/static/css/main.147e4845.css",
-    "main.js": "/jober/static/js/main.3dc3789e.js",
+    "main.css": "/jober/static/css/main.cdfd4c5a.css",
+    "main.js": "/jober/static/js/main.36697594.js",
     "static/js/787.f2ababfa.chunk.js": "/jober/static/js/787.f2ababfa.chunk.js",
     "index.html": "/jober/index.html",
     "static/media/save.svg": "/jober/static/media/save.8c9024e807054a8fe61a435f20f61d5a.svg",
@@ -10,12 +10,12 @@
     "static/media/savewhite.svg": "/jober/static/media/savewhite.e4ac22c4b707871327cc587537369486.svg",
     "static/media/likewhite.svg": "/jober/static/media/likewhite.bfa92548a50acce4a446c629c2001624.svg",
     "static/media/passwhite.svg": "/jober/static/media/passwhite.881d67a030b79acb4004c54506b917b2.svg",
-    "main.147e4845.css.map": "/jober/static/css/main.147e4845.css.map",
-    "main.3dc3789e.js.map": "/jober/static/js/main.3dc3789e.js.map",
+    "main.cdfd4c5a.css.map": "/jober/static/css/main.cdfd4c5a.css.map",
+    "main.36697594.js.map": "/jober/static/js/main.36697594.js.map",
     "787.f2ababfa.chunk.js.map": "/jober/static/js/787.f2ababfa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.147e4845.css",
-    "static/js/main.3dc3789e.js"
+    "static/css/main.cdfd4c5a.css",
+    "static/js/main.36697594.js"
   ]
 }
