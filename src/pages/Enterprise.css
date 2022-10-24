@@ -1,7 +1,7 @@
 .eProfile-screen {
     height: 100vh;
     width: 100vw;
-    background-color: #F5F5F5;
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,40 +16,38 @@
 
 .enterprise-box {
     display: flexbox;
-    width: 800px;
-    height: 400px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 26px;
+    width: 900px;
+    height: auto;
+    border: 1px solid #C7C7C7;
+    background: transparent;
+    border-radius: 10px;
     align-items: center;
+    padding: 40px;
 }
 
 .column-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
+    margin-top: 0px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .columns {
-    width: 350px;
+    width: 440px;
 }
 
 .input-enterprise {
     box-sizing: border-box;
-    width: 350px;
-    height: 62px;
-    border-radius: 10px;
-    border: 2px solid #D1D1D1;
+    width: 440px;
+    height: 55px;
+    border-radius: 6px;
+    border: 1px solid #C7C7C7;
     box-shadow: none;
     margin-bottom: 15px;
+    margin-top: 0px;
     padding-left: 21px;
-    font-size: 21.3235px;
-}
-
-.footer-term {
-    margin-left: 34px;
+    font-size: 21px;
 }
 
 .term {
@@ -83,16 +81,23 @@
 }
 
 .enterprise-button {
-    width: 140px;
-    height: 50px;
+    width: 185px;
+    height: 55px;
     font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 700;
-    font-size: 21.3235px;
+    font-weight: 500;
+    font-size: 21px;
     line-height: 29px;
     color: #FFFFFF;
     background: #1877F2;
-    border-radius: 10px;
+    border-radius: 6px;
     border: none;
-    margin-left: 635px;
+    margin-bottom: 0px;
+    margin-left: 713px;
 }
+
+.enterprise-button:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+  cursor: pointer;
+}  

@@ -71,7 +71,7 @@
 }
 
 .input-signup.-data {
-  width: 189px;
+  width: 190px;
   height: 55px;
   font-family: 'Open Sans';
   font-style: normal;
@@ -103,7 +103,7 @@
 .signup-button {
   font-family: 'Open Sans';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 21px;
   color: #FFFFFF;
   width: 185px;
