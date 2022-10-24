@@ -5,6 +5,7 @@ import './user-profile.css';
 
 function UserProfile() {
   const id = sessionStorage.getItem('meuid')
+  const base_url = 'https://jober.azurewebsites.net'
 
 
   const [github, setGithub] = useState('GitHub')
@@ -14,7 +15,7 @@ function UserProfile() {
 
   useEffect(() => {
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewExperiences/${id}`, {
+    fetch(`${base_url}/UserProfile/ViewExperiences/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -45,7 +46,7 @@ function UserProfile() {
   
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewGraduations/${id}`, {
+    fetch(`${base_url}/UserProfile/ViewGraduations/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -75,7 +76,7 @@ function UserProfile() {
     });
 
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewHardSkills/${id}`, {
+    fetch(`${base_url}/UserProfile/ViewHardSkills/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -94,7 +95,7 @@ function UserProfile() {
       }
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewLanguages/${id}`, {
+    fetch(`${base_url}/UserProfile/ViewLanguages/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -112,7 +113,7 @@ function UserProfile() {
       }
     });
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/github/${id}`, {
+    fetch(`${base_url}/UserProfile/github/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -125,7 +126,7 @@ function UserProfile() {
       }
     })
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/NomeSobrenome/${id}`, {
+    fetch(`${base_url}/UserProfile/NomeSobrenome/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -138,7 +139,7 @@ function UserProfile() {
       }
     })
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/email/${id}`, {
+    fetch(`${base_url}/UserProfile/email/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -151,7 +152,7 @@ function UserProfile() {
       }
     })
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/ViewSoftSkills/${id}`, {
+    fetch(`${base_url}/UserProfile/ViewSoftSkills/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -175,7 +176,7 @@ function UserProfile() {
     setExperiences([...experiences, newExperience])
     setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Experience/${id}`, {
+    fetch(`${base_url}/UserProfile/Edit/Experience/${id}`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
@@ -197,7 +198,7 @@ function UserProfile() {
     setGraduations([...graduations, newGraduation])
     setNewGraduation({Curso: "", Instituicao: "", Inicio: "", Fim: ""})
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Graduation/${id}`, {
+    fetch(`${base_url}/UserProfile/Edit/Graduation/${id}`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
@@ -217,7 +218,7 @@ function UserProfile() {
     setSkills([...skills, newSkill])
     setNewSkill({Skill: "", Nivel: ""})
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/HardSkills/${id}`, {
+    fetch(`${base_url}/UserProfile/Edit/HardSkills/${id}`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
@@ -237,7 +238,7 @@ function UserProfile() {
     setLanguages([...languages, newLanguage])
     setNewLanguage({Lingua: "", Nivel: ""})
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Languages/${id}`, {
+    fetch(`${base_url}/UserProfile/Edit/Languages/${id}`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
@@ -257,7 +258,7 @@ function UserProfile() {
     console.log(github)
 
     if(github !== 'GitHub'){
-      fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Github/${id}`, {
+      fetch(`${base_url}/UserProfile/Edit/Github/${id}`, {
       method: "PUT",
       headers: {
         'Content-type': 'application/json'
@@ -272,7 +273,7 @@ function UserProfile() {
 
     setEmail(document.getElementById('email').innerText);
     console.log(email)
-      fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Email/${id}`, {
+      fetch(`${base_url}/UserProfile/Edit/Email/${id}`, {
         method: "PUT",
         headers: {
           'Content-type': 'application/json'
@@ -290,7 +291,7 @@ function UserProfile() {
     temp.splice(temp.length-1, temp.length);
     setExperiences(temp);
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/Experience/${id}`, {
+    fetch(`${base_url}/UserProfile/Delete/Experience/${id}`, {
       method: "DELETE",
       headers: {
         'Content-type': 'application/json'
@@ -309,7 +310,7 @@ function UserProfile() {
     temp.splice(temp.length-1, temp.length);
     setSoftSkills(temp);
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/SoftSkill/${id}`, {
+    fetch(`${base_url}/UserProfile/Delete/SoftSkill/${id}`, {
       method: "DELETE",
       headers: {
         'Content-type': 'application/json'
@@ -324,7 +325,7 @@ function UserProfile() {
     temp.splice(temp.length-1, temp.length);
     setSkills(temp);
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/HardSkill/${id}`, {
+    fetch(`${base_url}/UserProfile/Delete/HardSkill/${id}`, {
       method: "DELETE",
       headers: {
         'Content-type': 'application/json'
@@ -340,7 +341,7 @@ function UserProfile() {
     temp.splice(temp.length-1, temp.length);
     setLanguages(temp);
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/Language/${id}`, {
+    fetch(`${base_url}/UserProfile/Delete/Language/${id}`, {
       method: "DELETE",
       headers: {
         'Content-type': 'application/json'
@@ -355,7 +356,7 @@ function UserProfile() {
     temp.splice(temp.length-1, temp.length);
     setGraduations(temp);
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Delete/Graduation/${id}`, {
+    fetch(`${base_url}/UserProfile/Delete/Graduation/${id}`, {
       method: "DELETE",
       headers: {
         'Content-type': 'application/json'
@@ -370,7 +371,7 @@ function UserProfile() {
     setSoftSkills([...softSkills, newSoftSkill])
     setNewSoftSkill("")
 
-    fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/SoftSkills/${id}`, {
+    fetch(`${base_url}/UserProfile/Edit/SoftSkills/${id}`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
