@@ -75,7 +75,7 @@
     color: #1877F2;
 }
 
-.subtitle{
+.div-title-text {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -118,7 +118,7 @@
     padding-top: 10px;
 }
 
-.div-title{
+.div-title {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -126,7 +126,7 @@
     justify-content: space-between;
 }
 
-.div-buttons {
+.div-buttons-profile {
     display: flex;
     flex-direction: row;
 }

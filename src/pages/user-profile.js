@@ -401,14 +401,14 @@ function UserProfile() {
             <div className='img-user'>
               <p className='img-text'>NS</p>
             </div>
-            <h2 className='subtitle'>{NomeSobrenome}</h2>
+            <h2 className='div-title-text'>{NomeSobrenome}</h2>
             <p contentEditable="true" id="github" className='input-soft -editable'>{github}</p>
             <p contentEditable="true" id="email" className='input-soft -editable'>{email}</p>
           </div>  
           
           <div className='div-title'>
-              <h1 className='subtitle'>Soft Skills</h1> 
-              <div className='div-buttons'>
+              <h1 className='div-title-text'>Soft Skills</h1> 
+              <div className='div-buttons-profile'>
                 <button className='add-button' onClick={() => addSoftSkill()}><img src={mais} alt="mais" className='image-mais'></img></button>
                 <button className='exclude-button' onClick={handleSoftSkillExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
               </div>
@@ -434,8 +434,8 @@ function UserProfile() {
         <section className='section-2'>
             <div>
                 <div className='div-title'>
-                    <h1 className='subtitle'>Minhas Experiências</h1>
-                    <div className='div-buttons'>
+                    <h1 className='div-title-text'>Minhas Experiências</h1>
+                    <div className='div-buttons-profile'>
                         <button className='add-button' onClick={() => addExperience()}><img src={mais} alt="mais" className='image-mais'></img></button>
                         <button className='exclude-button' onClick={handleExperienceExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>   
                     </div>   
@@ -476,8 +476,8 @@ function UserProfile() {
             </div>
             <div>
                 <div className='div-title'>
-                  <h1 className='subtitle'>Minha formação</h1> 
-                  <div className='div-buttons'>
+                  <h1 className='div-title-text'>Minha formação</h1> 
+                  <div className='div-buttons-profile'>
                     <button className='add-button' onClick={() => addGraduation()}><img src={mais} alt="mais" className='image-mais'></img></button>
                     <button className='exclude-button' onClick={handleGraduationExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
@@ -521,8 +521,8 @@ function UserProfile() {
         <section className='section-3'>
             <div> 
                 <div className='div-title'>
-                    <h1 className='subtitle'>Hard Skills</h1> 
-                    <div className='div-buttons'>
+                    <h1 className='div-title-text'>Hard Skills</h1> 
+                    <div className='div-buttons-profile'>
                       <button className='add-button' onClick={() => addSkill()}><img src={mais} alt="mais" className='image-mais'></img></button>
                       <button className='exclude-button' onClick={handleHardSkillExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>
@@ -548,8 +548,8 @@ function UserProfile() {
             </div>
             <div> 
                 <div className='div-title'> 
-                    <h1 className='subtitle'>Idiomas</h1> 
-                    <div className='div-buttons'>
+                    <h1 className='div-title-text'>Idiomas</h1> 
+                    <div className='div-buttons-profile'>
                       <button className='add-button' onClick={() => addLanguage()}><img src={mais} alt="mais" className='image-mais'></img></button>
                       <button className='exclude-button' onClick={handleLanguageExclusion}><img src={mais} alt="menos" className='image-menos'></img></button>
                     </div>

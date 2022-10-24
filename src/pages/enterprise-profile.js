@@ -98,8 +98,8 @@ function EnterpriseProfile() {
             <div>
               <div>
                 <div className='div-title'>
-                  <h1  className='subtitle'>Vagas Abertas</h1>
-                  <div className='div-buttons'>
+                  <h1  className='div-title-eprofile'>Vagas Abertas</h1>
+                  <div className='div-buttons-eprofile'>
                     <button className='add-button' onClick={() => addJob()}><img src={mais} alt="mais" className='image-mais'></img></button>
                     <button className='exclude-button' onClick={() => {
                         var temp = [...jobs]
@@ -205,7 +205,7 @@ function EnterpriseProfile() {
                     </div>)}
               </div>
             </div>
-            <button className='enter-button' >Salvar</button>
+            <button className='enter-button-eprofile' >Salvar</button>
           </section>
         </main>
       </div>

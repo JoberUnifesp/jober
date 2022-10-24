@@ -45,9 +45,7 @@
 
 .content-vacancies {
     width: 541px;
-    height: 350px;
-    left: 405px;
-    top: 128px;
+    height: 300px;
     background: #FFFFFF;
     border: 1px solid #C7C7C7;
     border-radius: 10px;
@@ -55,6 +53,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
+    position: absolute;
 }
 
 .name-vacancies {
@@ -94,12 +93,13 @@
     color: #4E4E4E;
 }
 
-.div-buttons {
+.div-buttons-job {
     display: flex;
     flex-direction: row;
     width: 400px;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 470px;
+    z-index: 2;
 }
 
 .pass-button-vacancies {
@@ -168,10 +168,65 @@
     background-size: 35px;
 }
 
-
-.hr1{
+.hr1 {
     border: 1px solid #1877F2;
     width: 100%;
     position: left;
     margin-left: 0px;
+}
+
+.content-vacancies.-first {
+    z-index: 1;
+}
+
+.content-vacancies.-second {
+    z-index: 0;
+}
+
+.content-vacancies.-first.-moveRight {
+    animation-name: moveRight;
+    animation-duration: 0.5s;
+}
+
+.content-vacancies.-first.-moveLeft {
+    animation-name: moveLeft;
+    animation-duration: 0.5s;
+}
+
+.content-vacancies.-first.-moveDown {
+    animation-name: moveDown;
+    animation-duration: 0.5s;
+}
+
+@keyframes moveDown {
+    from { 
+        transform : translateY(0em);
+        opacity: 1;
+    }
+    to   {
+        transform : translateY(10em);
+        opacity: 0.4;
+    }
+}
+
+@keyframes moveLeft {
+    from { 
+        transform : translateX(0em);
+        opacity: 1;
+    }
+    to   {
+        transform : translateX(-10em);
+        opacity: 0.4;
+    }
+}
+
+@keyframes moveRight {
+    from { 
+        transform : translateX(0em);
+        opacity: 1;
+    }
+    to   {
+        transform : translateX(10em);
+        opacity: 0.4;
+    }
 }
