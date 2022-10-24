@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [status, setStatus] = React.useState(false);
   const navigate = useNavigate();
+  const base_url = 'https://jober.azurewebsites.net'
 
 
   function handleSubmit(e) {
@@ -19,7 +20,7 @@ function Login() {
       senha: e.target.senha.value
     }
     
-    fetch('https://engsoft-jober.azurewebsites.net/login', {
+    fetch(`${base_url}/login`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'

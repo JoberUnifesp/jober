@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 
 function Enterprise() {
   const navigate = useNavigate();
+  const base_url = 'https://jober.azurewebsites.net'
     
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +20,7 @@ function Enterprise() {
     
     console.log(newEnterprise);
 
-    fetch('https://engsoft-jober.azurewebsites.net/company/SignUp', {
+    fetch(`${base_url}/company/SignUp`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'

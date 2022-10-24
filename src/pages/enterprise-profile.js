@@ -6,6 +6,7 @@ import mais from '../assets/mais.png';
 
 function EnterpriseProfile() {
   const id = sessionStorage.getItem('meuid')
+  const base_url = 'https://jober.azurewebsites.net'
 
   const [nome, setNome] = useState('Nome e Sobrenome')
   const [endereco, setEndereco] = useState('Endereco')
@@ -28,7 +29,7 @@ function EnterpriseProfile() {
                Idioma: "", NivelIdioma: "", Cidade: "",
                HardSkill1: "", NivelHS1: "", HardSkill2: "", NivelHS2: "",
                HardSkill3: "", NivelHS3: ""})
-    // fetch(`https://engsoft-jober.azurewebsites.net/UserProfile/Edit/Experience/${id}`, {
+    // fetch(`${base_url}/UserProfile/Edit/Experience/${id}`, {
     //   method: "POST",
     //   headers: {
     //     'Content-type': 'application/json'
@@ -48,7 +49,7 @@ function EnterpriseProfile() {
 
 //   useEffect(() => {
 
-//     fetch(`https://engsoft-jober.azurewebsites.net/ViewExperiences/${id}`, {
+//     fetch(`${base_url}/ViewExperiences/${id}`, {
 //         method: "GET",
 //         headers: {
 //           'Content-type': 'application/json'
@@ -78,7 +79,7 @@ function EnterpriseProfile() {
 //   }, []);
 
   useEffect(() => {
-    fetch(`https://engsoft-jober.azurewebsites.net/company/${id}`, {
+    fetch(`${base_url}/company/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -114,7 +115,7 @@ function EnterpriseProfile() {
         "descricao": descricao
     }
 
-    fetch(`https://engsoft-jober.azurewebsites.net/company/profile/${id}`, {
+    fetch(`${base_url}/company/profile/${id}`, {
       method: "PATCH",
       headers: {
         'Content-type': 'application/json'

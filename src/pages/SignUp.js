@@ -7,6 +7,7 @@ import {useState} from 'react'
 function SignUp() {
   const navigate = useNavigate();
   const [status, setStatus] = useState(false);
+  const base_url = 'https://jober.azurewebsites.net'
 
 
   function handleSubmit(e) {
@@ -21,7 +22,7 @@ function SignUp() {
       senha: e.target.senha.value
     }
     
-    fetch('https://engsoft-jober.azurewebsites.net/SignUp', {
+    fetch(`${base_url}/SignUp`, {
       method: "POST",
       headers: {
         'Content-type': 'application/json'
