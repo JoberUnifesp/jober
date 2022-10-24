@@ -3,9 +3,16 @@ import Logo from '../components/Logo';
 import './enterprise-profile.css';
 import mais from '../assets/mais.png';
 
-const id = localStorage.getItem('id')
 
 function EnterpriseProfile() {
+  const id = sessionStorage.getItem('meuid')
+
+  const [nome, setNome] = useState('Nome e Sobrenome')
+  const [endereco, setEndereco] = useState('Endereco')
+  const [contato, setContato] = useState('Contato')
+  const [email, setEmail] = useState('Email')
+  const [descricao, setDescricao] = useState('Descricao Livre')
+
   const [jobs, setJobs] = useState([])
   const [newJob, setNewJob] = useState({Cargo: "", Area: "", SoftSkill1: "",
                                         SoftSkill2: "", SoftSkill3: "", Experiencia: "",
@@ -70,6 +77,57 @@ function EnterpriseProfile() {
 
 //   }, []);
 
+  useEffect(() => {
+    fetch(`https://engsoft-jober.azurewebsites.net/company/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then(res => {
+      if (res.ok) {
+        return res.json()
+      } 
+      throw res;
+    }).then((data)=> {
+      if (data !== null){
+        if (data.NOME !== null) setNome(data.NOME)
+        if (data.ENDERECO !== null) setEndereco(data.ENDERECO)
+        if (data.EMAIL !== null) setEmail(data.EMAIL)
+        if (data.TELEFONE !== null) setContato(data.TELEFONE)
+        if (data.descricao !== null) setDescricao(data.DESCRICAO)
+      }
+    }).catch(err => {
+      console.log(err)
+    })
+  }, [id])
+
+  function handleSaveProfile(e) {
+    e.preventDefault();
+
+    setEndereco(document.getElementById('endereco').innerText)
+    setContato(document.getElementById('contato').innerText)
+    setDescricao(document.getElementById('descricao').innerText)
+
+    const profile = {
+        "endereco": endereco,
+        "contato": contato,
+        "descricao": descricao
+    }
+
+    fetch(`https://engsoft-jober.azurewebsites.net/company/profile/${id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(profile)
+    })
+    .then((res) => res.json())
+    .then(data => { 
+      console.log(data)
+    })
+    .catch(err => console.log(err));
+  }
+
   return (
     <>
       <div className="eprofile-screen">
@@ -86,12 +144,13 @@ function EnterpriseProfile() {
         <main className='info-eprofile'>
           <section className='secao-eprofile'>
               <div className='img-eprofile'><p className='img-text-eprofile'>NS</p></div>
-              <h2 className='subtitle-eprofile'>Nome Sobrenome</h2>
-              <p contenteditable="true" className='input-info'>Endereço</p>
-              <p contenteditable="true" className='input-info'>E-mail</p>
-              <p contenteditable="true" className='input-info'>Contato</p>
+              <h2 className='subtitle-eprofile'>{nome}</h2>
+              <p contenteditable="true" id="endereco" className='input-info'>{endereco}</p>
+              <p contenteditable="false" id="email" className='input-info'>{email}</p>
+              <p contenteditable="true" id="contato" className='input-info'>{contato}</p>
               <h2 className='subtitle-eprofile'>Quem somos?</h2>
-              <p contenteditable="true" className='input-info -who'>Descrição Livre</p>
+              <p contenteditable="true" id="descricao" className='input-info -who'>{descricao}</p>
+              <button className='save-button' onClick={handleSaveProfile} type="submit">Salvar</button>
           </section>
 
           <section className='wrapper-eprofile'>

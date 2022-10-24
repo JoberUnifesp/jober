@@ -212,3 +212,23 @@
 .itens-div {
     margin-top: 20px;
 }
+
+.save-button{
+    box-sizing: border-box;
+    width: 80%;
+    height: 50px;
+    align-items: center;
+    border-radius: 6px;
+    border: 1.4px solid #D1D1D1;
+    background: #1877F2;
+    font-size: 18px;
+    font-weight: 800px;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+
+.save-button:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+    cursor: pointer;
+}
