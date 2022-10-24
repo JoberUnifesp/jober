@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/jober/static/css/main.be69e23e.css",
-    "main.js": "/jober/static/js/main.bbdb0225.js",
+    "main.css": "/jober/static/css/main.147e4845.css",
+    "main.js": "/jober/static/js/main.3dc3789e.js",
     "static/js/787.f2ababfa.chunk.js": "/jober/static/js/787.f2ababfa.chunk.js",
-    "static/media/save.svg": "/jober/static/media/save.638e28e2a6eb9aae4840f09e3eb2ca65.svg",
     "index.html": "/jober/index.html",
-    "static/media/pass.svg": "/jober/static/media/pass.11840f4792a27c0d71ab795de50a165d.svg",
-    "static/media/like.svg": "/jober/static/media/like.1c134f0cf70b5f04e3cc.svg",
-    "static/media/savewhite.svg": "/jober/static/media/savewhite.075f55d97f44a3e28e8bcac2e0e3aa03.svg",
-    "static/media/likewhite.svg": "/jober/static/media/likewhite.959dd905d4083be0d2d297e4625a2060.svg",
-    "static/media/passwhite.svg": "/jober/static/media/passwhite.5387050b72e3916f4ed6e44ae421e951.svg",
-    "main.be69e23e.css.map": "/jober/static/css/main.be69e23e.css.map",
-    "main.bbdb0225.js.map": "/jober/static/js/main.bbdb0225.js.map",
+    "static/media/save.svg": "/jober/static/media/save.8c9024e807054a8fe61a435f20f61d5a.svg",
+    "static/media/pass.svg": "/jober/static/media/pass.c7bbe57f6e6a9c08652a136b261e6ccc.svg",
+    "static/media/like.svg": "/jober/static/media/like.c171ac6f98b7fe03b4ea.svg",
+    "static/media/savewhite.svg": "/jober/static/media/savewhite.e4ac22c4b707871327cc587537369486.svg",
+    "static/media/likewhite.svg": "/jober/static/media/likewhite.bfa92548a50acce4a446c629c2001624.svg",
+    "static/media/passwhite.svg": "/jober/static/media/passwhite.881d67a030b79acb4004c54506b917b2.svg",
+    "main.147e4845.css.map": "/jober/static/css/main.147e4845.css.map",
+    "main.3dc3789e.js.map": "/jober/static/js/main.3dc3789e.js.map",
     "787.f2ababfa.chunk.js.map": "/jober/static/js/787.f2ababfa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.be69e23e.css",
-    "static/js/main.bbdb0225.js"
+    "static/css/main.147e4845.css",
+    "static/js/main.3dc3789e.js"
   ]
 }
