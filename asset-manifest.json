@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/jober/static/css/main.169ae291.css",
-    "main.js": "/jober/static/js/main.d2080439.js",
+    "main.css": "/jober/static/css/main.c1065741.css",
+    "main.js": "/jober/static/js/main.cfdbfa27.js",
     "static/js/787.f2ababfa.chunk.js": "/jober/static/js/787.f2ababfa.chunk.js",
+    "static/media/save.svg": "/jober/static/media/save.638e28e2a6eb9aae4840f09e3eb2ca65.svg",
     "index.html": "/jober/index.html",
-    "main.169ae291.css.map": "/jober/static/css/main.169ae291.css.map",
-    "main.d2080439.js.map": "/jober/static/js/main.d2080439.js.map",
+    "static/media/pass.svg": "/jober/static/media/pass.11840f4792a27c0d71ab795de50a165d.svg",
+    "static/media/like.svg": "/jober/static/media/like.1c134f0cf70b5f04e3cc.svg",
+    "static/media/savewhite.svg": "/jober/static/media/savewhite.075f55d97f44a3e28e8bcac2e0e3aa03.svg",
+    "static/media/likewhite.svg": "/jober/static/media/likewhite.959dd905d4083be0d2d297e4625a2060.svg",
+    "static/media/passwhite.svg": "/jober/static/media/passwhite.5387050b72e3916f4ed6e44ae421e951.svg",
+    "main.c1065741.css.map": "/jober/static/css/main.c1065741.css.map",
+    "main.cfdbfa27.js.map": "/jober/static/js/main.cfdbfa27.js.map",
     "787.f2ababfa.chunk.js.map": "/jober/static/js/787.f2ababfa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.169ae291.css",
-    "static/js/main.d2080439.js"
+    "static/css/main.c1065741.css",
+    "static/js/main.cfdbfa27.js"
   ]
 }
