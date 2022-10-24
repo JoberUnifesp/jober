@@ -11,6 +11,16 @@ function JobVacancies() {
   const id = sessionStorage.getItem('meuid')
   const base_url = 'https://jober.azurewebsites.net'
 
+  
+  const [vacancies, setVacancies] = useState([])
+  const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
+  const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
+  const [saved, setSaved] = useState([])
+  const [liked, setLiked] = useState([])
+  const [count, setCount] = useState(0)
+
+
+
   useEffect(() => {  
     fetch(`${base_url}/vacancy`, {
       method: "GET",
@@ -21,17 +31,18 @@ function JobVacancies() {
     .then(res => res.json())
     .then((data)=> {
       if (data !== null){
-        setVacancies(data)
+        let temp = data.map((element) => {
+          return {Nome: element.CARGO, Empresa: element.AREA, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`}
+        })
+        setFirstVacancie(temp[0])
+        setVacancies(temp)
+
+        console.log(temp)
+        console.log(vacancies)
+        
       }
     })
   }, []);
-
-  const [vacancies, setVacancies] = useState([])
-  const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
-  const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
-  const [saved, setSaved] = useState([])
-  const [liked, setLiked] = useState([])
-  const [count, setCount] = useState(0)
 
   function UpdateFunc() {
       var value = 'Teste ' + String(count)
