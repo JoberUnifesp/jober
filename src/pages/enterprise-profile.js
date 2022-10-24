@@ -28,27 +28,26 @@ function EnterpriseProfile() {
         newJob.NivelHS1 !== "" && newJob.HardSkill2 !== "" && newJob.NivelHS2 !== "" && newJob.HardSkill3 !== "" && newJob.NivelHS3 !== "") {
       setJobs([...jobs, newJob])
       setNewJob({Cargo: "", Area: "", SoftSkill1: "",
-                  SoftSkill2: "", SoftSkill3: "", Experiencia: "",
-                  Idioma: "", NivelIdioma: "", Cidade: "",
-                  HardSkill1: "", NivelHS1: "", HardSkill2: "", NivelHS2: "",
-                  HardSkill3: "", NivelHS3: ""})
-      // fetch(`${base_url}/UserProfile/Edit/Experience/${id}`, {
-      //   method: "POST",
-      //   headers: {
-      //     'Content-type': 'application/json'
-      //   },
-      //   body: JSON.stringify({cargo: newJob.Cargo, area: newJob.Area, softskill1: newJob.SoftSkill1,
-      //                         softskill2: newJob.SoftSkill2, softskill3: newJob.SoftSkill3,
-      //                         experiencia: newJob.Experiencia, idioma: newJob.Idioma, nivelIdioma: newJob.NivelIdioma,
-      //                         cidade: newJob.Cidade, HardSkill1: newJob.HardSkill1, NivelHS1: newJob.NivelHS1,
-      //                         HardSkill2: newJob.HardSkill2, NivelHS2: newJob.NivelHS2,
-      //                         HardSkill3: newJob.HardSkill3, NivelHS3: newJob.NivelHS3})
-      // })
-      // .then((res) => res.json())
-      // .then(data => { 
-      //   console.log(data)
-      // });
-    }
+               SoftSkill2: "", SoftSkill3: "", Experiencia: "",
+               Idioma: "", NivelIdioma: "", Cidade: "",
+               HardSkill1: "", NivelHS1: "", HardSkill2: "", NivelHS2: "",
+               HardSkill3: "", NivelHS3: ""})
+      fetch(`${base_url}/vacancy`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({idCompany: id, cargo: newJob.Cargo, area: newJob.Area, softSkill1: newJob.SoftSkill1,
+                              softSkill2: newJob.SoftSkill2, softSkill3: newJob.SoftSkill3,
+                              tempoExperiencia: newJob.Experiencia, idioma: newJob.Idioma, idiomaNivel: newJob.NivelIdioma,
+                              cidade: newJob.Cidade, hardSkill1Desc: newJob.HardSkill1, hardSkill1Nivel: newJob.NivelHS1,
+                              hardSkill2Desc: newJob.HardSkill2, hardSkill2Nivel: newJob.NivelHS2,
+                              hardSkill3Desc: newJob.HardSkill3, hardSkill3Nivel: newJob.NivelHS3})
+      })
+      .then((res) => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+      }
   }
 
 //   useEffect(() => {
@@ -83,6 +82,7 @@ function EnterpriseProfile() {
 //   }, []);
 
   useEffect(() => {
+    //get company profile info
     fetch(`${base_url}/company/${id}`, {
       method: "GET",
       headers: {
@@ -104,6 +104,33 @@ function EnterpriseProfile() {
     }).catch(err => {
       console.log(err)
     })
+
+    //get vacancies from company
+    fetch(`${base_url}/vacancy/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      let i = 0
+      let jobsData = []
+      for(i=0; i<data.length; i++){
+        jobsData.push({Cargo: data[i].CARGO, Area: data[i].AREA, 
+          SoftSkill1: data[i].SS_1, SoftSkill2: data[i].SS_2, SoftSkill3: data[i].SS_3,
+          Experiencia: data[i].EXPERIENCIA, Cidade: data[i].CIDADE,
+          Idioma: data[i].IDIOMA, NivelIdioma: data[i].IDIOMA_NIVEL,
+          HardSkill1: data[i].HS_1, NivelHS1: data[i].HS_1_NIVEL,
+          HardSkill2: data[i].HS_2, NivelHS2: data[i].HS_2_NIVEL,
+          HardSkill3: data[i].HS_3, NivelHS3: data[i].HS_3_NIVEL,
+        })
+      }
+      console.log(jobsData)
+      setJobs(jobsData)
+    })
+    .catch(err => console.log(err));
+
   }, [id])
 
   function handleSaveProfile(e) {
@@ -269,7 +296,7 @@ function EnterpriseProfile() {
                     </div>)}
               </div>
             </div>
-            <button className='enter-button-eprofile' >Salvar</button>
+            <button className='enter-button-eprofile' onClick={addJob}>Salvar</button>
           </section>
         </main>
       </div>
