@@ -8,6 +8,24 @@ import like from '../assets/pass.svg'
 import likewhite from '../assets/likewhite.svg'
 
 function JobVacancies() {
+  const id = sessionStorage.getItem('meuid')
+  const base_url = 'https://jober.azurewebsites.net'
+
+  useEffect(() => {  
+    fetch(`${base_url}/vacancy`, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data)=> {
+      if (data !== null){
+        setVacancies(data)
+      }
+    })
+  }, []);
+
   const [vacancies, setVacancies] = useState([])
   const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
   const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
