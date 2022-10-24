@@ -173,20 +173,22 @@ function UserProfile() {
   const [newExperience, setNewExperience] = useState({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
 
   function addExperience() {
-    setExperiences([...experiences, newExperience])
-    setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
+    if (newExperience.Cargo !== "" && newExperience.Empresa !== "" && newExperience.Inicio !== "" && newExperience.Fim !== "") {
+      setExperiences([...experiences, newExperience])
+      setNewExperience({Cargo: "", Empresa: "", Inicio: "", Fim: ""})
 
-    fetch(`${base_url}/UserProfile/Edit/Experience/${id}`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(newExperience)
-    })
-    .then((res) => res.json())
-    .then(data => { 
-      console.log(data)
-    });
+      fetch(`${base_url}/UserProfile/Edit/Experience/${id}`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(newExperience)
+      })
+      .then((res) => res.json())
+      .then(data => { 
+        console.log(data)
+      });
+    }
   }
 
   
@@ -195,20 +197,22 @@ function UserProfile() {
   const [newGraduation, setNewGraduation] = useState({Curso: "", Instituicao: "", Inicio: "", Fim: ""})
 
   function addGraduation() {
-    setGraduations([...graduations, newGraduation])
-    setNewGraduation({Curso: "", Instituicao: "", Inicio: "", Fim: ""})
+    if(newGraduation.Curso !== "" && newGraduation.Fim !== "" && newGraduation.Inicio !== "" && newGraduation.Fim !== "") {
+      setGraduations([...graduations, newGraduation])
+      setNewGraduation({Curso: "", Instituicao: "", Inicio: "", Fim: ""})
 
-    fetch(`${base_url}/UserProfile/Edit/Graduation/${id}`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(newGraduation)
-    })
-    .then((res) => res.json())
-    .then(data => { 
-      console.log(data)
-    });
+      fetch(`${base_url}/UserProfile/Edit/Graduation/${id}`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(newGraduation)
+      })
+      .then((res) => res.json())
+      .then(data => { 
+        console.log(data)
+      });
+    }
   }
 
   const [skills, setSkills] = useState([])
@@ -235,20 +239,22 @@ function UserProfile() {
   const [newLanguage, setNewLanguage] = useState({Lingua: "", Nivel: ""})
 
   function addLanguage() {
-    setLanguages([...languages, newLanguage])
-    setNewLanguage({Lingua: "", Nivel: ""})
+    if (newLanguage.Lingua !== "" && newLanguage.Nivel !== "") {
+      setLanguages([...languages, newLanguage])
+      setNewLanguage({Lingua: "", Nivel: ""})
 
-    fetch(`${base_url}/UserProfile/Edit/Languages/${id}`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(newLanguage)
-    })
-    .then((res) => res.json())
-    .then(data => { 
-      console.log(data)
-    });
+      fetch(`${base_url}/UserProfile/Edit/Languages/${id}`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(newLanguage)
+      })
+      .then((res) => res.json())
+      .then(data => { 
+        console.log(data)
+      });
+    }
   }
   
 
@@ -368,20 +374,22 @@ function UserProfile() {
   }
 
   function addSoftSkill() {
-    setSoftSkills([...softSkills, newSoftSkill])
-    setNewSoftSkill("")
+    if (newSoftSkill !== "") {
+      setSoftSkills([...softSkills, newSoftSkill])
+      setNewSoftSkill("")
 
-    fetch(`${base_url}/UserProfile/Edit/SoftSkills/${id}`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({skill: newSoftSkill})
-    })
-    .then((res) => res.json())
-    .then(data => { 
-      console.log(data)
-    });
+      fetch(`${base_url}/UserProfile/Edit/SoftSkills/${id}`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({skill: newSoftSkill})
+      })
+      .then((res) => res.json())
+      .then(data => { 
+        console.log(data)
+      });
+    }
   }
 
   return (
@@ -417,7 +425,7 @@ function UserProfile() {
           <div className='skills-box -s1'>
               <select className='input-box -soft' value={newSoftSkill} onChange={e => setNewSoftSkill(e.target.value)}>
                 <option value="" disabled selected>Skill</option>
-                <option value="Conversação">Conversação"</option>
+                <option value="Conversação">Conversação</option>
                 <option value="Organização">Organização</option>
                 <option value="Adaptabilidade">Adaptabilidade</option>
                 <option value="Trabalho em equipe">Trabalho em equipe</option>

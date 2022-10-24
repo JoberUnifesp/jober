@@ -23,28 +23,32 @@ function EnterpriseProfile() {
 
 
   function addJob() {
-    setJobs([...jobs, newJob])
-    setNewJob({Cargo: "", Area: "", SoftSkill1: "",
-               SoftSkill2: "", SoftSkill3: "", Experiencia: "",
-               Idioma: "", NivelIdioma: "", Cidade: "",
-               HardSkill1: "", NivelHS1: "", HardSkill2: "", NivelHS2: "",
-               HardSkill3: "", NivelHS3: ""})
-    // fetch(`${base_url}/UserProfile/Edit/Experience/${id}`, {
-    //   method: "POST",
-    //   headers: {
-    //     'Content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify({cargo: newJob.Cargo, area: newJob.Area, softskill1: newJob.SoftSkill1,
-    //                         softskill2: newJob.SoftSkill2, softskill3: newJob.SoftSkill3,
-    //                         experiencia: newJob.Experiencia, idioma: newJob.Idioma, nivelIdioma: newJob.NivelIdioma,
-    //                         cidade: newJob.Cidade, HardSkill1: newJob.HardSkill1, NivelHS1: newJob.NivelHS1,
-    //                         HardSkill2: newJob.HardSkill2, NivelHS2: newJob.NivelHS2,
-    //                         HardSkill3: newJob.HardSkill3, NivelHS3: newJob.NivelHS3})
-    // })
-    // .then((res) => res.json())
-    // .then(data => { 
-    //   console.log(data)
-    // });
+    if (newJob.Cargo !== "" && newJob.Area !== "" && newJob.SoftSkill1 !== "" && newJob.SoftSkill2 !== "" && newJob.SoftSkill3 !== "" &&
+        newJob.Experiencia !== "" && newJob.Idioma !== "" && newJob.NivelIdioma !== "" && newJob.Cidade !== "" && newJob.HardSkill1 !== "" &&
+        newJob.NivelHS1 !== "" && newJob.HardSkill2 !== "" && newJob.NivelHS2 !== "" && newJob.HardSkill3 !== "" && newJob.NivelHS3 !== "") {
+      setJobs([...jobs, newJob])
+      setNewJob({Cargo: "", Area: "", SoftSkill1: "",
+                  SoftSkill2: "", SoftSkill3: "", Experiencia: "",
+                  Idioma: "", NivelIdioma: "", Cidade: "",
+                  HardSkill1: "", NivelHS1: "", HardSkill2: "", NivelHS2: "",
+                  HardSkill3: "", NivelHS3: ""})
+      // fetch(`${base_url}/UserProfile/Edit/Experience/${id}`, {
+      //   method: "POST",
+      //   headers: {
+      //     'Content-type': 'application/json'
+      //   },
+      //   body: JSON.stringify({cargo: newJob.Cargo, area: newJob.Area, softskill1: newJob.SoftSkill1,
+      //                         softskill2: newJob.SoftSkill2, softskill3: newJob.SoftSkill3,
+      //                         experiencia: newJob.Experiencia, idioma: newJob.Idioma, nivelIdioma: newJob.NivelIdioma,
+      //                         cidade: newJob.Cidade, HardSkill1: newJob.HardSkill1, NivelHS1: newJob.NivelHS1,
+      //                         HardSkill2: newJob.HardSkill2, NivelHS2: newJob.NivelHS2,
+      //                         HardSkill3: newJob.HardSkill3, NivelHS3: newJob.NivelHS3})
+      // })
+      // .then((res) => res.json())
+      // .then(data => { 
+      //   console.log(data)
+      // });
+    }
   }
 
 //   useEffect(() => {
@@ -151,7 +155,7 @@ function EnterpriseProfile() {
               <p contenteditable="true" id="contato" className='input-info'>{contato}</p>
               <h2 className='subtitle-eprofile'>Quem somos?</h2>
               <p contenteditable="true" id="descricao" className='input-info -who'>{descricao}</p>
-              <button className='save-button' onClick={handleSaveProfile} type="submit">Salvar</button>
+              <button className='save-button-eprofile' onClick={handleSaveProfile} type="submit">Salvar</button>
           </section>
 
           <section className='wrapper-eprofile'>
