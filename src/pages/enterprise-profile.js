@@ -19,7 +19,7 @@ function EnterpriseProfile() {
                                         SoftSkill2: "", SoftSkill3: "", Experiencia: "",
                                         Idioma: "", NivelIdioma: "", Cidade: "",
                                         HardSkill1: "", NivelHS1: "", HardSkill2: "", NivelHS2: "",
-                                        HardSkill3: "", NivelHS3: ""})
+                                        HardSkill3: "", NivelHS3: "", Id: ""})
 
 
   function addJob() {
@@ -31,7 +31,8 @@ function EnterpriseProfile() {
                SoftSkill2: "", SoftSkill3: "", Experiencia: "",
                Idioma: "", NivelIdioma: "", Cidade: "",
                HardSkill1: "", NivelHS1: "", HardSkill2: "", NivelHS2: "",
-               HardSkill3: "", NivelHS3: ""})
+               HardSkill3: "", NivelHS3: "", Id: ""})
+      
       fetch(`${base_url}/vacancy`, {
         method: "POST",
         headers: {
@@ -50,36 +51,6 @@ function EnterpriseProfile() {
       }
   }
 
-//   useEffect(() => {
-
-//     fetch(`${base_url}/ViewExperiences/${id}`, {
-//         method: "GET",
-//         headers: {
-//           'Content-type': 'application/json'
-//         }
-//     }).then(res => res.json())
-//       .then((data)=> {
-//         let i = 0
-//         let exp = []
-//         for(i=0; i<data.length; i++){
-//           let ini_day = (new Date(data[i].INICIO)).getUTCDate()
-//           let ini_month = (new Date(data[i].INICIO)).getUTCMonth() + 1
-//           let ini_year = (new Date(data[i].INICIO)).getUTCFullYear()
-//           let ini = `${ini_year}-${ini_month}-${ini_day}`
-
-//           let fim_day = (new Date(data[i].FIM)).getUTCDate()
-//           let fim_month = (new Date(data[i].FIM)).getUTCMonth() + 1
-//           let fim_year = (new Date(data[i].FIM)).getUTCFullYear()
-//           let fim = `${fim_year}-${fim_month}-${fim_day}`
-
-
-//           exp.push({Cargo: data[i].CARGO, Empresa: data[i].EMPRESA, Inicio: ini, Fim:fim})
-//         }
-//         console.log(exp)
-//         setJobs(exp)
-//     });
-
-//   }, []);
 
   useEffect(() => {
     //get company profile info
@@ -123,7 +94,7 @@ function EnterpriseProfile() {
           Idioma: data[i].IDIOMA, NivelIdioma: data[i].IDIOMA_NIVEL,
           HardSkill1: data[i].HS_1, NivelHS1: data[i].HS_1_NIVEL,
           HardSkill2: data[i].HS_2, NivelHS2: data[i].HS_2_NIVEL,
-          HardSkill3: data[i].HS_3, NivelHS3: data[i].HS_3_NIVEL,
+          HardSkill3: data[i].HS_3, NivelHS3: data[i].HS_3_NIVEL, id: data[i].VACANCY_ID
         })
       }
       console.log(jobsData)
@@ -160,6 +131,26 @@ function EnterpriseProfile() {
     .catch(err => console.log(err));
   }
 
+  function handleVacancyExclusion(e) {
+    e.preventDefault();
+
+    const idVacancy = jobs.at(jobs.length-1).id;
+    
+    var temp = [...jobs]
+    temp.splice(temp.length-1, temp.length);
+    setJobs(temp);
+
+    fetch(`http://localhost:3001/vacancy/${idVacancy}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+  }
+
   return (
     <>
       <div className="eprofile-screen">
@@ -192,11 +183,7 @@ function EnterpriseProfile() {
                   <h1  className='div-title-eprofile'>Vagas Abertas</h1>
                   <div className='div-buttons-eprofile'>
                     <button className='add-button' onClick={() => addJob()}><img src={mais} alt="mais" className='image-mais'></img></button>
-                    <button className='exclude-button' onClick={() => {
-                        var temp = [...jobs]
-                        temp.splice(temp.length-1, temp.length);
-                        setJobs(temp);
-                    }}><img src={mais} alt="menos" className='image-menos'></img></button>
+                    <button className='exclude-button' onClick={handleVacancyExclusion} ><img src={mais} alt="menos" className='image-menos'></img></button>
                   </div>
                 </div>
                 <div className='eprofile-box'>
