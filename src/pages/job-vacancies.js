@@ -32,7 +32,7 @@ function JobVacancies() {
     .then((data)=> {
       if (data !== null){
         let temp = data.map((element) => {
-          return {Nome: element.CARGO, Empresa: element.AREA, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`}
+          return {Nome: element.CARGO, Empresa: element.COMPANY_NAME, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`}
         })
         setFirstVacancie(temp[0])
         temp.push({Nome: 'Loading...', Empresa: 'Loading...', req1: 'Loading...', req2: 'Loading...', req3: 'Loading...'})
