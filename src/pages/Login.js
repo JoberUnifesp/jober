@@ -38,7 +38,7 @@ function Login() {
         if(data.user){
           navigate('/jober/profile')
         }else{
-          navigate('/jober/enterprise-profile')
+          navigate('/jober/enterpriseProfile')
         }
       }
     });
