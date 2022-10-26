@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
 import mais from '../assets/mais.png'
 import './user-profile.css';
+import { Link } from 'react-router-dom';
 
 function UserProfile() {
   const id = sessionStorage.getItem('meuid')
@@ -219,20 +220,22 @@ function UserProfile() {
   const [newSkill, setNewSkill] = useState({Skill: "", Nivel: ""})
 
   function addSkill() {
-    setSkills([...skills, newSkill])
-    setNewSkill({Skill: "", Nivel: ""})
+    if (newSkill.Skill !== "" && newSkill.Nivel !== "") {
+      setSkills([...skills, newSkill])
+      setNewSkill({Skill: "", Nivel: ""})
 
-    fetch(`${base_url}/UserProfile/Edit/HardSkills/${id}`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(newSkill)
-    })
-    .then((res) => res.json())
-    .then(data => { 
-      console.log(data)
-    });
+      fetch(`${base_url}/UserProfile/Edit/HardSkills/${id}`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(newSkill)
+      })
+      .then((res) => res.json())
+      .then(data => { 
+        console.log(data)
+      });
+    }
   }
 
   const [languages, setLanguages] = useState([])
@@ -395,13 +398,14 @@ function UserProfile() {
   return (
     <div className="uProfile-screen">
       <header className='header-uprofile'>
-          <div className='logo -uprofile'>
-            <h1 className='logo-text -uprofile'>J</h1>
-            <h1 className='logo-text -uprofile'>o</h1>
-            <h1 className='logo-text -uprofile'>b</h1>
-            <h1 className='logo-text -uprofile'>e</h1>
-            <h1 className='logo-text -uprofile'>r</h1>
+        <div className='logo -uprofile'>
+          <h1 className='logo-text -uprofile'>J</h1>
+          <h1 className='logo-text -uprofile'>o</h1>
+          <h1 className='logo-text -uprofile'>b</h1>
+          <h1 className='logo-text -uprofile'>e</h1>
+          <h1 className='logo-text -uprofile'>r</h1>
         </div>
+        <Link to='JobVacancies' className='job-vacancies-link'>Vagas</Link>
       </header>
 
       <main className='sections'>

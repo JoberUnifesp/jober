@@ -32,11 +32,11 @@ const router = createBrowserRouter([
   element: <UserProfile/>
 },
 {
-  path: "jober/enterprise-profile",
+  path: "jober/enterpriseProfile",
   element: <EnterpriseProfile/>
 },
 {
-  path: "jober/job-vacancies",
+  path: "jober/jobVacancies",
   element: <JobVacancies/>,
 },
 {

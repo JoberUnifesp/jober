@@ -10,29 +10,48 @@
 }
 
 .header-uprofile {
-    display: inline-block;
+    display: flex;
     background-color: #F5F5F5;
+    justify-content: space-between;
 }
 
 .logo.-uprofile {
     display: flex;
     flex-wrap: nowrap;
     margin-left: 5px;
+    margin-top: 5px;
 }
 
 .logo-text.-uprofile {
     display: block;
     font-family: 'Comfortaa', cursive;
-    width: 40px;
-    height: 80px;
+    width: 21px;
+    height: 50px;
     margin: 0;
-    font-size: 86.0606px;
-    line-height: 96px;
+    font-size: 50px;
+    line-height: 50px;
     color: #1877F2;
 }
 
 .logo-text.-uprofile:nth-child(2n)  {
     margin-top: 12px;
+}
+
+.job-vacancies-link {
+    box-sizing: border-box;
+    width: 70px;
+    height: 50px;
+    border-radius: 6px;
+    border: 1.4px solid #D1D1D1;
+    background: #1877F2;
+    font-size: 18px;
+    font-weight: 800px;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-left: 9px;
+    margin-right: 20px;
+    margin-top: 5px;
 }
 
 .sections {
