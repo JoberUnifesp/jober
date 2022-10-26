@@ -13,8 +13,8 @@ function JobVacancies() {
 
   
   const [vacancies, setVacancies] = useState([])
-  const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
-  const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: ""})
+  const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: ""})
+  const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: ""})
   const [saved, setSaved] = useState([])
   const [liked, setLiked] = useState([])
   const [count, setCount] = useState(0)
@@ -32,9 +32,10 @@ function JobVacancies() {
     .then((data)=> {
       if (data !== null){
         let temp = data.map((element) => {
-          return {Nome: element.CARGO, Empresa: element.AREA, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`}
+          return {Nome: element.CARGO, Empresa: element.AREA, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`}
         })
         setFirstVacancie(temp[0])
+        temp.push({Nome: 'Loading...', Empresa: 'Loading...', req1: 'Loading...', req2: 'Loading...', req3: 'Loading...'})
         setVacancies(temp)
 
         console.log(temp)
@@ -46,9 +47,9 @@ function JobVacancies() {
 
   function UpdateFunc() {
       var value = 'Teste ' + String(count)
-      setFirstVacancie({Nome: value, Empresa: value, req1: value, req2: value})
+      setFirstVacancie({Nome: value, Empresa: value, req1: value, req2: value, req3: value})
       setVacancies([...vacancies, firstVacancie])
-      console.log(vacancies)
+      // console.log(vacancies)
       setCount(v => v + 1)
   }
 
@@ -56,6 +57,7 @@ function JobVacancies() {
     var temp = [...vacancies]
     var atual = temp.shift()
     atual = temp[0]
+
     if (atual !== undefined) {
       setSecondVacancie(atual)
     }
@@ -65,7 +67,9 @@ function JobVacancies() {
         setVacancies(temp)
       }
     }, 500)
-    moveFunc('-moveLeft')
+    if(temp.length !== 0){
+      moveFunc('-moveLeft')
+    }
   }
 
   function saveFunc() {
@@ -83,7 +87,9 @@ function JobVacancies() {
         setVacancies(temp)
       }
     }, 500)
-    moveFunc('-moveDown')
+    if(temp.length !== 0){
+      moveFunc('-moveDown')
+    }
   }
 
   function likeFunc() {
@@ -95,7 +101,9 @@ function JobVacancies() {
     if (atual !== undefined) {
       setSecondVacancie(atual)
     }
-    moveFunc('-moveRight');
+    if(temp.length !== 0){
+      moveFunc('-moveRight');
+    }
     setTimeout(() => {
       if (atual !== undefined) {
         setFirstVacancie(atual)
@@ -132,6 +140,7 @@ function JobVacancies() {
             <ul>
               <li className='list-req-vacancies'>{firstVacancie.req1}</li>
               <li className='list-req-vacancies'>{firstVacancie.req2}</li>
+              <li className='list-req-vacancies'>{firstVacancie.req3}</li>
             </ul>
           </div>
           <div className='content-vacancies -second'>
@@ -142,6 +151,7 @@ function JobVacancies() {
             <ul>
               <li className='list-req-vacancies'>{secondVacancie.req1}</li>
               <li className='list-req-vacancies'>{secondVacancie.req2}</li>
+              <li className='list-req-vacancies'>{secondVacancie.req3}</li>
             </ul>
           </div>
           <div className='div-buttons-job'>
