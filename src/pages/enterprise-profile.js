@@ -38,7 +38,7 @@ function EnterpriseProfile() {
         headers: {
           'Content-type': 'application/json'
         },
-        body: JSON.stringify({idCompany: id, cargo: newJob.Cargo, area: newJob.Area, softSkill1: newJob.SoftSkill1,
+        body: JSON.stringify({companyName: nome, idCompany: id, cargo: newJob.Cargo, area: newJob.Area, softSkill1: newJob.SoftSkill1,
                               softSkill2: newJob.SoftSkill2, softSkill3: newJob.SoftSkill3,
                               tempoExperiencia: newJob.Experiencia, idioma: newJob.Idioma, idiomaNivel: newJob.NivelIdioma,
                               cidade: newJob.Cidade, hardSkill1Desc: newJob.HardSkill1, hardSkill1Nivel: newJob.NivelHS1,
