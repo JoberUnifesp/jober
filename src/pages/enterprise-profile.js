@@ -140,7 +140,7 @@ function EnterpriseProfile() {
     temp.splice(temp.length-1, temp.length);
     setJobs(temp);
 
-    fetch(`http://localhost:3001/vacancy/${idVacancy}`, {
+    fetch(`${base_url}/vacancy/${idVacancy}`, {
       method: "DELETE",
       headers: {
         'Content-type': 'application/json'
