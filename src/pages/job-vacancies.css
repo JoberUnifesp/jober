@@ -168,6 +168,19 @@
     background-size: 35px;
 }
 
+
+.error-text {
+    color: #ec6666;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  
+.error-text.-inv {
+    visibility: hidden;
+}
+
 .hr1 {
     border: 1px solid #1877F2;
     width: 100%;

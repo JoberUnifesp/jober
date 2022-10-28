@@ -13,8 +13,8 @@ function JobVacancies() {
 
   
   const [vacancies, setVacancies] = useState([])
-  const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: ""})
-  const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: ""})
+  const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: "", like: ""})
+  const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: "", like: ""})
   const [saved, setSaved] = useState([])
   const [liked, setLiked] = useState([])
   const [count, setCount] = useState(0)
@@ -22,7 +22,7 @@ function JobVacancies() {
 
 
   useEffect(() => {  
-    fetch(`${base_url}/vacancy`, {
+    fetch(`${base_url}/vacancy/allVacancies/${id}`, {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -32,10 +32,11 @@ function JobVacancies() {
     .then((data)=> {
       if (data !== null){
         let temp = data.map((element) => {
-          return {Nome: element.CARGO, Empresa: element.COMPANY_NAME, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`}
+
+          return {Nome: element.CARGO, Empresa: element.COMPANY_NAME, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`, like: element.like}
         })
         setFirstVacancie(temp[0])
-        temp.push({Nome: 'Loading...', Empresa: 'Loading...', req1: 'Loading...', req2: 'Loading...', req3: 'Loading...'})
+        temp.push({Nome: 'Loading...', Empresa: 'Loading...', req1: 'Loading...', req2: 'Loading...', req3: 'Loading...', like: false})
         setVacancies(temp)
 
         console.log(temp)
@@ -43,11 +44,12 @@ function JobVacancies() {
         
       }
     })
+
   }, []);
 
   function UpdateFunc() {
       var value = 'Teste ' + String(count)
-      setFirstVacancie({Nome: value, Empresa: value, req1: value, req2: value, req3: value})
+      setFirstVacancie({Nome: value, Empresa: value, req1: value, req2: value, req3: value, like: false})
       setVacancies([...vacancies, firstVacancie])
       // console.log(vacancies)
       setCount(v => v + 1)
@@ -142,6 +144,7 @@ function JobVacancies() {
               <li className='list-req-vacancies'>{firstVacancie.req2}</li>
               <li className='list-req-vacancies'>{firstVacancie.req3}</li>
             </ul>
+            <p className={firstVacancie.like  ? 'error-text' : 'error-text -inv'}>🧡 A {firstVacancie.Empresa} gostou do seu perfil para esta vaga</p>
           </div>
           <div className='content-vacancies -second'>
             <p className='name-vacancies'>{secondVacancie.Nome}</p>
