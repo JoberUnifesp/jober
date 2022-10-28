@@ -59,12 +59,26 @@ function JobVacancies() {
 
   function passFunc() {
     var temp = [...vacancies]
+    var passedTemp = firstVacancie;
     var atual = temp.shift()
     atual = temp[0]
 
     if (atual !== undefined) {
       setSecondVacancie(atual)
     }
+
+    fetch(`${base_url}/interaction/pass`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({user_id: id, vacancy_id: passedTemp.Id})      
+    })
+    .then((res) => res.json())
+    .then(data => {
+      console.log(data)
+    })
+
     setTimeout(() => {
       if (atual !== undefined) {
         setFirstVacancie(atual)
