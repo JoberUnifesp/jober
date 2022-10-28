@@ -13,8 +13,8 @@ function JobVacancies() {
 
   
   const [vacancies, setVacancies] = useState([])
-  const [firstVacancie, setFirstVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: "", like: ""})
-  const [secondVacancie, setSecondVacancie] = useState({Nome: "", Empresa: "", req1: "", req2: "", req3: "", like: ""})
+  const [firstVacancie, setFirstVacancie] = useState({Id: "", Nome: "", Empresa: "", req1: "", req2: "", req3: "", like: ""})
+  const [secondVacancie, setSecondVacancie] = useState({Id: "", Nome: "", Empresa: "", req1: "", req2: "", req3: "", like: ""})
   const [saved, setSaved] = useState([])
   const [liked, setLiked] = useState([])
   const [count, setCount] = useState(0)
@@ -33,8 +33,10 @@ function JobVacancies() {
       if (data !== null){
         let temp = data.map((element) => {
 
-          return {Nome: element.CARGO, Empresa: element.COMPANY_NAME, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`, like: element.like}
+          return {Id: element.ID, Nome: element.CARGO, Empresa: element.COMPANY_NAME, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`, like: element.like}
         })
+
+
         setFirstVacancie(temp[0])
         temp.push({Nome: 'Loading...', Empresa: 'Loading...', req1: 'Loading...', req2: 'Loading...', req3: 'Loading...', like: false})
         setVacancies(temp)
@@ -49,7 +51,7 @@ function JobVacancies() {
 
   function UpdateFunc() {
       var value = 'Teste ' + String(count)
-      setFirstVacancie({Nome: value, Empresa: value, req1: value, req2: value, req3: value, like: false})
+      setFirstVacancie({Id: value, Nome: value, Empresa: value, req1: value, req2: value, req3: value, like: false})
       setVacancies([...vacancies, firstVacancie])
       // console.log(vacancies)
       setCount(v => v + 1)
@@ -83,6 +85,20 @@ function JobVacancies() {
     if (atual !== undefined) {
       setSecondVacancie(atual)
     }
+
+    fetch(`${base_url}/interaction/save`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({user_id: id, vacancy_id: savedTemp.Id})      
+    })
+    .then((res) => res.json())
+    .then(data => {
+      console.log(data)
+    })
+
+
     setTimeout(() => {
       if (atual !== undefined) {
         setFirstVacancie(atual)
