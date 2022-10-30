@@ -35,7 +35,7 @@ function JobVacancies() {
 
 
         setFirstVacancie(temp[0])
-        temp.push({Nome: 'Loading...', Empresa: 'Loading...', req1: 'Loading...', req2: 'Loading...', req3: 'Loading...', like: false})
+        temp.push({Id: 'Loading ...', Nome: 'Loading...', Empresa: 'Loading...', req1: 'Loading...', req2: 'Loading...', req3: 'Loading...', like: false})
         setVacancies(temp)
 
         console.log(temp)
@@ -125,6 +125,19 @@ function JobVacancies() {
     if(temp.length !== 0){
       moveFunc('-moveRight');
     }
+
+    fetch(`${base_url}/interaction/userLike`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({user_id: id, vacancy_id: likedTemp.Id})      
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+
     setTimeout(() => {
       if (atual !== undefined) {
         setFirstVacancie(atual)
