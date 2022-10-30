@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Logo from '../components/Logo';
 import './enterprise-profile.css';
 import mais from '../assets/mais.png';
+import { Link } from 'react-router-dom';
 
 
 function EnterpriseProfile() {
@@ -162,6 +162,7 @@ function EnterpriseProfile() {
               <h1 className='logo-text -eprofile'>e</h1>
               <h1 className='logo-text -eprofile'>r</h1>
           </div>
+          <Link to='Cadidates' className='candidates-link'>Vagas</Link>
         </header>
 
         <main className='info-eprofile'>

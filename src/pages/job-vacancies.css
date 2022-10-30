@@ -93,6 +93,18 @@
     color: #4E4E4E;
 }
 
+.like-text {
+    color: #DA5757;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.like-text.-inv {
+    visibility: hidden;
+}
+
 .div-buttons-job {
     display: flex;
     flex-direction: row;

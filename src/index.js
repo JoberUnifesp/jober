@@ -6,6 +6,7 @@ import Enterprise from './pages/Enterprise';
 import EnterpriseProfile from './pages/enterprise-profile';
 import UserProfile from './pages/user-profile';
 import JobVacancies from './pages/job-vacancies';
+import Cadidates from './pages/candidates';
 import ErrorPage from './pages/Error-page';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
 },
 {
   path: "jober/SignUp",
-  element: <SignUp />,
+  element: <SignUp/>,
 },
 {
   path: "jober/enterprise",
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
 {
   path: "jober/profile/jobVacancies",
   element: <JobVacancies/>,
+},
+{
+  path: "jober/enterpriseProfile/cadidates",
+  element: <Cadidates/> 
 },
 {
   path: "jober/Erro",

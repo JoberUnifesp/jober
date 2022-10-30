@@ -17,9 +17,6 @@ function JobVacancies() {
   const [secondVacancie, setSecondVacancie] = useState({Id: "", Nome: "", Empresa: "", req1: "", req2: "", req3: "", like: ""})
   const [saved, setSaved] = useState([])
   const [liked, setLiked] = useState([])
-  const [count, setCount] = useState(0)
-
-
 
   useEffect(() => {  
     fetch(`${base_url}/vacancy/allVacancies/${id}`, {
@@ -48,14 +45,6 @@ function JobVacancies() {
     })
 
   }, []);
-
-  function UpdateFunc() {
-      var value = 'Teste ' + String(count)
-      setFirstVacancie({Id: value, Nome: value, Empresa: value, req1: value, req2: value, req3: value, like: false})
-      setVacancies([...vacancies, firstVacancie])
-      // console.log(vacancies)
-      setCount(v => v + 1)
-  }
 
   function passFunc() {
     var temp = [...vacancies]
@@ -174,7 +163,7 @@ function JobVacancies() {
               <li className='list-req-vacancies'>{firstVacancie.req2}</li>
               <li className='list-req-vacancies'>{firstVacancie.req3}</li>
             </ul>
-            <p className={firstVacancie.like  ? 'error-text' : 'error-text -inv'}>🧡 A {firstVacancie.Empresa} gostou do seu perfil para esta vaga</p>
+            <p className={firstVacancie.like  ? 'like-text' : 'like-text -inv'}>🧡 A {firstVacancie.Empresa} gostou do seu perfil para esta vaga</p>
           </div>
           <div className='content-vacancies -second'>
             <p className='name-vacancies'>{secondVacancie.Nome}</p>
@@ -186,6 +175,7 @@ function JobVacancies() {
               <li className='list-req-vacancies'>{secondVacancie.req2}</li>
               <li className='list-req-vacancies'>{secondVacancie.req3}</li>
             </ul>
+            <p className={secondVacancie.like  ? 'like-text' : 'like-text -inv'}>🧡 A {secondVacancie.Empresa} gostou do seu perfil para esta vaga</p>
           </div>
           <div className='div-buttons-job'>
             <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
@@ -193,7 +183,6 @@ function JobVacancies() {
             <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
           </div>
       </main>
-      <button className='like-button-vacancies' onClick={() => UpdateFunc()}></button>
     </div>
   );
 }

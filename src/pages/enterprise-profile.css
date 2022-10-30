@@ -8,8 +8,9 @@
 }
 
 .header-eprofile {
-    display: inline-block;
+    display: flex;
     background-color: #F5F5F5;
+    justify-content: space-between;
 }
 
 .logo.-eprofile {
@@ -32,6 +33,23 @@
 
 .logo-text.-eprofile:nth-child(2n)  {
     margin-top: 12px;
+}
+
+.candidates-link {
+    box-sizing: border-box;
+    width: 70px;
+    height: 50px;
+    border-radius: 6px;
+    border: 1.4px solid #D1D1D1;
+    background: #1877F2;
+    font-size: 18px;
+    font-weight: 800px;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-left: 9px;
+    margin-right: 20px;
+    margin-top: 5px;
 }
 
 .info-eprofile {
