@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Logo from '../components/Logo';
 import mais from '../assets/mais.png'
 import './user-profile.css';
 import { Link } from 'react-router-dom';

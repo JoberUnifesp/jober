@@ -1,11 +1,5 @@
 import { useState, useEffect } from 'react';
 import './job-vacancies.css';
-import pass from '../assets/pass.svg'
-import passwhite from '../assets/passwhite.svg'
-import save from '../assets/save.svg'
-import savewhite from '../assets/savewhite.svg'
-import like from '../assets/pass.svg'
-import likewhite from '../assets/likewhite.svg'
 
 function JobVacancies() {
   const id = sessionStorage.getItem('meuid')
