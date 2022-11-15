@@ -35,21 +35,24 @@
     margin-top: 12px;
 }
 
+.header-links-eprofile {
+    display: flex;
+    height: 100%;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
 .candidates-link {
     box-sizing: border-box;
-    width: 70px;
-    height: 50px;
+    width: fit-content;
+    height: 90%;
     border-radius: 6px;
     border: 1.4px solid #D1D1D1;
     background: #1877F2;
     font-size: 18px;
-    font-weight: 800px;
     text-decoration: none;
     color: #FFFFFF;
-    padding-top: 10px;
-    padding-left: 9px;
-    margin-right: 20px;
-    margin-top: 5px;
+    padding: 10px;
 }
 
 .info-eprofile {
@@ -119,6 +122,10 @@
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.input-info:hover {
+    border: 2px solid #1877F2;
 }
 
 .input-info.-who {
@@ -191,6 +198,10 @@
     color: #636363;
 }
 
+.input-eprofile:hover {
+    border: 2px solid #1877F2;
+}
+
 .skills-area {
     display: flex;
     justify-content: space-around;
@@ -239,6 +250,10 @@
     border: 1.07363px solid #D1D1D1;
     border-radius: 5.22743px;
     margin-left: 15px;
+}
+
+.select-eprofile:hover {
+    border: 2px solid #1877F2;
 }
 
 .select-eprofile.-hardskills {

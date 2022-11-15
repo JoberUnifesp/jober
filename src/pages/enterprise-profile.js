@@ -9,10 +9,10 @@ function EnterpriseProfile() {
   const base_url = 'https://jober.azurewebsites.net'
 
   const [nome, setNome] = useState('Nome e Sobrenome')
-  const [endereco, setEndereco] = useState('Endereco')
+  const [endereco, setEndereco] = useState('Endereço')
   const [contato, setContato] = useState('Contato')
   const [email, setEmail] = useState('Email')
-  const [descricao, setDescricao] = useState('Descricao Livre')
+  const [descricao, setDescricao] = useState('Descrição Livre')
 
   const [jobs, setJobs] = useState([])
   const [newJob, setNewJob] = useState({Cargo: "", Area: "", SoftSkill1: "",
@@ -162,7 +162,10 @@ function EnterpriseProfile() {
               <h1 className='logo-text -eprofile'>e</h1>
               <h1 className='logo-text -eprofile'>r</h1>
           </div>
-          <Link to='Cadidates' className='candidates-link'>Vagas</Link>
+          <div className='header-links-eprofile'>
+            <Link to='Cadidates' className='candidates-link'>Candidatos</Link>
+            <Link to='/jober/' className='candidates-link'>Logout</Link>
+          </div>
         </header>
 
         <main className='info-eprofile'>

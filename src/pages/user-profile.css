@@ -36,22 +36,24 @@
 .logo-text.-uprofile:nth-child(2n)  {
     margin-top: 12px;
 }
+.header-links-uprofile {
+    display: flex;
+    height: 100%;
+    margin-right: 5px;
+    margin-top: 5px;
+}
 
 .job-vacancies-link {
     box-sizing: border-box;
-    width: 70px;
-    height: 50px;
+    width: fit-content;
+    height: 90%;
     border-radius: 6px;
     border: 1.4px solid #D1D1D1;
     background: #1877F2;
     font-size: 18px;
-    font-weight: 800px;
     text-decoration: none;
     color: #FFFFFF;
-    padding-top: 10px;
-    padding-left: 9px;
-    margin-right: 20px;
-    margin-top: 5px;
+    padding: 10px;
 }
 
 .sections {
@@ -135,6 +137,10 @@
     margin-bottom: 10px;
     padding-left: 10px;
     padding-top: 10px;
+}
+
+.input-soft:hover {
+    border: 2px solid #1877F2;
 }
 
 .div-title {
@@ -280,6 +286,9 @@
     margin-top: 10px;
 }
 
+.input-box:hover {
+    border: 2px solid #1877F2;
+}
 
 .list {
     margin-top: 10px;
@@ -366,6 +375,10 @@
 
 .select-list.-map {
     overflow-x: hidden;
+}
+
+.select-list:hover {
+    border: 2px solid #1877F2;
 }
 
 .save-button{

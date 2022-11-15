@@ -404,7 +404,10 @@ function UserProfile() {
           <h1 className='logo-text -uprofile'>e</h1>
           <h1 className='logo-text -uprofile'>r</h1>
         </div>
-        <Link to='JobVacancies' className='job-vacancies-link'>Vagas</Link>
+        <div className='header-links-uprofile'>
+          <Link to='JobVacancies' className='job-vacancies-link'>Vagas</Link>
+          <Link to='/jober/' className='job-vacancies-link'>Logout</Link>
+        </div>
       </header>
 
       <main className='sections'>
