@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/jober/static/css/main.c80088fd.css",
-    "main.js": "/jober/static/js/main.bb3ecf80.js",
+    "main.css": "/jober/static/css/main.bbfa33c3.css",
+    "main.js": "/jober/static/js/main.1851644a.js",
     "static/js/787.f2ababfa.chunk.js": "/jober/static/js/787.f2ababfa.chunk.js",
-    "static/media/save.svg": "/jober/static/media/save.638e28e2a6eb9aae4840f09e3eb2ca65.svg",
+    "static/media/save.svg": "/jober/static/media/save.638e28e2a6eb9aae4840.svg",
     "index.html": "/jober/index.html",
-    "static/media/pass.svg": "/jober/static/media/pass.11840f4792a27c0d71ab795de50a165d.svg",
+    "static/media/pass.svg": "/jober/static/media/pass.11840f4792a27c0d71ab.svg",
     "static/media/like.svg": "/jober/static/media/like.1c134f0cf70b5f04e3cc.svg",
-    "static/media/savewhite.svg": "/jober/static/media/savewhite.075f55d97f44a3e28e8bcac2e0e3aa03.svg",
-    "static/media/likewhite.svg": "/jober/static/media/likewhite.959dd905d4083be0d2d297e4625a2060.svg",
-    "static/media/passwhite.svg": "/jober/static/media/passwhite.5387050b72e3916f4ed6e44ae421e951.svg",
-    "main.c80088fd.css.map": "/jober/static/css/main.c80088fd.css.map",
-    "main.bb3ecf80.js.map": "/jober/static/js/main.bb3ecf80.js.map",
+    "static/media/savewhite.svg": "/jober/static/media/savewhite.075f55d97f44a3e28e8b.svg",
+    "static/media/likewhite.svg": "/jober/static/media/likewhite.959dd905d4083be0d2d2.svg",
+    "static/media/passwhite.svg": "/jober/static/media/passwhite.5387050b72e3916f4ed6.svg",
+    "main.bbfa33c3.css.map": "/jober/static/css/main.bbfa33c3.css.map",
+    "main.1851644a.js.map": "/jober/static/js/main.1851644a.js.map",
     "787.f2ababfa.chunk.js.map": "/jober/static/js/787.f2ababfa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c80088fd.css",
-    "static/js/main.bb3ecf80.js"
+    "static/css/main.bbfa33c3.css",
+    "static/js/main.1851644a.js"
   ]
 }
