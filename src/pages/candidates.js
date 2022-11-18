@@ -159,15 +159,15 @@ function Cadidates() {
                 <p className='name-vacancies'>{firstCandidate.Nome}</p>
                 <hr className="hr1"></hr>
                 <p className='enterprise-vacancies'>Experiências: </p>
-                {firstCandidate.Experiencias.map(item => <p>{item}</p>)}
+                {firstCandidate.Experiencias.map(item => <p>✅ {item}</p>)}
                 <p className='enterprise-vacancies'>Formações:</p>
-                {firstCandidate.Formacoes.map(item => <p>{item}</p>)}
+                {firstCandidate.Formacoes.map(item => <p>✅ {item}</p>)}
                 <p className='enterprise-vacancies'>Hard Skils:</p>
-                {firstCandidate.HardSkills.map(item => <p>{item}</p>)}
+                {firstCandidate.HardSkills.map(item => <p>✅ {item}</p>)}
                 <p className='enterprise-vacancies'>Idiomas:</p>
-                {firstCandidate.Idiomas.map(item => <p>{item}</p>)}
-                <p className='enterprise-vacancies'>soft Skils:</p>
-                {firstCandidate.softSkills.map(item => <p>{item}</p>)}
+                {firstCandidate.Idiomas.map(item => <p>✅ {item}</p>)}
+                <p className='enterprise-vacancies'>Soft Skils:</p>
+                {firstCandidate.softSkills.map(item => <p>✅ {item}</p>)}
 
                 <p className={firstCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {firstCandidate.Empresa} gostou do seu perfil para esta vaga</p>
             </div>
@@ -176,15 +176,15 @@ function Cadidates() {
                 <p className='name-vacancies'>{secondCandidate.Nome}</p>
                 <hr className="hr1"></hr>
                 <p className='enterprise-vacancies'>Experiências:</p>
-                {secondCandidate.Experiencias.map(item => <p>{item}</p>)}
+                {secondCandidate.Experiencias.map(item => <p>✅ {item}</p>)}
                 <p className='enterprise-vacancies'>Formações:</p>
-                {secondCandidate.Formacoes.map(item => <p>{item}</p>)}
+                {secondCandidate.Formacoes.map(item => <p>✅ {item}</p>)}
                 <p className='enterprise-vacancies'>Hard Skils:</p>
-                {secondCandidate.HardSkills.map(item => <p>{item}</p>)}
+                {secondCandidate.HardSkills.map(item => <p>✅ {item}</p>)}
                 <p className='enterprise-vacancies'>Idiomas:</p>
-                {secondCandidate.Idiomas.map(item => <p>{item}</p>)}
-                <p className='enterprise-vacancies'>soft Skils:</p>
-                {secondCandidate.softSkills.map(item => <p>{item}</p>)}
+                {secondCandidate.Idiomas.map(item => <p>✅ {item}</p>)}
+                <p className='enterprise-vacancies'>Soft Skils:</p>
+                {secondCandidate.softSkills.map(item => <p>✅ {item}</p>)}
                 
                 <p className={secondCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {secondCandidate.Empresa} gostou do seu perfil para esta vaga</p>
             </div>
