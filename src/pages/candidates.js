@@ -31,7 +31,7 @@ function Cadidates() {
   
   
           setFirstCandidate(temp[0])
-          temp.push({Id: "Loading...", Nome: "Loading...", Experiencias: ["Loading..."], Formacoes: ["Loading..."], HardSkills: ["Loading..."], Idiomas: ["Loading..."], softSkills: ["Loading..."], like: "Loading..."})
+          temp.push({Id: "Loading...", Nome: "Loading...", Experiencias: ["Loading..."], Formacoes: ["Loading..."], HardSkills: ["Loading..."], Idiomas: ["Loading..."], softSkills: ["Loading..."], like: false})
           setCandidates(temp)
         
         }
