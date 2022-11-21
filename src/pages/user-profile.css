@@ -4,57 +4,30 @@
     width: 100%;
     height: fit-content;
     min-height: 100vh;
-    background-color: #F5F5F5;
+    background-color: #FFFFFF;
     overflow-x: hidden;
     height: fit-content;
 }
 
-.header-uprofile {
+.header-links {
     display: flex;
-    background-color: #F5F5F5;
-    justify-content: space-between;
-}
-
-.logo.-uprofile {
-    display: flex;
-    flex-wrap: nowrap;
-    margin-left: 5px;
-    margin-top: 5px;
-}
-
-.logo-text.-uprofile {
-    display: block;
-    font-family: 'Comfortaa', cursive;
-    width: 21px;
-    height: 50px;
-    margin: 0;
-    font-size: 50px;
-    line-height: 50px;
-    color: #1877F2;
-}
-
-.logo-text.-uprofile:nth-child(2n)  {
-    margin-top: 12px;
-}
-.header-links-uprofile {
-    display: flex;
-    height: 100%;
+    height: 80%;
     margin-right: 5px;
     margin-top: 5px;
 }
 
-.job-vacancies-link {
-    box-sizing: border-box;
-    width: fit-content;
-    height: 90%;
-    border-radius: 6px;
-    border: 1.4px solid #D1D1D1;
-    background: #1877F2;
-    font-size: 18px;
-    text-decoration: none;
+.menu-link {
+    font-size: 20px;
     color: #FFFFFF;
-    padding: 10px;
+    text-decoration: none;
+    padding: 16px;
+    margin-right: 15px;
 }
+
+.menu-link:hover{
+    transform: scale(1.04);
+}
+
 
 .sections {
     display: flex;
@@ -100,7 +73,7 @@
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 16.1084px;
+    font-size: 20px;
     color: #000000;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -207,7 +180,7 @@
     width: 50%;
     height: 50px;
     border-radius: 6px;
-    border: 1.4px solid #636363;
+    border: 1.4px solid #D1D1D1;
     background-color: transparent;
     font-size: 18px;
     margin-bottom: 15px;
@@ -224,7 +197,7 @@
     width: 100%;
     height: 50px;
     border-radius: 6px;
-    border: 1.4px solid #636363;
+    border: 1.4px solid #D1D1D1;
     background-color:  transparent;
     font-size: 18px;
     margin-bottom: 15px;
@@ -255,19 +228,21 @@
 
 .input-box.-soft {
     box-sizing: border-box;
-    width: 75%;
+    width: 90%;
     height: 50px;
     border-radius: 6px;
     border: 1.4px solid #D1D1D1;
     background-color:  transparent;
     font-size: 18px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     padding-left: 21px;
     color: #4C3A48;
 }
 
 .input-box.-soft.-map {
     padding-top: 10px;
+    margin-bottom: 0px;
+    margin-top: 15px;
 }
 
 .skills-box.-s1 {
@@ -281,9 +256,25 @@
     display: flex;
     width: 100%;
     height: fit-content;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 2px;
+    padding-right: 2px;
     margin-bottom: 20px;
     margin-top: 10px;
+}
+
+.box {
+    border: none;                          
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    overflow-x: hidden;
+    width: 100%;
+    height: fit-content;
+    font-size: 18px;
+    color: #4C3A48;
 }
 
 .input-box:hover {

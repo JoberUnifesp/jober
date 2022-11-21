@@ -6,7 +6,7 @@ import Enterprise from './pages/Enterprise';
 import EnterpriseProfile from './pages/enterprise-profile';
 import UserProfile from './pages/user-profile';
 import JobVacancies from './pages/job-vacancies';
-import Cadidates from './pages/candidates';
+import Candidates from './pages/candidates';
 import ErrorPage from './pages/Error-page';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -41,8 +41,8 @@ const router = createBrowserRouter([
   element: <JobVacancies/>,
 },
 {
-  path: "jober/enterpriseProfile/cadidates",
-  element: <Cadidates/> 
+  path: "jober/enterpriseProfile/candidates",
+  element: <Candidates/> 
 },
 {
   path: "jober/Erro",
