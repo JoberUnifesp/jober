@@ -1,5 +1,5 @@
 import './SignUp.css';
-import Logo from '../components/Logo';
+import LogoINI from '../components/Logo';
 import {useNavigate} from 'react-router-dom';
 import {useState} from 'react'
 
@@ -43,7 +43,7 @@ function SignUp() {
   return (
     <body className="signup-screen">
       <div className='wraper-signup'>
-        <Logo/>
+        <LogoINI/>
         <form className='signup-box' onSubmit={handleSubmit}>
           <div className='div-name'>
             <input className='input-signup' type='name' name='nome' placeholder='Nome'></input>

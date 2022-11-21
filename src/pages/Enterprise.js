@@ -1,6 +1,6 @@
 import React from 'react';
 import './Enterprise.css';
-import Logo from '../components/Logo';
+import LogoINI from '../components/Logo';
 import {useNavigate} from 'react-router-dom';
 
 function Enterprise() {
@@ -42,7 +42,7 @@ function Enterprise() {
   return (
     <div className="eProfile-screen">
       <div className='wraper-eProfile'>
-        <Logo/>
+        <LogoINI/>
         <form className='enterprise-box' onSubmit={handleSubmit}>
           <div className='column-wrapper'>
             <div className='columns'>

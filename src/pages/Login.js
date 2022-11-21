@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-import Logo from '../components/Logo';
+import LogoINI from '../components/Logo';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
@@ -47,7 +47,7 @@ function Login() {
   return (
     <body className="login-screen">
       <div className='wraper-login'>
-        <Logo/>
+        <LogoINI/>
         <form className='login-box' onSubmit={handleSubmit}>
           <h1 className='title'>Login</h1>
           <input className='input-class' type='email' name='email' placeholder='Email'></input>
