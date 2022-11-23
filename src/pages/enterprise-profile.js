@@ -97,7 +97,6 @@ function EnterpriseProfile() {
           HardSkill3: data[i].HS_3, NivelHS3: data[i].HS_3_NIVEL, id: data[i].VACANCY_ID
         })
       }
-      console.log(jobsData)
       setJobs(jobsData)
     })
     .catch(err => console.log(err));
@@ -176,11 +175,11 @@ function EnterpriseProfile() {
           <section className='secao-eprofile'>
               <div className='img-eprofile'><p className='img-text-eprofile'>NS</p></div>
               <h2 className='subtitle-eprofile'>{nome}</h2>
-              <p contenteditable="true" id="endereco" className='input-info'>{endereco}</p>
-              <p contenteditable="false" id="email" className='input-info'>{email}</p>
-              <p contenteditable="true" id="contato" className='input-info'>{contato}</p>
+              <p contentEditable="true" id="endereco" className='input-info'>{endereco}</p>
+              <p contentEditable="false" id="email" className='input-info'>{email}</p>
+              <p contentEditable="true" id="contato" className='input-info'>{contato}</p>
               <h2 className='subtitle-eprofile'>Quem somos?</h2>
-              <p contenteditable="true" id="descricao" className='input-info -who'>{descricao}</p>
+              <p contentEditable="true" id="descricao" className='input-info -who'>{descricao}</p>
               <button className='save-button-eprofile' onClick={handleSaveProfile} type="submit">Salvar</button>
           </section>
 

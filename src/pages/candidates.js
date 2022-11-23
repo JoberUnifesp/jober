@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 //import './candidates.css';
 import { Link } from 'react-router-dom';
 
-function Cadidates() {
-    // const id = sessionStorage.getItem('meuid')
+function Candidates() {
     const base_url = 'https://jober.azurewebsites.net'
   
     
@@ -24,10 +23,10 @@ function Cadidates() {
         }
       })
       .then(res => res.json())
-      .then((data)=> {
+      .then((data) => {
         if (data !== null){
           
-          console.log(data[0])
+          // console.log(data[0])
           let temp = data;
   
   
@@ -225,4 +224,4 @@ function Cadidates() {
       </div>
     );
 }
-export default Cadidates;
+export default Candidates;

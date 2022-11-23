@@ -45,7 +45,7 @@ function Login() {
   }
 
   return (
-    <body className="login-screen">
+    <div className="login-screen">
       <div className='wraper-login'>
         <LogoINI/>
         <form className='login-box' onSubmit={handleSubmit}>
@@ -60,7 +60,7 @@ function Login() {
           <Link to='enterprise' className='enterprise-link'>Quero cadastrar minha empresa!</Link>
         </form>
       </div>
-    </body>
+    </div>
   );
 }
 
