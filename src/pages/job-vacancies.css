@@ -25,6 +25,47 @@
     transform: scale(1.04);
 }
 
+.div-search {
+    display: flex;
+    background-color: #FFFFFF;
+    width: 20%;
+    height: 50%;
+    margin-top: 20px;
+    border: 1.4px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.button-search {
+    width: 15%;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    border-radius: 7px 0 0 7px;
+    border-right: 1.4px solid #D1D1D1;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.button-search:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.input-search {
+    width: 80%;
+    height: 100%;
+    padding: 0;
+    padding-left: 5px;
+    border: none;
+    border-radius: 0 7px 7px 0;
+}
+
+.input-search:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
 .main-vacancies {
     display: flex;
     flex-direction: column;
