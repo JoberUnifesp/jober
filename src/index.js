@@ -18,7 +18,7 @@ import {
 const router = createBrowserRouter([
 {
   path: "jober/",
-  element: <Candidates/> 
+  element: <JobVacancies/> 
 },
 {
   path: "jober/SignUp",

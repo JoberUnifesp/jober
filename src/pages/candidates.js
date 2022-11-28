@@ -13,8 +13,8 @@ function Candidates() {
     const [liked, setLiked] = useState([])
     const [count, setCount] = useState(0)
     const [search, setSearch] = useState('')
-  
-  
+    const [nameList, setNameList] = useState(['Helio', 'Bia', 'Rafaela', 'Yasmin', 'Natalia'])
+
     useEffect(() => {  
       fetch(`${base_url}/candidates/`, {
         method: "GET",
@@ -142,10 +142,6 @@ function Candidates() {
       }, 500)    
     }
 
-    function searchCandidates() {
-      console.log(search)
-    }
-
     return (
       <div className='vacancies-screen'>
         <header className='header'>
@@ -159,12 +155,16 @@ function Candidates() {
             </svg>
           </div>
           <div className='div-search'>
-            <button className='button-search' onClick={() => searchCandidates()}>
+            <button className='button-search'>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
               </svg>
             </button>
-            <input className='input-search' value={search} onChange={(e) => setSearch(e.target.value)}></input>
+            
+            <input type='text' className='input-search' autocomplete='off' list="search-list" value={search} onChange={(e) => setSearch(e.target.value)}></input>
+            <datalist id="search-list" className='list-search'>
+              {nameList.map(item => <option key={item}>{item}</option>)}
+            </datalist>
           </div>
         <div className='header-links'>
           <Link to='/jober/enterpriseProfile' className='menu-link'>Perfil</Link>
