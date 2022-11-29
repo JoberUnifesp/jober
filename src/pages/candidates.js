@@ -13,7 +13,7 @@ function Candidates() {
     const [liked, setLiked] = useState([])
     const [count, setCount] = useState(0)
     const [search, setSearch] = useState('')
-    const [nameList, setNameList] = useState(['Helio', 'Bia', 'Rafaela', 'Yasmin', 'Natalia'])
+    const [nameList, setNameList] = useState([])
 
     useEffect(() => {  
       fetch(`${base_url}/candidates/`, {
@@ -33,7 +33,10 @@ function Candidates() {
           setFirstCandidate(temp[0])
           temp.push({Id: "Loading...", Nome: "Loading...", Experiencias: ["Loading..."], Formacoes: ["Loading..."], HardSkills: ["Loading..."], Idiomas: ["Loading..."], softSkills: ["Loading..."], like: false})
           setCandidates(temp)
-        
+
+          let names = temp.map(item => item.Nome)
+          names.pop();               // remove o loading
+          setNameList(names)
         }
       })
   
@@ -163,7 +166,7 @@ function Candidates() {
             
             <input type='text' className='input-search' autocomplete='off' list="search-list" value={search} onChange={(e) => setSearch(e.target.value)}></input>
             <datalist id="search-list" className='list-search'>
-              {nameList.map(item => <option key={item}>{item}</option>)}
+              {nameList.map(item => <option key={item}>{item}</option>)} 
             </datalist>
           </div>
         <div className='header-links'>
