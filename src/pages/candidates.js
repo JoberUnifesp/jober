@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Candidates() {
     const base_url = 'https://jober.azurewebsites.net'
-  
+    const id = sessionStorage.getItem('idVaga')
     
     const [candidates, setCandidates] = useState([])
     const [firstCandidate, setFirstCandidate] = useState({Id: "", Nome: "", Experiencias: [], Formacoes: [], HardSkills: [], Idiomas: [], softSkills: [], like: ""})
@@ -40,7 +40,26 @@ function Candidates() {
           names.pop();               // remove o loading
           setNameList(names)
         }
+      });
+
+      fetch(`http://localhost:3001/interaction/matches/candidates/${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json'
+        }
       })
+      .then( res => res.json())
+      .then((data) => {
+        console.log(data)
+        if(data.code !== 404){
+          console.log(data)
+          let temp = data;
+          let names = temp.map(function(item) { return {Id: item.User_id, Name: item.Nome, Flag: false}})
+          setMatchesList(names)
+          console.log(names)
+        }
+      })
+
   
     }, []);
   
@@ -131,6 +150,19 @@ function Candidates() {
       if(temp.length !== 0){
         moveFunc('-moveRight');
       }
+
+      fetch(`${base_url}/interaction/recruiterLike`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({user_id: likedTemp.Id, vacancy_id: id})      
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+
       setTimeout(() => {
         if (atual !== undefined) {
             setFirstCandidate(atual)
