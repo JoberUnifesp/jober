@@ -18,7 +18,7 @@ function Candidates() {
     const [newMatch, setNewMatch] = useState({Id: '', Name: '', Flag: ''})
 
     useEffect(() => {  
-      fetch(`${base_url}/candidates/`, {
+      fetch(`${base_url}/candidates/${id}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json'
@@ -42,7 +42,7 @@ function Candidates() {
         }
       });
 
-      fetch(`http://localhost:3001/interaction/matches/candidates/${id}`, {
+      fetch(`${base_url}/interaction/matches/candidates/${id}`, {
         method: 'GET',
         headers: {
           'Content-type': 'application/json'
@@ -262,7 +262,7 @@ function Candidates() {
                                                               <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                                             </svg>  {item}</p>)}
 
-                  <p className={firstCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {firstCandidate.Empresa} gostou do seu perfil para esta vaga</p>
+                  <p className={firstCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 {firstCandidate.Nome} curtiu esta vaga</p>
               </div>
               
               <div className='content-vacancies -second'>
@@ -289,7 +289,7 @@ function Candidates() {
                                                                 <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                             </svg>  {item}</p>)}
                   
-                  <p className={secondCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {secondCandidate.Empresa} gostou do seu perfil para esta vaga</p>
+                  <p className={secondCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 {secondCandidate.Nome} curtiu esta vaga</p>
               </div>
               <div className='div-buttons-job'>
                 <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
