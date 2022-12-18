@@ -180,9 +180,24 @@
     margin-top: 20px;
 }
 
+.vagas-link {
+    color: #1877F2;
+    text-decoration: none;
+}
+
+.vagas-link:hover {
+    color: #636363;
+    scale: 1.1;
+}
+
 .cargo-area {
     display: flex;
     justify-content: space-around;
+}
+
+.link-area {
+    display: flex;
+    justify-content: end;
 }
 
 .input-eprofile {

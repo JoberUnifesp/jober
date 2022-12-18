@@ -165,7 +165,6 @@ function EnterpriseProfile() {
           </div>
           <div className='header-links'>
           <Link to='/jober/enterpriseProfile' className='menu-link'>Perfil</Link>
-          <Link to='candidates' className='menu-link'>Candidatos</Link>
           <Link to='/jober/' className='menu-link'>Chat</Link>
           <Link to='/jober/' className='menu-link' onClick={() => sessionStorage.removeItem('meuid')}>Logout</Link>
         </div>
@@ -253,6 +252,9 @@ function EnterpriseProfile() {
               <div>
                   {jobs.map((item, index) =>
                     <div className='eprofile-box -itens' key={index}>
+                      <div className='link-area'>
+                        <Link to='candidates' className='vagas-link' onClick={() => sessionStorage.setItem('idVaga', item.id)}>Candidatos da vaga</Link>
+                      </div>
                       <div className='cargo-area'>
                         <p className='input-eprofile' placeholder='Cargo' type='text'>{item.Cargo}</p>
                         <p className='input-eprofile' placeholder='Área' type='text'>{item.Area} </p>

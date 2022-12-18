@@ -14,6 +14,8 @@ function Candidates() {
     const [count, setCount] = useState(0)
     const [search, setSearch] = useState('')
     const [nameList, setNameList] = useState([])
+    const [matchesList, setMatchesList] = useState([])
+    const [newMatch, setNewMatch] = useState({Id: '', Name: '', Flag: ''})
 
     useEffect(() => {  
       fetch(`${base_url}/candidates/`, {
@@ -153,6 +155,18 @@ function Candidates() {
       setFirstCandidate(result);
     }
 
+    function addNames() {
+      var teste = [{Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
+                   {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
+                   {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
+                   {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
+                   {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
+                   {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
+                   {Id: 5, Name: 'Bruna', Flag: false}]
+      setMatchesList(teste)
+      console.log(matchesList)
+    }
+
     return (
       <div className='vacancies-screen'>
         <header className='header'>
@@ -172,76 +186,85 @@ function Candidates() {
               </svg>
             </button>
             
-            <input type='text' className='input-search' autocomplete='off' list="search-list" value={search} onChange={(e) => setSearch(e.target.value)}></input>
+            <input type='text' className='input-search' autoComplete='off' list="search-list" value={search} onChange={(e) => setSearch(e.target.value)}></input>
             <datalist id="search-list" className='list-search'>
               {nameList.map(item => <option key={item}>{item}</option>)} 
             </datalist>
           </div>
-        <div className='header-links'>
-          <Link to='/jober/enterpriseProfile' className='menu-link'>Perfil</Link>
-          <Link to='JobVacancies' className='menu-link'>Vagas</Link>
-          <Link to='/jober/' className='menu-link'>Chat</Link>
-          <Link to='/jober/' className='menu-link' onClick={() => sessionStorage.clear()}>Logout</Link>
-        </div>
-      </header>
-        <main className='main-vacancies'>
-            <div className='content-vacancies -first' id='first'>
-                <p className='name-vacancies'>{firstCandidate.Nome}</p>
-                <hr className="hr1"></hr>
-                <p className='enterprise-vacancies'>Experiências: </p>
-                {firstCandidate.Experiencias.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                              <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <div className='header-links'>
+            <Link to='/jober/enterpriseProfile' className='menu-link'>Perfil</Link>
+            <Link to='/jober/' className='menu-link'>Chat</Link>
+            <Link to='/jober/' className='menu-link' onClick={() => sessionStorage.clear()}>Logout</Link>
+          </div>
+        </header>
+        <main className='main-vacancies -jobes'>
+            <div className='matches-list'>
+                <p className='enterprise-vacancies -matches'>Matches</p>
+                {matchesList.map((item, index) => <div className='div-matches-names' key={index}>
+                                                    <p className='text-machtes'>{item.Name} </p>
+                                                    <p className='text-machtes -notification'>{item.Flag ? '🔹' : ''}</p>
+                                                  </div>)}
+            </div>
+            <div className='feed-vacancies'>
+              <div className='content-vacancies -first' id='first'>
+                  <p className='name-vacancies'>{firstCandidate.Nome}</p>
+                  <hr className="hr1"></hr>
+                  <p className='enterprise-vacancies'>Experiências: </p>
+                  {firstCandidate.Experiencias.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                                              </svg>  {item}</p>)}
+                  <p className='enterprise-vacancies'>Formações:</p>
+                  {firstCandidate.Formacoes.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                                          </svg>  {item}</p>)}
+                  <p className='enterprise-vacancies'>Hard Skils:</p>
+                  {firstCandidate.HardSkills.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                              <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                                             </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Formações:</p>
-                {firstCandidate.Formacoes.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                         </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Hard Skils:</p>
-                {firstCandidate.HardSkills.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <p className='enterprise-vacancies'>Idiomas:</p>
+                  {firstCandidate.Idiomas.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                                           </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Idiomas:</p>
-                {firstCandidate.Idiomas.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Soft Skils:</p>
-                {firstCandidate.softSkills.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                          </svg>  {item}</p>)}
+                  <p className='enterprise-vacancies'>Soft Skils:</p>
+                  {firstCandidate.softSkills.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                              <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                                            </svg>  {item}</p>)}
 
-                <p className={firstCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {firstCandidate.Empresa} gostou do seu perfil para esta vaga</p>
-            </div>
-            
-            <div className='content-vacancies -second'>
-                <p className='name-vacancies'>{secondCandidate.Nome}</p>
-                <hr className="hr1"></hr>
-                <p className='enterprise-vacancies'>Experiências:</p>
-                {secondCandidate.Experiencias.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                             </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Formações:</p>
-                {secondCandidate.Formacoes.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                          </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Hard Skils:</p>
-                {secondCandidate.HardSkills.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <p className={firstCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {firstCandidate.Empresa} gostou do seu perfil para esta vaga</p>
+              </div>
+              
+              <div className='content-vacancies -second'>
+                  <p className='name-vacancies'>{secondCandidate.Nome}</p>
+                  <hr className="hr1"></hr>
+                  <p className='enterprise-vacancies'>Experiências:</p>
+                  {secondCandidate.Experiencias.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                  <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                              </svg>  {item}</p>)}
+                  <p className='enterprise-vacancies'>Formações:</p>
+                  {secondCandidate.Formacoes.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                               <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                             </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Idiomas:</p>
-                {secondCandidate.Idiomas.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>  {item}</p>)}
-                <p className='enterprise-vacancies'>Soft Skils:</p>
-                {secondCandidate.softSkills.map(item => <p><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                              <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                           </svg>  {item}</p>)}
-                
-                <p className={secondCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {secondCandidate.Empresa} gostou do seu perfil para esta vaga</p>
-            </div>
-            <div className='div-buttons-job'>
-              <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
-              <button className='save-button-vacancies' onClick={() => saveFunc()}></button>
-              <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
+                  <p className='enterprise-vacancies'>Hard Skils:</p>
+                  {secondCandidate.HardSkills.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                              </svg>  {item}</p>)}
+                  <p className='enterprise-vacancies'>Idiomas:</p>
+                  {secondCandidate.Idiomas.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                          </svg>  {item}</p>)}
+                  <p className='enterprise-vacancies'>Soft Skils:</p>
+                  {secondCandidate.softSkills.map((item, index) => <p key={index}><svg height="11" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0.75 3.99992L3.58 6.82992L9.25 1.16992" stroke="#1877F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                            </svg>  {item}</p>)}
+                  
+                  <p className={secondCandidate.like  ? 'like-text' : 'like-text -inv'}>🧡 A {secondCandidate.Empresa} gostou do seu perfil para esta vaga</p>
+              </div>
+              <div className='div-buttons-job'>
+                <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
+                <button className='save-button-vacancies' onClick={() => saveFunc()}></button>
+                <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
+                <button className='like-button-vacancies' onClick={() => addNames()}></button>
+              </div>
             </div>
         </main>
       </div>
