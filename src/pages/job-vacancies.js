@@ -14,6 +14,8 @@ function JobVacancies() {
   const [liked, setLiked] = useState([])
   const [search, setSearch] = useState('')
   const [nameList, setNameList] = useState([])
+  const [matchesList, setMatchesList] = useState([])
+  const [newMatch, setNewMatch] = useState({Id: '', Name: '', Flag: ''})
 
   useEffect(() => {  
     fetch(`${base_url}/vacancy/allVacancies/${id}`, {
@@ -160,6 +162,19 @@ function JobVacancies() {
     setFirstVacancie(result);
   }
 
+
+  function addNames() {
+    var teste = [{Id: 1, Name: 'Lisa asuhduhashud', Flag: true}, {Id: 2, Name: 'Helio asuhduhashud', Flag: true},
+                 {Id: 3, Name: 'Roberto asuhduhashud', Flag: false}, {Id:4, Name: 'Claudia asuhduhashud', Flag: true}, 
+                 {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
+                 {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
+                 {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
+                 {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
+                 {Id: 5, Name: 'Bruna', Flag: false}]
+    setMatchesList(teste)
+    console.log(matchesList)
+  }
+
   return (
     <div className='vacancies-screen'>
         <header className='header'>
@@ -187,39 +202,50 @@ function JobVacancies() {
           <div className='header-links'>
             <Link to='/jober/profile' className='menu-link'>Perfil</Link>
             <Link to='JobVacancies' className='menu-link'>Vagas</Link>
-            <Link to='/jober/' className='menu-link'>Chat</Link>
             <Link to='/jober/' className='menu-link' onClick={() => sessionStorage.clear()}>Logout</Link>
           </div>
         </header>
-      <main className='main-vacancies'>
-          <div className='content-vacancies -first' id='first'>
-            <p className='name-vacancies'>{firstVacancie.Nome}</p>
-            <hr className="hr1"></hr>
-            <p className='enterprise-vacancies'>Empresa: {firstVacancie.Empresa}</p>
-            <p className='title-req-vacancies'>Requisitos</p>
-            <ul>
-              <li className='list-req-vacancies'>{firstVacancie.req1}</li>
-              <li className='list-req-vacancies'>{firstVacancie.req2}</li>
-              <li className='list-req-vacancies'>{firstVacancie.req3}</li>
-            </ul>
-            <p className={firstVacancie.like  ? 'like-text' : 'like-text -inv'}>🧡 A {firstVacancie.Empresa} gostou do seu perfil para esta vaga</p>
+      <main className='main-vacancies -jobes'>
+          <div className='matches-list'>
+                    <p className='enterprise-vacancies -matches'>Matches</p>
+                    {matchesList.map((item, index) => <div className='div-matches-names' key={index}>
+                                                        <p className='text-machtes'>{item.Name} </p>
+                                                        <p className='text-machtes -notification'>{item.Flag ? '🔹' : ''}</p>
+                                                      </div>)}
           </div>
-          <div className='content-vacancies -second'>
-            <p className='name-vacancies'>{secondVacancie.Nome}</p>
-            <hr className="hr1"></hr>
-            <p className='enterprise-vacancies'>Empresa: {secondVacancie.Empresa}</p>
-            <p className='title-req-vacancies'>Requisitos</p>
-            <ul>
-              <li className='list-req-vacancies'>{secondVacancie.req1}</li>
-              <li className='list-req-vacancies'>{secondVacancie.req2}</li>
-              <li className='list-req-vacancies'>{secondVacancie.req3}</li>
-            </ul>
-            <p className={secondVacancie.like  ? 'like-text' : 'like-text -inv'}>🧡 A {secondVacancie.Empresa} gostou do seu perfil para esta vaga</p>
+          <div className='feed-vacancies'>
+            <div className='content-vacancies -first' id='first'>
+              <p className='name-vacancies'>{firstVacancie.Nome}</p>
+              <hr className="hr1"></hr>
+              <p className='enterprise-vacancies'>Empresa: {firstVacancie.Empresa}</p>
+              <p className='title-req-vacancies'>Requisitos</p>
+              <ul>
+                <li className='list-req-vacancies'>{firstVacancie.req1}</li>
+                <li className='list-req-vacancies'>{firstVacancie.req2}</li>
+                <li className='list-req-vacancies'>{firstVacancie.req3}</li>
+              </ul>
+              <p className={firstVacancie.like  ? 'like-text' : 'like-text -inv'}>🧡 A {firstVacancie.Empresa} gostou do seu perfil para esta vaga</p>
+            </div>
+            <div className='content-vacancies -second'>
+              <p className='name-vacancies'>{secondVacancie.Nome}</p>
+              <hr className="hr1"></hr>
+              <p className='enterprise-vacancies'>Empresa: {secondVacancie.Empresa}</p>
+              <p className='title-req-vacancies'>Requisitos</p>
+              <ul>
+                <li className='list-req-vacancies'>{secondVacancie.req1}</li>
+                <li className='list-req-vacancies'>{secondVacancie.req2}</li>
+                <li className='list-req-vacancies'>{secondVacancie.req3}</li>
+              </ul>
+              <p className={secondVacancie.like  ? 'like-text' : 'like-text -inv'}>🧡 A {secondVacancie.Empresa} gostou do seu perfil para esta vaga</p>
+            </div>
+            <div className='div-buttons-job'>
+              <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
+              <button className='save-button-vacancies' onClick={() => saveFunc()}></button>
+              <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
+              <button className='like-button-vacancies' onClick={() => addNames()}></button>
+            </div>
           </div>
-          <div className='div-buttons-job'>
-            <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
-            <button className='save-button-vacancies' onClick={() => saveFunc()}></button>
-            <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
+          <div className='matches-list -spam'>
           </div>
       </main>
     </div>

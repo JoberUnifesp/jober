@@ -188,8 +188,8 @@ function Candidates() {
     }
 
     function addNames() {
-      var teste = [{Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
-                   {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
+      var teste = [{Id: 1, Name: 'Lisa asuhduhashud', Flag: true}, {Id: 2, Name: 'Helio asuhduhashud', Flag: true},
+                   {Id: 3, Name: 'Roberto asuhduhashud', Flag: false}, {Id:4, Name: 'Claudia asuhduhashud', Flag: true}, 
                    {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
                    {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
                    {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
@@ -225,7 +225,6 @@ function Candidates() {
           </div>
           <div className='header-links'>
             <Link to='/jober/enterpriseProfile' className='menu-link'>Perfil</Link>
-            <Link to='/jober/' className='menu-link'>Chat</Link>
             <Link to='/jober/' className='menu-link' onClick={() => sessionStorage.clear()}>Logout</Link>
           </div>
         </header>
@@ -297,6 +296,8 @@ function Candidates() {
                 <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
                 <button className='like-button-vacancies' onClick={() => addNames()}></button>
               </div>
+            </div>
+            <div className='matches-list -spam'>
             </div>
         </main>
       </div>
