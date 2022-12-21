@@ -168,19 +168,6 @@ function JobVacancies() {
     setFirstVacancie(result);
   }
 
-
-  function addNames() {
-    var teste = [{Id: 1, Name: 'Lisa asuhduhashud', Flag: true}, {Id: 2, Name: 'Helio asuhduhashud', Flag: true},
-                 {Id: 3, Name: 'Roberto asuhduhashud', Flag: false}, {Id:4, Name: 'Claudia asuhduhashud', Flag: true}, 
-                 {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
-                 {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
-                 {Id: 5, Name: 'Bruna', Flag: false}, {Id: 1, Name: 'Lisa', Flag: true}, {Id: 2, Name: 'Helio', Flag: true},
-                 {Id: 3, Name: 'Roberto', Flag: false}, {Id:4, Name: 'Claudia', Flag: true}, 
-                 {Id: 5, Name: 'Bruna', Flag: false}]
-    setMatchesList(teste)
-    console.log(matchesList)
-  }
-
   return (
     <div className='vacancies-screen'>
         <header className='header'>
@@ -248,7 +235,6 @@ function JobVacancies() {
               <button className='pass-button-vacancies' onClick={() => passFunc()}></button>
               <button className='save-button-vacancies' onClick={() => saveFunc()}></button>
               <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
-              <button className='like-button-vacancies' onClick={() => addNames()}></button>
             </div>
           </div>
           <div className='matches-list -spam'>
