@@ -44,6 +44,24 @@ function JobVacancies() {
       }
     })
 
+    fetch(`${base_url}/interaction/matches/vacancies/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then( res => res.json())
+    .then((data) => {
+      console.log(data)
+      if(data.code !== 404){
+        console.log(data)
+        let temp = data;
+        let names = temp.map(function(item) { return {Id: item.Vacancy_id, Name: item.Nome, Flag: false}})
+        setMatchesList(names)
+        console.log(names)
+      }
+    })
+
   }, []);
 
   function passFunc() {
@@ -55,18 +73,6 @@ function JobVacancies() {
     if (atual !== undefined) {
       setSecondVacancie(atual)
     }
-
-    fetch(`${base_url}/interaction/pass`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({user_id: id, vacancy_id: passedTemp.Id})      
-    })
-    .then((res) => res.json())
-    .then(data => {
-      console.log(data)
-    })
 
     setTimeout(() => {
       if (atual !== undefined) {
