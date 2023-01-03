@@ -16,6 +16,7 @@ function Candidates() {
     const [nameList, setNameList] = useState([])
     const [matchesList, setMatchesList] = useState([])
     const [newMatch, setNewMatch] = useState({Id: '', Name: '', Flag: ''})
+    const [saveList, setSaveList] = useState([])
 
     useEffect(() => {  
       fetch(`${base_url}/candidates/${id}`, {
@@ -218,11 +219,10 @@ function Candidates() {
         </header>
         <main className='main-vacancies -jobes'>
             <div className='matches-list'>
-                <p className='enterprise-vacancies -matches'>Matches</p>
-                {matchesList.map((item, index) => <div className='div-matches-names' key={index}>
-                                                    <p className='text-machtes'>{item.Name} </p>
-                                                    <p className='text-machtes -notification'>{item.Flag ? '🔹' : ''}</p>
-                                                  </div>)}
+              <p className='enterprise-vacancies -matches'>Salvos</p>
+              {saveList.map((item, index) => <div className='div-matches-names' key={index}>
+                                                <p className='text-machtes'>{item} </p>
+                                              </div>)}
             </div>
             <div className='feed-vacancies'>
               <div className='content-vacancies -first' id='first'>
@@ -284,7 +284,12 @@ function Candidates() {
                 <button className='like-button-vacancies' onClick={() => likeFunc()}></button>
               </div>
             </div>
-            <div className='matches-list -spam'>
+            <div className='matches-list'>
+              <p className='enterprise-vacancies -matches'>Matches</p>
+              {matchesList.map((item, index) => <div className='div-matches-names' key={index}>
+                                                      <p className='text-machtes'>{item.Name} </p>
+                                                      <p className='text-machtes -notification'>{item.Flag ? '🔹' : ''}</p>
+                                                    </div>)}
             </div>
         </main>
       </div>

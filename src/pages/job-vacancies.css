@@ -91,11 +91,9 @@
     overflow-y: auto;
     scroll-behavior: smooth;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
-.matches-list.-spam {
-    border: none;
-}
 
 .div-matches-names {
     display: flex;
