@@ -55,13 +55,31 @@ function JobVacancies() {
     .then((data) => {
       console.log(data)
       if(data.code !== 404){
-        console.log(data)
+ 
         let temp = data;
         let names = temp.map(function(item) { return {Id: item.Vacancy_id, Name: item.Nome, Flag: false}})
         setMatchesList(names)
-        console.log(names)
       }
     })
+
+    fetch(`${base_url}/interaction/saved_vacancies/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then((data) => {
+      console.log(data)
+      if(data.code !== 404){
+ 
+        let temp = data;
+        let names = temp.map(function(item) { return {Id: item.Vacancy_id, Name: item.Nome}})
+        setSaveList(names)
+      }
+    })
+
+
 
   }, []);
 
@@ -203,7 +221,7 @@ function JobVacancies() {
           <div className='matches-list'>
               <p className='enterprise-vacancies -matches'>Salvos</p>
               {saveList.map((item, index) => <div className='div-matches-names' key={index}>
-                                                <p className='text-machtes'>{item} </p>
+                                                <p className='text-machtes'>{item.Name} </p>
                                               </div>)}
           </div>
           <div className='feed-vacancies'>
