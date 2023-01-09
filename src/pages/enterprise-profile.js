@@ -266,7 +266,7 @@ function EnterpriseProfile() {
                       </div>
                       <div className='cidade-area'>
                         <div className='div-temp'>
-                            <p className='input-eprofile -temp' placeholder='Tempo Experiência' type='text'></p>
+                            <p className='input-eprofile -temp' placeholder='Tempo Experiência' type='text'>{item.Experiencia}</p>
                             <p className='temp-text'>Meses</p>
                         </div>
                         <p className='input-eprofile -idioma' placeholder='Idioma' type='text'>{item.Idioma}</p>
