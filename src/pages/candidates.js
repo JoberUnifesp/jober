@@ -61,6 +61,23 @@ function Candidates() {
         }
       })
 
+      fetch(`${base_url}/interaction/saved_users/${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then((data) => {
+        console.log(data)
+        if(data.code !== 404){
+   
+          let temp = data;
+          let names = temp.map(function(item) { return {Id: item.User_id, Name: item.Nome}})
+          setSaveList(names)
+        }
+      })
+
   
     }, []);
   
@@ -81,18 +98,6 @@ function Candidates() {
       if (atual !== undefined) {
         setSecondCandidate(atual)
       }
-  
-    //   fetch(`${base_url}/interaction/pass`, {
-    //     method: "POST",
-    //     headers: {
-    //       'Content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify({user_id: id, vacancy_id: passedTemp.Id})      
-    //   })
-    //   .then((res) => res.json())
-    //   .then(data => {
-    //     console.log(data)
-    //   })
   
       setTimeout(() => {
         if (atual !== undefined) {
@@ -115,17 +120,17 @@ function Candidates() {
         setSecondCandidate(atual)
       }
   
-    //   fetch(`${base_url}/interaction/save`, {
-    //     method: "POST",
-    //     headers: {
-    //       'Content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify({user_id: id, vacancy_id: savedTemp.Id})      
-    //   })
-    //   .then((res) => res.json())
-    //   .then(data => {
-    //     console.log(data)
-    //   })
+      fetch(`${base_url}/interaction/saveUser`, {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({user_id: savedTemp.Id, vacancy_id: id})      
+      })
+      .then((res) => res.json())
+      .then(data => {
+        console.log(data)
+      })
   
   
       setTimeout(() => {
@@ -221,7 +226,7 @@ function Candidates() {
             <div className='matches-list'>
               <p className='enterprise-vacancies -matches'>Salvos</p>
               {saveList.map((item, index) => <div className='div-matches-names' key={index}>
-                                                <p className='text-machtes'>{item} </p>
+                                                <p className='text-machtes'>{item.Name} </p>
                                               </div>)}
             </div>
             <div className='feed-vacancies'>
