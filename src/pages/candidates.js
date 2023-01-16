@@ -119,6 +119,8 @@ function Candidates() {
       if (atual !== undefined) {
         setSecondCandidate(atual)
       }
+
+      setSaveList([...saveList, {Name: firstCandidate.Nome}])
   
       fetch(`${base_url}/interaction/saveUser`, {
         method: "POST",
@@ -155,6 +157,10 @@ function Candidates() {
       }
       if(temp.length !== 0){
         moveFunc('-moveRight');
+      }
+
+      if(firstCandidate.like === true){
+        setMatchesList([...matchesList, {Name: firstCandidate.Nome}])
       }
 
       fetch(`${base_url}/interaction/recruiterLike`, {
