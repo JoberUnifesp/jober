@@ -30,7 +30,7 @@ function JobVacancies() {
       if (data !== null){
         let temp = data.map((element) => {
 
-          return {Id: element.ID, Nome: element.CARGO, Empresa: element.COMPANY_NAME, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`, like: element.like}
+          return {Id: element.VACANCY_ID, Nome: element.CARGO, Empresa: element.COMPANY_NAME, req1: `${element.HS_1} ${element.HS_1_NIVEL}`, req2: `${element.HS_2} ${element.HS_2_NIVEL}`, req3: `${element.HS_3} ${element.HS_3_NIVEL}`, like: element.like}
         })
 
 
@@ -92,6 +92,7 @@ function JobVacancies() {
     if (atual !== undefined) {
       setSecondVacancie(atual)
     }
+    console.log(vacancies)
 
     setTimeout(() => {
       if (atual !== undefined) {
@@ -113,6 +114,8 @@ function JobVacancies() {
     if (atual !== undefined) {
       setSecondVacancie(atual)
     }
+
+    setSaveList([...saveList, {Name: firstVacancie.Nome + ' (' + firstVacancie.Empresa + ')'}])
 
     fetch(`${base_url}/interaction/save`, {
       method: "POST",
@@ -149,6 +152,10 @@ function JobVacancies() {
     }
     if(temp.length !== 0){
       moveFunc('-moveRight');
+    }
+
+    if(firstVacancie.like === true){
+      setMatchesList([...matchesList, {Name: firstVacancie.Nome + ' (' + firstVacancie.Empresa + ')'}])
     }
 
     fetch(`${base_url}/interaction/userLike`, {
